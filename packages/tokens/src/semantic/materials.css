@@ -1,0 +1,81 @@
+/* Opaque baseline: opt into translucency only with a supported backdrop filter. */
+:root {
+  --fibli-material-navigation: var(--fibli-chrome);
+  --fibli-material-overlay: var(--fibli-surface);
+  --fibli-material-library: var(--fibli-chrome);
+  --fibli-material-dock: var(--fibli-chrome);
+  --fibli-filter-navigation: none;
+  --fibli-filter-overlay: none;
+  --fibli-material-content: var(--fibli-content);
+  --fibli-material-rim:
+    inset 0 1px 0 var(--fibli-highlight), inset 0 -1px 0 var(--fibli-edge-bottom),
+    inset 0 0 0 0.5px var(--fibli-edge);
+  --fibli-material-control-shadow: var(--fibli-material-rim), var(--fibli-shadow-control);
+  --fibli-material-overlay-shadow: var(--fibli-material-rim), var(--fibli-shadow-overlay);
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root:not([data-material="solid"]) {
+    --fibli-material-navigation: var(--fibli-navigation-tint);
+    --fibli-material-overlay: var(--fibli-overlay-tint);
+    --fibli-material-library: var(--fibli-library-tint);
+    --fibli-material-dock: var(--fibli-dock-tint);
+    --fibli-filter-navigation: var(--fibli-navigation-filter);
+    --fibli-filter-overlay: var(--fibli-overlay-filter);
+  }
+}
+
+/* Equal specificity to the liquid selector: user and OS preferences take precedence. */
+:root[data-contrast="more"] {
+  --fibli-material-navigation: var(--fibli-chrome);
+  --fibli-material-overlay: var(--fibli-surface);
+  --fibli-material-library: var(--fibli-chrome);
+  --fibli-material-dock: var(--fibli-chrome);
+  --fibli-filter-navigation: none;
+  --fibli-filter-overlay: none;
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  :root:not([data-material="solid"]) {
+    --fibli-material-navigation: var(--fibli-chrome);
+    --fibli-material-overlay: var(--fibli-surface);
+    --fibli-material-library: var(--fibli-chrome);
+    --fibli-material-dock: var(--fibli-chrome);
+    --fibli-filter-navigation: none;
+    --fibli-filter-overlay: none;
+  }
+}
+
+@media (forced-colors: active) {
+  :root:not([data-material="solid"]) {
+    --fibli-material-navigation: var(--fibli-chrome);
+    --fibli-material-overlay: var(--fibli-surface);
+    --fibli-material-library: var(--fibli-chrome);
+    --fibli-material-dock: var(--fibli-chrome);
+    --fibli-filter-navigation: none;
+    --fibli-filter-overlay: none;
+  }
+  :root,
+  :root[data-theme="light"],
+  :root:not([data-theme="dark"]):not([data-theme="light"]) {
+    --fibli-content: Canvas;
+    --fibli-surface: Canvas;
+    --fibli-chrome: Canvas;
+    --fibli-text: CanvasText;
+    --fibli-text-secondary: CanvasText;
+    --fibli-text-muted: CanvasText;
+    --fibli-border: CanvasText;
+    --fibli-border-strong: CanvasText;
+    --fibli-focus: Highlight;
+    --fibli-accent: Highlight;
+    --fibli-accent-ink: HighlightText;
+    --fibli-material-rim: none;
+    --fibli-shadow-control: none;
+    --fibli-shadow-overlay: none;
+    --fibli-shadow-dialog: none;
+    --fibli-material-control-shadow: none;
+    --fibli-material-overlay-shadow: none;
+    --fibli-selection-shadow: none;
+    --fibli-selection: Highlight;
+    --fibli-accent-text: LinkText;
+  }
+}

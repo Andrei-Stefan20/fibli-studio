@@ -197,6 +197,9 @@ importers:
       '@fibli/platform':
         specifier: workspace:*
         version: link:../../packages/platform
+      '@fibli/tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       react:
         specifier: ^19.3.1
         version: 19.3.1
@@ -251,6 +254,8 @@ importers:
       '@tauri-apps/api':
         specifier: ^2.12.5
         version: 2.12.5
+
+  packages/tokens: {}
 
 packages:
 

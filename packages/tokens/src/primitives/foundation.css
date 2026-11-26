@@ -1,0 +1,36 @@
+/* R1 desktop geometry and motion. No global element styling. */
+:root {
+  --fibli-font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --fibli-font-mono: ui-monospace, Menlo, Consolas, monospace;
+  --fibli-font-editor: "New York", Georgia, serif;
+  --fibli-font-size-caption: 11px;
+  --fibli-font-size-ui: 13px;
+  --fibli-font-size-editor: 18px;
+  --fibli-space-1: 4px;
+  --fibli-space-2: 8px;
+  --fibli-space-3: 12px;
+  --fibli-space-4: 16px;
+  --fibli-space-6: 24px;
+  --fibli-space-8: 32px;
+  --fibli-control-sm: 24px;
+  --fibli-control-md: 28px;
+  --fibli-control-lg: 34px;
+  --fibli-radius-xs: 6px;
+  --fibli-radius-sm: 8px;
+  --fibli-radius-md: 10px;
+  --fibli-radius-lg: 14px;
+  --fibli-radius-pill: 999px;
+  --fibli-duration-fast: 140ms;
+  --fibli-duration-base: 240ms;
+  --fibli-duration-cinema: 900ms;
+  --fibli-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --fibli-ease-cinema: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --fibli-duration-fast: 0ms;
+    --fibli-duration-base: 0ms;
+    --fibli-duration-cinema: 0ms;
+  }
+}
