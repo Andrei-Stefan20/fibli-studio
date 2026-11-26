@@ -4,11 +4,12 @@
   --fibli-material-overlay: var(--fibli-surface);
   --fibli-material-library: var(--fibli-chrome);
   --fibli-material-dock: var(--fibli-chrome);
+  --fibli-material-scene: var(--fibli-chrome);
   --fibli-filter-navigation: none;
   --fibli-filter-overlay: none;
   --fibli-material-content: var(--fibli-content);
   --fibli-material-rim:
-    inset 0 1px 0 var(--fibli-highlight), inset 0 -1px 0 var(--fibli-edge-bottom),
+    inset 0 0.5px 0 var(--fibli-highlight), inset 0 -0.5px 0 var(--fibli-edge-bottom),
     inset 0 0 0 0.5px var(--fibli-edge);
   --fibli-material-control-shadow: var(--fibli-material-rim), var(--fibli-shadow-control);
   --fibli-material-overlay-shadow: var(--fibli-material-rim), var(--fibli-shadow-overlay);
@@ -20,6 +21,7 @@
     --fibli-material-overlay: var(--fibli-overlay-tint);
     --fibli-material-library: var(--fibli-library-tint);
     --fibli-material-dock: var(--fibli-dock-tint);
+    --fibli-material-scene: var(--fibli-scene-control);
     --fibli-filter-navigation: var(--fibli-navigation-filter);
     --fibli-filter-overlay: var(--fibli-overlay-filter);
   }
@@ -40,6 +42,7 @@
     --fibli-material-overlay: var(--fibli-surface);
     --fibli-material-library: var(--fibli-chrome);
     --fibli-material-dock: var(--fibli-chrome);
+    --fibli-material-scene: var(--fibli-chrome);
     --fibli-filter-navigation: none;
     --fibli-filter-overlay: none;
   }
@@ -51,6 +54,7 @@
     --fibli-material-overlay: var(--fibli-surface);
     --fibli-material-library: var(--fibli-chrome);
     --fibli-material-dock: var(--fibli-chrome);
+    --fibli-material-scene: var(--fibli-chrome);
     --fibli-filter-navigation: none;
     --fibli-filter-overlay: none;
   }
@@ -76,6 +80,16 @@
     --fibli-material-overlay-shadow: none;
     --fibli-selection-shadow: none;
     --fibli-selection: Highlight;
+    --fibli-fill-1: Canvas;
+    --fibli-fill-2: Highlight;
+    --fibli-fill-3: Highlight;
+    --fibli-primary-bg: ButtonFace;
+    --fibli-primary-ink: ButtonText;
+    --fibli-primary-hover: ButtonFace;
+    --fibli-scene-ink: CanvasText;
+    --fibli-scene-border: CanvasText;
+    --fibli-scene-ring: Highlight;
+    --fibli-atmo-opacity: 0;
     --fibli-accent-text: LinkText;
   }
 }

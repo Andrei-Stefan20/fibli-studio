@@ -1,12 +1,12 @@
 .topbar {
   position: relative;
   z-index: 20;
-  height: 48px;
+  height: 46px;
   display: grid;
   grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
   align-items: center;
   gap: 10px;
-  padding: 5px 10px;
+  padding: 4px 10px;
   flex: none;
 }
 .left,
@@ -56,8 +56,9 @@
   align-items: stretch;
   gap: 3px;
   min-width: 0;
-  height: 28px;
+  height: 30px;
   overflow-x: auto;
+  scroll-behavior: smooth;
   scrollbar-width: none;
 }
 .tabStrip::-webkit-scrollbar {
@@ -67,14 +68,18 @@
   position: relative;
   display: flex;
   align-items: stretch;
-  flex: 0 0 auto;
-  max-width: 218px;
-  min-width: 85px;
+  flex: 0 1 auto;
+  max-width: 240px;
+  min-width: 88px;
   border-radius: 999px;
   color: var(--fibli-text-secondary);
+  font: 500 12.5px / 1 var(--fibli-font-ui);
+  transition: background var(--fibli-duration-fast) var(--fibli-ease);
 }
 .homeTab {
+  flex: 0 0 auto;
   min-width: 0;
+  max-width: none;
 }
 .tab + .tab::before {
   content: "";
@@ -86,12 +91,26 @@
   background: var(--fibli-border);
   pointer-events: none;
 }
-.active,
 .tab:hover {
   color: var(--fibli-text);
+  background: var(--fibli-fill-1);
+}
+.active,
+.active:hover {
+  color: var(--fibli-text);
+  background: transparent;
+  min-inline-size: max-content;
+}
+.tab:only-child {
+  min-width: 0;
+}
+.tabShell:has(.tab:only-child) {
+  padding: 2px 4px;
 }
 .active + .tab::before,
-.active::before {
+.active::before,
+.tab:hover::before,
+.tab:hover + .tab::before {
   opacity: 0;
 }
 .tabOpen,
@@ -109,8 +128,14 @@
 }
 .tabOpen {
   border-radius: inherit;
-  padding: 0 9px;
+  padding: 0 24px 0 11px;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   font-size: 12.5px;
+}
+.homeTab .tabOpen {
+  padding: 0 12px;
 }
 .tabOpen:focus-visible {
   outline-offset: -2px;
@@ -124,13 +149,24 @@
   text-overflow: ellipsis;
 }
 .tabClose {
-  align-self: center;
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
   justify-content: center;
-  flex: 0 0 20px;
   height: 20px;
   padding: 0;
-  margin-right: 3px;
   border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--fibli-duration-fast), background var(--fibli-duration-fast);
+}
+.tab:hover .tabClose,
+.active .tabClose,
+.tab:focus-within .tabClose {
+  opacity: 1;
+  pointer-events: auto;
 }
 .tabClose:hover {
   background: var(--fibli-border-strong);
@@ -156,5 +192,48 @@
 @media (max-width: 620px) {
   .projectName {
     display: none;
+  }
+}
+
+.left > button,
+.right > button,
+.center > button {
+  flex: none;
+  min-height: 34px;
+  border-radius: var(--fibli-radius-pill);
+  background: var(--fibli-material-navigation);
+  box-shadow: var(--fibli-material-control-shadow);
+  backdrop-filter: var(--fibli-filter-navigation);
+  -webkit-backdrop-filter: var(--fibli-filter-navigation);
+}
+.left > button:first-child,
+.right > button,
+.center > button {
+  width: 34px;
+  min-width: 34px;
+  padding: 0;
+}
+.left > button:hover,
+.right > button:hover,
+.center > button:hover {
+  background: color-mix(in srgb, var(--fibli-material-navigation), var(--fibli-text) 7%);
+}
+.left > button[aria-pressed="true"],
+.right > button[aria-pressed="true"] {
+  background: var(--fibli-selection);
+  box-shadow: var(--fibli-selection-shadow);
+}
+.tabStrip[data-fade-left="true"] {
+  mask-image: linear-gradient(90deg, transparent, #000 18px);
+}
+.tabStrip[data-fade-right="true"] {
+  mask-image: linear-gradient(90deg, #000 calc(100% - 18px), transparent);
+}
+.tabStrip[data-fade-left="true"][data-fade-right="true"] {
+  mask-image: linear-gradient(90deg, transparent, #000 18px, #000 calc(100% - 18px), transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tabStrip {
+    scroll-behavior: auto;
   }
 }

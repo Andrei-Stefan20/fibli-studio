@@ -9,7 +9,8 @@
 }
 .fibli-root {
   color: var(--fibli-text);
-  font: var(--fibli-font-size-ui) var(--fibli-font-ui);
+  font: 400 var(--fibli-font-size-ui) / 1.45 var(--fibli-font-ui);
+  -webkit-font-smoothing: antialiased;
   isolation: isolate;
 }
 .fibli-root *,
@@ -17,10 +18,7 @@
 .fibli-root *::after {
   box-sizing: border-box;
 }
-.fibli-root button,
-.fibli-root input,
-.fibli-root textarea,
-.fibli-root select {
+:where(.fibli-root button, .fibli-root input, .fibli-root textarea, .fibli-root select) {
   font: inherit;
 }
 :where(
@@ -35,9 +33,7 @@
   outline: 2px solid var(--fibli-focus);
   outline-offset: 2px;
 }
-.fibli-root input,
-.fibli-root textarea,
-.fibli-root select {
+:where(.fibli-root input, .fibli-root textarea, .fibli-root select) {
   color: var(--fibli-text);
   background: var(--fibli-content);
   border: 1px solid var(--fibli-border);
