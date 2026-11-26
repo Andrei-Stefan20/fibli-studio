@@ -1,6 +1,6 @@
 # Technology stack
 
-The client foundation uses React, TypeScript, Vite, and pnpm. Client quality checks use Biome, Vitest, Testing Library, and jsdom. The native foundation uses a Cargo workspace with Rust 2024, Rustfmt, and Clippy. Other technologies remain proposed until explicitly adopted. Select compatible versions at adoption and commit lockfiles.
+The client foundation uses React, TypeScript, Vite, and pnpm. Client quality checks use Biome, Vitest, Testing Library, and jsdom. The native foundation uses a Cargo workspace with Rust 2024, Rustfmt, and Clippy. The desktop host uses Tauri 2. Other technologies remain proposed until explicitly adopted. Select compatible versions at adoption and commit lockfiles.
 
 | Area | Preferred technologies | Optional when needed |
 | --- | --- | --- |

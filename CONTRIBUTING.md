@@ -56,7 +56,17 @@ Run `pnpm check` before submitting frontend changes.
 
 Run Rust formatting, linting, and tests before submitting native changes.
 
-Native desktop integration is not yet implemented.
+
+### Desktop commands
+
+- `pnpm tauri dev` - Start the native desktop application.
+- `pnpm tauri build` - Build the desktop application.
+- `pnpm tauri build --bundles app` - Build a macOS application bundle.
+
+Install the platform-specific prerequisites documented at https://v2.tauri.app/start/prerequisites/.
+
+Stop any existing Vite server before starting Tauri development.
+
 
 Optional: enable the local commit-message hook if no other hook configuration is in use:
 

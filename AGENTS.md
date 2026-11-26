@@ -16,6 +16,8 @@
 - Add dependencies only when justified; preserve lockfiles and check platform support and licensing.
 - Add or update relevant tests and documentation. Report checks actually run and any limitations.
 - Run `pnpm check` for client changes before requesting review.
+- Keep Tauri IPC and native APIs behind platform adapters.
+- Review capabilities and CSP when adding native functionality.
 - Use Biome for formatting and linting, and Vitest with Testing Library for client tests.
 
 ## Delegation
