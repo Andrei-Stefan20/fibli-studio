@@ -16,6 +16,8 @@
     "@fibli/contracts": "workspace:*",
     "@fibli/platform": "workspace:*",
     "@fibli/tokens": "workspace:*",
+    "@fibli/ui": "workspace:*",
+    "@fibli/workspace": "workspace:*",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },

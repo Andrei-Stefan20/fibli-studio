@@ -19,7 +19,9 @@
     "test": "pnpm --filter @fibli/client test",
     "test:watch": "pnpm --filter @fibli/client test:watch",
     "check": "biome ci . && pnpm typecheck && pnpm test && pnpm build",
-    "tauri": "pnpm --filter @fibli/client tauri"
+    "tauri": "pnpm --filter @fibli/client tauri",
+    "storybook": "pnpm --filter @fibli/storybook dev",
+    "storybook:build": "pnpm --filter @fibli/storybook build"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.9"

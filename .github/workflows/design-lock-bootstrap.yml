@@ -1,0 +1,27 @@
+# Temporary branch-only dependency resolution. Remove after committing the lockfile.
+name: Design dependency bootstrap
+on:
+  push:
+    branches: [feat/design-tokens]
+    paths:
+      - ".github/workflows/design-lock-bootstrap.yml"
+      - "**/package.json"
+permissions:
+  contents: read
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: pnpm/setup@731dfb6463bbd11c11fd0ee11fe00ed0e36d48a1
+        with:
+          install: false
+      - name: Resolve lockfile without running dependency scripts
+        run: pnpm install --no-frozen-lockfile --lockfile-only --ignore-scripts
+      - name: Return generated lockfile
+        run: |
+          sha256sum pnpm-lock.yaml
+          gzip -n -c pnpm-lock.yaml | base64 -w 120 | sed 's/^/LOCKDATA:/'
