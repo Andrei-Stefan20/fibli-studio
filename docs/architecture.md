@@ -51,4 +51,4 @@ See [Technology stack](technology-stack.md) and [Architecture decisions](adr/REA
 
 ## Design foundation implementation
 
-`@fibli/tokens` owns semantic CSS values and appearance preferences; `@fibli/ui` owns reusable controls and themes. `@fibli/workspace` composes the R1 navigation, tab state, library and project screens. The client owns the session project state, platform diagnostics and application view transitions. No shared visual package imports a native API. Session project data is deliberately not written to disk; persistence belongs to a later storage service.
+`@fibli/tokens` owns semantic CSS values and appearance preferences; `@fibli/ui` owns reusable controls and themes. Storybook is the isolated design catalog. No shared visual package imports a native API. Workspace composition, application navigation and project state remain deferred. The client retains its initial native-bridge screen.

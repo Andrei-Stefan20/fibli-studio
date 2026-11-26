@@ -1,6 +1,6 @@
 # Phase 03 — Design foundation gate
 
-The current workspace and project screens are retained as a prototype. Do not treat them as production architecture, and do not add feature modules to compensate for incomplete foundations.
+Workspace and project screen prototypes are excluded from this pull request. Limit this phase to the shared design system and isolated component stories.
 
 | Step | Deliverable | Exit condition |
 | --- | --- | --- |
@@ -21,6 +21,6 @@ Record each milestone in separate commits; keep PR #8 in draft until review. No 
 
 ## Implementation checkpoint
 
-The inventory, original component dimensions, local Newsreader font, material comparison, shared motion examples, button/form controls, popup select, popover, confirmation, notifications, disclosure list, breadcrumb and toolbar are present. The Storybook examples are isolated from the production shell. The disclosure list intentionally uses native nested lists and buttons rather than claiming full ARIA tree behavior. More specialized editor controls and the remaining icon set will be ported when their owning modules are implemented.
+The inventory, original component dimensions, local Newsreader font, material comparison, shared motion examples, button/form controls, popup select, popover, confirmation, notifications, disclosure list, breadcrumb and toolbar are present. The Storybook examples are isolated; no application shell is implemented in this phase. The disclosure list intentionally uses native nested lists and buttons rather than claiming full ARIA tree behavior. More specialized editor controls and the remaining icon set will be ported when their owning modules are implemented.
 
 Visual acceptance, cross-browser accessibility and macOS native review remain mandatory. No production project persistence, module registry or command registry is introduced here.

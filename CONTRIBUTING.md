@@ -101,4 +101,4 @@ Read [AGENTS.md](AGENTS.md). Project-specific profiles and skills are optional a
 
 ## Component catalog
 
-Run `pnpm storybook` to develop shared UI and workspace components in isolation. Add stories for meaningful states and keyboard interactions. `pnpm check` also builds and type-checks the catalog. Review the R1 visual reference and `docs/design-system.md` before changing navigation or materials.
+Run `pnpm storybook` to develop shared UI components in isolation. Add stories for meaningful states and keyboard interactions. `pnpm check` also builds and type-checks the catalog. Review the R1 visual reference and `docs/design-system.md` before changing navigation or materials.

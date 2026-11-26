@@ -28,23 +28,21 @@
         "default-src": "'self'",
         "script-src": "'self'",
         "connect-src": "'self' ipc: http://ipc.localhost",
-        "img-src": "'self' data: blob: https://thumb.wikimedia.org/wikipedia/commons/thumb/",
+        "img-src": "'self' data: blob:",
         "style-src": "'self' 'unsafe-inline'",
         "font-src": "'self' data:",
         "object-src": "'none'",
-        "base-uri": "'self'",
-        "media-src": "'self' blob: data:"
+        "base-uri": "'self'"
       },
       "devCsp": {
         "default-src": "'self'",
         "script-src": "'self' 'unsafe-inline'",
         "connect-src": "'self' ipc: http://ipc.localhost ws://127.0.0.1:1420",
-        "img-src": "'self' data: blob: https://thumb.wikimedia.org/wikipedia/commons/thumb/",
+        "img-src": "'self' data: blob:",
         "style-src": "'self' 'unsafe-inline'",
         "font-src": "'self' data:",
         "object-src": "'none'",
-        "base-uri": "'self'",
-        "media-src": "'self' blob: data:"
+        "base-uri": "'self'"
       }
     }
   },

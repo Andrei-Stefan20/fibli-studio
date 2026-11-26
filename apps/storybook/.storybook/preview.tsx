@@ -1,6 +1,5 @@
 import "@fibli/tokens/styles.css";
 import "@fibli/ui/styles.css";
-import "@fibli/workspace/styles.css";
 import { parseTheme } from "@fibli/tokens/theme";
 import { ThemeProvider } from "@fibli/ui";
 import type { Preview } from "@storybook/react-vite";

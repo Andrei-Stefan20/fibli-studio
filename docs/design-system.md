@@ -45,18 +45,18 @@ Dynamic accent colors and the theme provider are implemented. Their visual accep
 
 ## Component catalog
 
-Run `pnpm storybook` from the repository root; the catalog is available at http://127.0.0.1:6006. It includes the R1 material stress test, appearance controls, Base UI menus, document tabs, and full-screen library, creation and workspace stories. Use the toolbar to compare appearance, material and contrast. The catalog is built and type-checked by CI.
+Run `pnpm storybook` from the repository root; the catalog is available at http://127.0.0.1:6006. It includes isolated R1 material comparisons, typography, motion, appearance controls, Base UI menus, form controls, overlays, feedback and collections. Use the toolbar to compare appearance, material and contrast. The catalog is built and type-checked by CI.
 
 Use Base UI for menu, context menu and dialog behavior, Motion for the document selection lens, and Radix Colors for semantic status colors. The R1 palette and CSS materials remain the source of visual identity. Do not copy generic dashboard layouts or create decorative controls that have no real action. Keep atmospheric media out of editing surfaces.
 
 ## R1 fidelity and scope
 
-The initial port retains the library hero and bottom cover dock, full-screen creation form, three-part top navigation, project switcher, browser-style tabs, creation destination submenu, file library and details panel. The sample projects are adapted from the R1 demo; its original Kilchurn Castle and Das Eismeer example scenes are restored, with vector fallbacks when offline. See `docs/assets.md` for credits. The remaining photograph, video and audio catalog is deferred until asset licensing and offline distribution are reviewed. Imported local covers are session-scoped, bounded in size and never uploaded. Video backgrounds respect reduced motion. Project content remains session-only until the storage layer is implemented; the current text editor is not a production rich-text editor. AI, PDF, presentation and audio services remain out of scope.
+This change is restricted to design tokens, shared UI primitives, isolated Storybook stories, licenses and related tests. The original demo remains the visual reference. The project library, creation wizard, workspace shell, document tabs, editor, media catalog and application navigation are deferred to later phases. The client and native host remain unchanged in behavior.
 
 ## Source fidelity
 
-The supplied demo is the reference, not a generic approximation. The original 24/28/34 px control heights, 38 px wizard fields, radius scale, Spectrum 2 glyphs, Base UI menu and popup select structure, 440/36/0.78 selection spring, 240 ms panel and 160 ms pane transitions, 520 ms cinema curtains, and 900 ms atmosphere fade have been restored. Primary actions are neutral, not accent-colored. Accent remains customizable for selection and focus. Maintain reduced-motion, solid and high-contrast variants and keep editor content opaque. Visual and keyboard review on WKWebView is required before merge.
+The supplied demo is the reference, not a generic approximation. The original 24/28/34 px control heights, 38 px wizard fields, radius scale, Spectrum 2 glyphs, Base UI menu and popup select structure, 440/36/0.78 selection spring, 240 ms panel and 160 ms pane transitionsare represented in the shared design foundations. The cinema curtain and atmosphere transitions remain reference timings for a later phase. Primary actions are neutral, not accent-colored. Accent remains customizable for selection and focus. Maintain reduced-motion, solid and high-contrast variants and keep editor content opaque. Visual and keyboard review on WKWebView is required before merge.
 
 ## Phase gates
 
-See [component inventory](design/component-inventory.md) and [Phase 03 plan](design/phase-03-plan.md). The component catalog now includes isolated button, field, choice and motion examples. The workspace remains a prototype until visual acceptance and the command/module architecture milestones.
+See [component inventory](design/component-inventory.md) and [Phase 03 plan](design/phase-03-plan.md). The component catalog now includes isolated button, field, choice and motion examples. Application prototypes are excluded from this change. Visual acceptance and the command/module architecture milestones precede workspace implementation.
