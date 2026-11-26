@@ -60,3 +60,5 @@ The supplied demo is the reference, not a generic approximation. The original 24
 ## Phase gates
 
 See [component inventory](design/component-inventory.md) and [Phase 03 plan](design/phase-03-plan.md). The component catalog now includes isolated button, field, choice and motion examples. Application prototypes are excluded from this change. Visual acceptance and the command/module architecture milestones precede workspace implementation.
+
+The Storybook catalog is organized into Getting started, Foundations, Controls, Overlays, Navigation and collections, Feedback, and Review. The live token reference, isolated component specimens, usage guidance and review checklist document the existing public UI API. No new application components are introduced by this catalog pass.

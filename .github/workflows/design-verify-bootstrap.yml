@@ -1,0 +1,47 @@
+# Temporary read-only catalog formatting verification; remove after applying output.
+name: Storybook catalog verification
+on:
+  push:
+    branches: [feat/design-tokens]
+    paths:
+      - ".github/workflows/design-verify-bootstrap.yml"
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: pnpm/setup@731dfb6463bbd11c11fd0ee11fe00ed0e36d48a1
+        with:
+          require-lockfile: true
+      - name: Apply safe formatter fixes
+        continue-on-error: true
+        run: pnpm exec biome check --write apps/storybook
+      - name: Return formatter changes
+        if: success() || failure()
+        run: |
+          python3 - <<'PY'
+          import base64, pathlib, subprocess
+          paths = subprocess.check_output(['git', 'diff', '--name-only', '-z']).decode().split('\0')
+          for path in filter(None, paths):
+              if not path.startswith('apps/storybook/'):
+                  continue
+              print('FMTPATH:' + path)
+              encoded = base64.b64encode(pathlib.Path(path).read_bytes()).decode()
+              for i in range(0, len(encoded), 120):
+                  print('FMTDATA:' + encoded[i:i+120])
+              print('FMTEND')
+          PY
+      - name: Storybook type check
+        if: success() || failure()
+        run: pnpm storybook:typecheck
+      - name: Storybook build
+        if: success() || failure()
+        run: pnpm storybook:build
+      - name: Biome verification
+        if: success() || failure()
+        run: pnpm exec biome ci apps/storybook

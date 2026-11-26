@@ -239,3 +239,11 @@ body {
   gap: 6px;
   max-width: 360px;
 }
+
+.catalog-text-action {
+  align-self: flex-start;
+  border: 0;
+  background: transparent;
+  color: var(--fibli-accent-text);
+  cursor: pointer;
+}
