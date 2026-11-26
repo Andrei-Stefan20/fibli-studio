@@ -83,7 +83,12 @@ function FormSample() {
         </label>
         <label htmlFor="primitive-invalid">
           Invalid field
-          <TextField id="primitive-invalid" defaultValue="" aria-invalid="true" placeholder="Required" />
+          <TextField
+            id="primitive-invalid"
+            defaultValue=""
+            aria-invalid="true"
+            placeholder="Required"
+          />
         </label>
         <label htmlFor="primitive-disabled">
           Unavailable
