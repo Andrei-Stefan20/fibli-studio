@@ -41,8 +41,7 @@ semantic materials, and appearance tokens.
 Import `@fibli/tokens/styles.css` at application entry points.
 Components must consume semantic tokens instead of hardcoded values.
 
-Dynamic accent colors and the theme provider will be implemented
-separately.
+Dynamic accent colors and the theme provider are implemented. Their visual acceptance is pending.
 
 ## Component catalog
 
@@ -57,3 +56,7 @@ The initial port retains the library hero and bottom cover dock, full-screen cre
 ## Source fidelity
 
 The supplied demo is the reference, not a generic approximation. The original 24/28/34 px control heights, 38 px wizard fields, radius scale, Spectrum 2 glyphs, Base UI menu and popup select structure, 440/36/0.78 selection spring, 240 ms panel and 160 ms pane transitions, 520 ms cinema curtains, and 900 ms atmosphere fade have been restored. Primary actions are neutral, not accent-colored. Accent remains customizable for selection and focus. Maintain reduced-motion, solid and high-contrast variants and keep editor content opaque. Visual and keyboard review on WKWebView is required before merge.
+
+## Phase gates
+
+See [component inventory](design/component-inventory.md) and [Phase 03 plan](design/phase-03-plan.md). The component catalog now includes isolated button, field, choice and motion examples. The workspace remains a prototype until visual acceptance and the command/module architecture milestones.

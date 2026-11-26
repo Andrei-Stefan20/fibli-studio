@@ -36,3 +36,30 @@ body {
 .story-test-bed[data-background="dark"] {
   background: #000;
 }
+
+.story-motion-stage {
+  display: flex;
+  min-height: 180px;
+  overflow: hidden;
+  border: 1px solid var(--fibli-border);
+  border-radius: var(--fibli-radius-md);
+}
+.story-motion-panel {
+  flex: none;
+  overflow: hidden;
+  background: var(--fibli-material-library);
+}
+.story-motion-panel > div {
+  padding: 18px;
+  width: 200px;
+}
+.story-motion-pane {
+  flex: 1;
+  background: var(--fibli-content);
+  padding: 18px;
+}
+.story-motion-entrance {
+  padding: 20px;
+  border: 1px solid var(--fibli-border);
+  border-radius: var(--fibli-radius-md);
+}
