@@ -19,7 +19,11 @@ function AccentReview() {
       <div className="story-row">
         <GlassButton onClick={() => update({ accent: null })}>Default accent</GlassButton>
         {accentSwatches.map((accent) => (
-          <GlassButton key={accent} aria-pressed={preferences.accent === accent} onClick={() => update({ accent })}>
+          <GlassButton
+            key={accent}
+            aria-pressed={preferences.accent === accent}
+            onClick={() => update({ accent })}
+          >
             <span className="catalog-accent-dot" style={{ background: accent }} />
             {accent}
           </GlassButton>
@@ -45,7 +49,9 @@ function AccentReview() {
               const background = appearance === "dark" ? "#55565b" : "#d9d9db";
               return (
                 <tr key={`${accent}-${appearance}`}>
-                  <th scope="row">{accent} / {appearance}</th>
+                  <th scope="row">
+                    {accent} / {appearance}
+                  </th>
                   <td>{contrastRatio(tokens.ink, accent).toFixed(2)}:1</td>
                   <td>{contrastRatio(tokens.text, background).toFixed(2)}:1</td>
                   <td>{contrastRatio(tokens.focus, background).toFixed(2)}:1</td>

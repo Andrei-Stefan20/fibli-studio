@@ -12,8 +12,21 @@ function MenuExample() {
   const [status, setStatus] = useState("None");
   const entries: MenuEntry[] = [
     { kind: "label", id: "create", label: "Create" },
-    { kind: "action", id: "text", label: "Text sheet", icon: "file", shortcut: "⌘T", run: () => setStatus("Text sheet") },
-    { kind: "action", id: "disabled", label: "Unavailable", disabled: true, run: () => setStatus("Unexpected action") },
+    {
+      kind: "action",
+      id: "text",
+      label: "Text sheet",
+      icon: "file",
+      shortcut: "⌘T",
+      run: () => setStatus("Text sheet"),
+    },
+    {
+      kind: "action",
+      id: "disabled",
+      label: "Unavailable",
+      disabled: true,
+      run: () => setStatus("Unexpected action"),
+    },
     { kind: "separator", id: "sep" },
     {
       kind: "submenu",
@@ -30,7 +43,14 @@ function MenuExample() {
       })),
     },
     { kind: "separator", id: "danger-sep" },
-    { kind: "action", id: "delete", label: "Delete…", danger: true, icon: "trash", run: () => setStatus("Delete example") },
+    {
+      kind: "action",
+      id: "delete",
+      label: "Delete…",
+      danger: true,
+      icon: "trash",
+      run: () => setStatus("Delete example"),
+    },
   ];
   return (
     <Specimen
@@ -41,9 +61,17 @@ function MenuExample() {
     >
       <div className="story-row">
         <ActionMenu label="Create menu" trigger="New document" entries={entries} />
-        <ActionMenu label="Above menu" trigger="Above / end" entries={entries} side="top" align="end" />
+        <ActionMenu
+          label="Above menu"
+          trigger="Above / end"
+          entries={entries}
+          side="top"
+          align="end"
+        />
       </div>
-      <output>{status} · Destination: {destination}</output>
+      <output>
+        {status} · Destination: {destination}
+      </output>
     </Specimen>
   );
 }
@@ -57,13 +85,42 @@ function ContextExample() {
       usage="Do not hide the only way to perform an important task in a right-click menu."
       review="Try a secondary click and the keyboard context-menu gesture in the target browser. Check Escape and disabled behavior."
     >
-      <ContextActions entries={[
-        { kind: "action", id: "rename", label: "Rename", icon: "edit", run: () => setAction("Rename") },
-        { kind: "action", id: "copy", label: "Duplicate", icon: "copy", run: () => setAction("Duplicate") },
-        { kind: "action", id: "delete", label: "Delete", danger: true, icon: "trash", run: () => setAction("Delete") },
-        { kind: "action", id: "locked", label: "Unavailable", disabled: true, run: () => setAction("Unexpected action") },
-      ]}>
-        <GlassButton onClick={() => setAction("Open item")}><Icon name="file" /> Example item</GlassButton>
+      <ContextActions
+        entries={[
+          {
+            kind: "action",
+            id: "rename",
+            label: "Rename",
+            icon: "edit",
+            run: () => setAction("Rename"),
+          },
+          {
+            kind: "action",
+            id: "copy",
+            label: "Duplicate",
+            icon: "copy",
+            run: () => setAction("Duplicate"),
+          },
+          {
+            kind: "action",
+            id: "delete",
+            label: "Delete",
+            danger: true,
+            icon: "trash",
+            run: () => setAction("Delete"),
+          },
+          {
+            kind: "action",
+            id: "locked",
+            label: "Unavailable",
+            disabled: true,
+            run: () => setAction("Unexpected action"),
+          },
+        ]}
+      >
+        <GlassButton onClick={() => setAction("Open item")}>
+          <Icon name="file" /> Example item
+        </GlassButton>
       </ContextActions>
       <output>Last action: {action}</output>
     </Specimen>

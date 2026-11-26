@@ -306,7 +306,11 @@ export const Geometry: Story = {
       <h2>Corner radius</h2>
       <div className="story-row">
         {["xs", "sm", "md", "lg", "pill"].map((size) => (
-          <div className="catalog-radius" key={size} style={{ borderRadius: `var(--fibli-radius-${size})` }}>
+          <div
+            className="catalog-radius"
+            key={size}
+            style={{ borderRadius: `var(--fibli-radius-${size})` }}
+          >
             {size}
           </div>
         ))}
@@ -314,7 +318,11 @@ export const Geometry: Story = {
       <h2>Control heights</h2>
       <div className="story-row">
         {["sm", "md", "lg"].map((size) => (
-          <div className="catalog-size" key={size} style={{ height: `var(--fibli-control-${size})` }}>
+          <div
+            className="catalog-size"
+            key={size}
+            style={{ height: `var(--fibli-control-${size})` }}
+          >
             {size}
           </div>
         ))}

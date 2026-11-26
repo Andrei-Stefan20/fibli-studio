@@ -1,11 +1,4 @@
-import {
-  ActionMenu,
-  GlassButton,
-  GlassGroup,
-  Icon,
-  IconButton,
-  type MenuEntry,
-} from "@fibli/ui";
+import { ActionMenu, GlassButton, GlassGroup, Icon, IconButton, type MenuEntry } from "@fibli/ui";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
@@ -94,7 +87,9 @@ function MaterialSample() {
             }
             entries={entries}
           />
-          <GlassButton variant="solid" onClick={() => setAction("Primary action")}>Primary action</GlassButton>
+          <GlassButton variant="solid" onClick={() => setAction("Primary action")}>
+            Primary action
+          </GlassButton>
         </div>
         <GlassGroup>
           Selected: {selection} · Menu action: {action}

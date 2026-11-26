@@ -33,19 +33,34 @@ function ButtonExample() {
         <div className="story-row" key={size}>
           <code>{size}</code>
           {(["solid", "soft", "ghost", "danger"] as const).map((variant) => (
-            <GlassButton key={variant} variant={variant} size={size} onClick={() => setLast(variant)}>
+            <GlassButton
+              key={variant}
+              variant={variant}
+              size={size}
+              onClick={() => setLast(variant)}
+            >
               {variant}
             </GlassButton>
           ))}
-          <GlassButton size={size} disabled>Disabled</GlassButton>
+          <GlassButton size={size} disabled>
+            Disabled
+          </GlassButton>
         </div>
       ))}
       <GlassGroup>
-        <IconButton icon="sidebar" label="Toggle panel" shortcut="⌘1" aria-pressed={selected} onClick={() => setSelected(!selected)} />
+        <IconButton
+          icon="sidebar"
+          label="Toggle panel"
+          shortcut="⌘1"
+          aria-pressed={selected}
+          onClick={() => setSelected(!selected)}
+        />
         <IconButton icon="search" label="Search" shortcut="⌘K" onClick={() => setLast("Search")} />
         <IconButton icon="settings" label="Settings" onClick={() => setLast("Settings")} />
       </GlassGroup>
-      <output>Last action: {last} · Panel selection: {selected ? "On" : "Off"}</output>
+      <output>
+        Last action: {last} · Panel selection: {selected ? "On" : "Off"}
+      </output>
     </Specimen>
   );
 }
@@ -62,12 +77,19 @@ function FieldExample() {
     >
       <div className="catalog-field">
         <label htmlFor="sample-title">Title</label>
-        <TextField id="sample-title" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Untitled" />
+        <TextField
+          id="sample-title"
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+          placeholder="Untitled"
+        />
       </div>
       <div className="catalog-field">
         <label htmlFor="sample-invalid">Name</label>
         <TextField id="sample-invalid" aria-invalid="true" aria-describedby="sample-error" />
-        <span id="sample-error" style={{ color: "var(--fibli-danger-text)" }}>Name is required.</span>
+        <span id="sample-error" style={{ color: "var(--fibli-danger-text)" }}>
+          Name is required.
+        </span>
       </div>
       <div className="catalog-field">
         <label htmlFor="sample-readonly">Read only</label>
@@ -77,8 +99,15 @@ function FieldExample() {
         <label htmlFor="sample-disabled">Disabled</label>
         <TextField id="sample-disabled" disabled defaultValue="Unavailable" />
       </div>
-      <SearchField aria-label="Search examples" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search…" />
-      <output>Title: {title || "—"} · Query: {query || "—"}</output>
+      <SearchField
+        aria-label="Search examples"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        placeholder="Search…"
+      />
+      <output>
+        Title: {title || "—"} · Query: {query || "—"}
+      </output>
     </Specimen>
   );
 }
@@ -87,9 +116,12 @@ function BinaryExample() {
   const [enabled, setEnabled] = useState(false);
   const [checked, setChecked] = useState(true);
   return (
-    <Specimen title="Switch and Checkbox" description="Binary controls with independently controlled values."
+    <Specimen
+      title="Switch and Checkbox"
+      description="Binary controls with independently controlled values."
       usage="Use a switch for an immediately applied preference and a checkbox for selection. Checkbox is an extension to the R1 vocabulary."
-      review="Test Space activation, both checked states, disabled behavior and forced colors. Keep a readable label beside a switch.">
+      review="Test Space activation, both checked states, disabled behavior and forced colors. Keep a readable label beside a switch."
+    >
       <div className="story-row">
         <span>Enable preference</span>
         <Switch label="Enable preference" checked={enabled} onChange={setEnabled} />
@@ -114,10 +146,18 @@ const options = [
 function ChoiceExample() {
   const [value, setValue] = useState("text");
   return (
-    <Specimen title="RadioGroup and SegmentedControl" description="Two visual forms of one mutually exclusive choice."
+    <Specimen
+      title="RadioGroup and SegmentedControl"
+      description="Two visual forms of one mutually exclusive choice."
       usage="Use segments for a small set of short alternatives; use radios when choices need more room. These are selection controls, not document tabs."
-      review="Use arrow keys and Tab, verify the selected option and disabled behavior.">
-      <SegmentedControl label="Format segments" value={value} onChange={setValue} options={options} />
+      review="Use arrow keys and Tab, verify the selected option and disabled behavior."
+    >
+      <SegmentedControl
+        label="Format segments"
+        value={value}
+        onChange={setValue}
+        options={options}
+      />
       <RadioGroup label="Format radios" value={value} onChange={setValue} options={options} />
       <output>Selected format: {value}</output>
     </Specimen>
@@ -127,15 +167,23 @@ function ChoiceExample() {
 function SelectExample() {
   const [value, setValue] = useState("text");
   return (
-    <Specimen title="ViewSelect" description="Compact popup selection with double chevron and selected-item indicator."
+    <Specimen
+      title="ViewSelect"
+      description="Compact popup selection with double chevron and selected-item indicator."
       usage="Use for a single value from a finite set. Do not use the action menu for selection when a select expresses the intent."
-      review="Open with the keyboard, navigate and select; Escape should dismiss the popup. Check popup placement.">
+      review="Open with the keyboard, navigate and select; Escape should dismiss the popup. Check popup placement."
+    >
       <div className="story-row">
-        <ViewSelect label="Format" value={value} onChange={setValue} options={[
-          { value: "text", label: "Text" },
-          { value: "latex", label: "LaTeX" },
-          { value: "long", label: "A longer example format label" },
-        ]} />
+        <ViewSelect
+          label="Format"
+          value={value}
+          onChange={setValue}
+          options={[
+            { value: "text", label: "Text" },
+            { value: "latex", label: "LaTeX" },
+            { value: "long", label: "A longer example format label" },
+          ]}
+        />
         <output>Selected: {value}</output>
       </div>
     </Specimen>
@@ -146,9 +194,12 @@ function SliderExample() {
   const [volume, setVolume] = useState(35);
   const [step, setStep] = useState(2);
   return (
-    <Specimen title="Slider" description="A bounded numeric value with continuous or discrete steps."
+    <Specimen
+      title="Slider"
+      description="A bounded numeric value with continuous or discrete steps."
       usage="Provide an accessible name, a meaningful range and a visible value. This specimen controls numbers only; it does not play audio."
-      review="Drag the thumb, use arrow keys and check minimum, maximum, increments and disabled state.">
+      review="Drag the thumb, use arrow keys and check minimum, maximum, increments and disabled state."
+    >
       <div className="story-row">
         <span>0–100</span>
         <Slider label="Volume" value={volume} onChange={setVolume} />

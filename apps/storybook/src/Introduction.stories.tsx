@@ -15,8 +15,8 @@ export const Overview: Story = {
       <section className="catalog-notes">
         <h2>Principles</h2>
         <p>
-          The supplied R1 demo is the reference. Preserve compact geometry, neutral primary
-          actions, restrained transparency, expressive typography and purposeful motion.
+          The supplied R1 demo is the reference. Preserve compact geometry, neutral primary actions,
+          restrained transparency, expressive typography and purposeful motion.
         </p>
         <h2>Structure</h2>
         <dl className="catalog-definition">
@@ -36,14 +36,14 @@ export const Overview: Story = {
         <h2>How to review</h2>
         <p>
           Use the toolbar to switch light, dark or system appearance; solid or liquid material;
-          normal or increased contrast; and accent color. Inspect real controls with the mouse
-          and keyboard, not screenshots alone.
+          normal or increased contrast; and accent color. Inspect real controls with the mouse and
+          keyboard, not screenshots alone.
         </p>
         <h2>Scope</h2>
         <p>
           This catalog contains existing shared components only. Workspace composition, project
-          screens, production editors, media engines and application commands are deferred.
-          A passing build is not design approval.
+          screens, production editors, media engines and application commands are deferred. A
+          passing build is not design approval.
         </p>
       </section>
     </article>
