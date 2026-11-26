@@ -1,14 +1,22 @@
 /* R1 appearance values. System follows the OS unless explicitly overridden. */
 :root {
   color-scheme: dark;
+  --fibli-segment-track: rgb(255 255 255 / 9%);
+  --fibli-segment-selection: rgb(255 255 255 / 18%);
+  --fibli-scrollbar-thumb: rgb(255 255 255 / 26%);
+  --fibli-danger-bg: #b42318;
+  --fibli-danger-ink: #ffffff;
+  --fibli-danger-text: #ff6961;
+  --fibli-success-text: #30d158;
+  --fibli-notes-accent: #ff9f0a;
   --fibli-fill-1: rgb(255 255 255 / 7%);
   --fibli-fill-2: rgb(255 255 255 / 13%);
   --fibli-fill-3: rgb(255 255 255 / 20%);
   --fibli-primary-bg: #f5f5f7;
   --fibli-primary-ink: #1d1d1f;
   --fibli-primary-hover: #ffffff;
-  --fibli-scene-control: rgb(34 34 38 / 74%);
-  --fibli-scene-hover: rgb(56 56 62 / 86%);
+  --fibli-scene-control: rgb(34 34 38 / 68%);
+  --fibli-scene-hover: rgb(56 56 62 / 82%);
   --fibli-scene-border: rgb(255 255 255 / 20%);
   --fibli-scene-ink: #f5f5f7;
   --fibli-scene-ring: #ffffff;
@@ -48,13 +56,21 @@
 
 :root[data-theme="light"] {
   color-scheme: light;
+  --fibli-segment-track: rgb(0 0 0 / 6.5%);
+  --fibli-segment-selection: #ffffff;
+  --fibli-scrollbar-thumb: rgb(0 0 0 / 26%);
+  --fibli-danger-bg: #d70015;
+  --fibli-danger-ink: #ffffff;
+  --fibli-danger-text: #d70015;
+  --fibli-success-text: #248a3d;
+  --fibli-notes-accent: #a45b05;
   --fibli-fill-1: rgb(0 0 0 / 4.8%);
   --fibli-fill-2: rgb(0 0 0 / 8.8%);
   --fibli-fill-3: rgb(0 0 0 / 13.5%);
   --fibli-primary-bg: #1d1d1f;
   --fibli-primary-ink: #ffffff;
   --fibli-primary-hover: #000000;
-  --fibli-scene-control: rgb(252 252 255 / 84%);
+  --fibli-scene-control: rgb(252 252 255 / 80%);
   --fibli-scene-hover: rgb(255 255 255 / 94%);
   --fibli-scene-border: rgb(255 255 255 / 72%);
   --fibli-scene-ink: #1d1d1f;
@@ -99,13 +115,21 @@
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]):not([data-theme="light"]) {
     color-scheme: light;
+    --fibli-segment-track: rgb(0 0 0 / 6.5%);
+    --fibli-segment-selection: #ffffff;
+    --fibli-scrollbar-thumb: rgb(0 0 0 / 26%);
+    --fibli-danger-bg: #d70015;
+    --fibli-danger-ink: #ffffff;
+    --fibli-danger-text: #d70015;
+    --fibli-success-text: #248a3d;
+    --fibli-notes-accent: #a45b05;
     --fibli-fill-1: rgb(0 0 0 / 4.8%);
     --fibli-fill-2: rgb(0 0 0 / 8.8%);
     --fibli-fill-3: rgb(0 0 0 / 13.5%);
     --fibli-primary-bg: #1d1d1f;
     --fibli-primary-ink: #ffffff;
     --fibli-primary-hover: #000000;
-    --fibli-scene-control: rgb(252 252 255 / 84%);
+    --fibli-scene-control: rgb(252 252 255 / 80%);
     --fibli-scene-hover: rgb(255 255 255 / 94%);
     --fibli-scene-border: rgb(255 255 255 / 72%);
     --fibli-scene-ink: #1d1d1f;

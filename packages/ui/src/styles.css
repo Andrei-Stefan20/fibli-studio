@@ -3,10 +3,6 @@
 @import "@radix-ui/colors/green.css";
 @import "@radix-ui/colors/green-dark.css";
 
-:root {
-  --fibli-danger-text: var(--red-11);
-  --fibli-success-text: var(--green-11);
-}
 .fibli-root {
   color: var(--fibli-text);
   font: 400 var(--fibli-font-size-ui) / 1.45 var(--fibli-font-ui);
@@ -47,4 +43,13 @@
     --fibli-danger-text: CanvasText;
     --fibli-success-text: CanvasText;
   }
+}
+
+.fibli-root {
+  accent-color: var(--fibli-accent);
+  scrollbar-color: var(--fibli-scrollbar-thumb) transparent;
+}
+.fibli-root ::selection {
+  color: inherit;
+  background: color-mix(in srgb, var(--fibli-accent) 24%, transparent);
 }

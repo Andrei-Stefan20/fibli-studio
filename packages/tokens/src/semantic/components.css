@@ -1,0 +1,37 @@
+/* Dimensions from R1 index.html, shared by every control. */
+:root {
+  --fibli-field-height: 34px;
+  --fibli-field-inset: 10px;
+  --fibli-field-font-size: 13.5px;
+  --fibli-segment-inset: 2px;
+  --fibli-segment-height: 24px;
+  --fibli-segment-gap: 2px;
+  --fibli-switch-width: 36px;
+  --fibli-switch-height: 21px;
+  --fibli-switch-thumb: 15px;
+  --fibli-switch-travel: 15px;
+  --fibli-slider-height: 20px;
+  --fibli-slider-track: 4px;
+  --fibli-slider-thumb: 15px;
+  --fibli-menu-radius: var(--fibli-radius-lg);
+  --fibli-menu-inset: 5px;
+  --fibli-menu-item-height: 30px;
+  --fibli-menu-item-gap: 9px;
+  --fibli-menu-min-width: 208px;
+  --fibli-toolbar-height: 42px;
+  --fibli-toolbar-sub-height: 36px;
+  --fibli-toolbar-footer-height: 30px;
+  --fibli-editor-column: 660px;
+  --fibli-wizard-control-height: 38px;
+  --fibli-tooltip-delay: 350ms;
+  --fibli-motion-press: 180ms;
+  --fibli-motion-pane: 160ms;
+  --fibli-motion-curtain: 520ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --fibli-motion-press: 0ms;
+    --fibli-motion-pane: 0ms;
+    --fibli-motion-curtain: 0ms;
+  }
+}

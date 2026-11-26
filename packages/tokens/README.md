@@ -15,3 +15,7 @@ Import `@fibli/tokens/styles.css` once at the client or Storybook entry point. A
 Component geometry, focus behavior, responsive layout, dynamic accent selection and the theme provider will be implemented in separate changes. Fixed accent colors are initial defaults only. CSS is not the native Apple Liquid Glass compositor. Contrast must also be tested in real components; these tokens alone do not ensure WCAG compliance.
 
 Preserve the R1 navigation structure. Do not copy the prototype's monolithic HTML or CDN dependencies into production.
+
+## Component tokens
+
+`semantic/components.css` owns the original R1 field, segmented control, slider, switch, menu and toolbar geometry. Use these variables rather than duplicating measurements in feature CSS. The stronger text contrast and darker destructive-action background are intentional accessibility deviations from the demo. System fonts remain platform-provided; Newsreader is not bundled yet.

@@ -1,3 +1,4 @@
 @import "./primitives/foundation.css";
 @import "./themes/themes.css";
 @import "./semantic/materials.css";
+@import "./semantic/components.css";
