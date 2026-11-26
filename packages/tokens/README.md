@@ -18,4 +18,4 @@ Preserve the R1 navigation structure. Do not copy the prototype's monolithic HTM
 
 ## Component tokens
 
-`semantic/components.css` owns the original R1 field, segmented control, slider, switch, menu and toolbar geometry. Use these variables rather than duplicating measurements in feature CSS. The stronger text contrast and darker destructive-action background are intentional accessibility deviations from the demo. System fonts remain platform-provided; Newsreader is not bundled yet.
+`semantic/components.css` owns the original R1 field, segmented control, slider, switch, menu and toolbar geometry. Use these variables rather than duplicating measurements in feature CSS. The stronger text contrast and darker destructive-action background are intentional accessibility deviations from the demo. System fonts remain platform-provided; Newsreader is bundled via the pinned Fontsource variable package (OFL-1.1), with normal and italic optical-size/weight axes. No external font requests are made at runtime.

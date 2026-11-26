@@ -63,3 +63,21 @@ body {
   border: 1px solid var(--fibli-border);
   border-radius: var(--fibli-radius-md);
 }
+
+.story-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+  gap: 1px;
+  background: var(--fibli-border);
+  border: 1px solid var(--fibli-border);
+}
+.story-icon-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 84px;
+  background: var(--fibli-content);
+  font-size: 11px;
+}

@@ -1,3 +1,5 @@
+@import "@fontsource-variable/newsreader/standard.css";
+@import "@fontsource-variable/newsreader/standard-italic.css";
 @import "./primitives/foundation.css";
 @import "./themes/themes.css";
 @import "./semantic/materials.css";

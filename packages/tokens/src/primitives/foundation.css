@@ -2,8 +2,8 @@
 :root {
   --fibli-font-ui:
     -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
-  --fibli-font-mono: ui-monospace, Menlo, Consolas, monospace;
-  --fibli-font-editor: Newsreader, Georgia, "New York", "Iowan Old Style", serif;
+  --fibli-font-mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  --fibli-font-editor: "Newsreader Variable", Newsreader, Georgia, "New York", "Iowan Old Style", serif;
   --fibli-font-size-caption: 11px;
   --fibli-font-size-ui: 13px;
   --fibli-font-size-editor: 18px;
