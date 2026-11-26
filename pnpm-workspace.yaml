@@ -1,3 +1,7 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+
+# esbuild ships its platform binary as an optional dependency; skip its install script.
+allowBuilds:
+  esbuild: false

@@ -1,0 +1,55 @@
+@import "@radix-ui/colors/red.css";
+@import "@radix-ui/colors/red-dark.css";
+@import "@radix-ui/colors/green.css";
+@import "@radix-ui/colors/green-dark.css";
+
+.fibli-root {
+  color: var(--fibli-text);
+  font: 400 var(--fibli-font-size-ui) / 1.45 var(--fibli-font-ui);
+  -webkit-font-smoothing: antialiased;
+  isolation: isolate;
+}
+.fibli-root *,
+.fibli-root *::before,
+.fibli-root *::after {
+  box-sizing: border-box;
+}
+:where(.fibli-root button, .fibli-root input, .fibli-root textarea, .fibli-root select) {
+  font: inherit;
+}
+:where(
+  .fibli-root button,
+  .fibli-root input,
+  .fibli-root textarea,
+  .fibli-root select,
+  [role="menuitem"],
+  [role="dialog"] button,
+  [role="dialog"] input
+):focus-visible {
+  outline: 2px solid var(--fibli-focus);
+  outline-offset: 2px;
+}
+:where(.fibli-root input, .fibli-root textarea, .fibli-root select) {
+  color: var(--fibli-text);
+  background: var(--fibli-content);
+  border: 1px solid var(--fibli-border);
+  border-radius: var(--fibli-radius-sm);
+}
+.fibli-root button {
+  -webkit-tap-highlight-color: transparent;
+}
+@media (forced-colors: active) {
+  :root {
+    --fibli-danger-text: CanvasText;
+    --fibli-success-text: CanvasText;
+  }
+}
+
+.fibli-root {
+  accent-color: var(--fibli-accent);
+  scrollbar-color: var(--fibli-scrollbar-thumb) transparent;
+}
+.fibli-root ::selection {
+  color: inherit;
+  background: color-mix(in srgb, var(--fibli-accent) 24%, transparent);
+}

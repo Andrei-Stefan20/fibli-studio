@@ -18,8 +18,11 @@
     "format:check": "biome format .",
     "test": "pnpm --filter @fibli/client test",
     "test:watch": "pnpm --filter @fibli/client test:watch",
-    "check": "biome ci . && pnpm typecheck && pnpm test && pnpm build",
-    "tauri": "pnpm --filter @fibli/client tauri"
+    "check": "biome ci . && pnpm typecheck && pnpm test && pnpm build && pnpm storybook:typecheck && pnpm storybook:build",
+    "tauri": "pnpm --filter @fibli/client tauri",
+    "storybook": "pnpm --filter @fibli/storybook dev",
+    "storybook:build": "pnpm --filter @fibli/storybook build",
+    "storybook:typecheck": "pnpm --filter @fibli/storybook typecheck"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.9"

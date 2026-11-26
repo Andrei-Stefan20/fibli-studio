@@ -1,0 +1,16 @@
+{
+  "name": "@fibli/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./styles.css": "./src/index.css",
+    "./theme": "./src/theme.ts"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "dependencies": {
+    "@fontsource-variable/newsreader": "5.3.0"
+  }
+}

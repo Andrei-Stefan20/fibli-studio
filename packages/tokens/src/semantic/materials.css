@@ -1,0 +1,150 @@
+/* Opaque baseline: opt into translucency only with a supported backdrop filter. */
+:root {
+  --fibli-material-navigation: var(--fibli-chrome);
+  --fibli-material-overlay: var(--fibli-surface);
+  --fibli-material-library: var(--fibli-chrome);
+  --fibli-material-dock: var(--fibli-chrome);
+  --fibli-material-scene: var(--fibli-chrome);
+  --fibli-material-scene-hover: var(--fibli-surface);
+  --fibli-filter-navigation: none;
+  --fibli-filter-overlay: none;
+  --fibli-material-content: var(--fibli-content);
+  --fibli-material-rim:
+    inset 0 0.5px 0 var(--fibli-highlight), inset 0 -0.5px 0 var(--fibli-edge-bottom),
+    inset 0 0 0 0.5px var(--fibli-edge);
+  --fibli-material-control-shadow: var(--fibli-material-rim), var(--fibli-shadow-control);
+  --fibli-material-overlay-shadow: var(--fibli-material-rim), var(--fibli-shadow-overlay);
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root:not([data-material="solid"]) {
+    --fibli-material-navigation: var(--fibli-navigation-tint);
+    --fibli-material-overlay: var(--fibli-overlay-tint);
+    --fibli-material-library: var(--fibli-library-tint);
+    --fibli-material-dock: var(--fibli-dock-tint);
+    --fibli-material-scene: var(--fibli-scene-control);
+    --fibli-material-scene-hover: var(--fibli-scene-hover);
+    --fibli-filter-navigation: var(--fibli-navigation-filter);
+    --fibli-filter-overlay: var(--fibli-overlay-filter);
+  }
+}
+
+/* Equal specificity to the liquid selector: user and OS preferences take precedence. */
+:root[data-contrast="more"] {
+  --fibli-material-navigation: var(--fibli-chrome);
+  --fibli-material-overlay: var(--fibli-surface);
+  --fibli-material-library: var(--fibli-chrome);
+  --fibli-material-dock: var(--fibli-chrome);
+  --fibli-material-scene: var(--fibli-chrome);
+  --fibli-material-scene-hover: var(--fibli-surface);
+  --fibli-filter-navigation: none;
+  --fibli-filter-overlay: none;
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  :root:not([data-material="solid"]) {
+    --fibli-material-navigation: var(--fibli-chrome);
+    --fibli-material-overlay: var(--fibli-surface);
+    --fibli-material-library: var(--fibli-chrome);
+    --fibli-material-dock: var(--fibli-chrome);
+    --fibli-material-scene: var(--fibli-chrome);
+    --fibli-material-scene-hover: var(--fibli-surface);
+    --fibli-filter-navigation: none;
+    --fibli-filter-overlay: none;
+  }
+}
+
+@media (forced-colors: active) {
+  :root:not([data-material="solid"]) {
+    --fibli-material-navigation: var(--fibli-chrome);
+    --fibli-material-overlay: var(--fibli-surface);
+    --fibli-material-library: var(--fibli-chrome);
+    --fibli-material-dock: var(--fibli-chrome);
+    --fibli-material-scene: var(--fibli-chrome);
+    --fibli-material-scene-hover: var(--fibli-surface);
+    --fibli-filter-navigation: none;
+    --fibli-filter-overlay: none;
+  }
+  :root,
+  :root[data-theme="light"],
+  :root:not([data-theme="dark"]):not([data-theme="light"]) {
+    --fibli-content: Canvas;
+    --fibli-surface: Canvas;
+    --fibli-chrome: Canvas;
+    --fibli-text: CanvasText;
+    --fibli-text-secondary: CanvasText;
+    --fibli-text-muted: CanvasText;
+    --fibli-border: CanvasText;
+    --fibli-border-strong: CanvasText;
+    --fibli-focus: Highlight;
+    --fibli-accent: Highlight;
+    --fibli-accent-ink: HighlightText;
+    --fibli-material-rim: none;
+    --fibli-shadow-control: none;
+    --fibli-shadow-overlay: none;
+    --fibli-shadow-dialog: none;
+    --fibli-material-control-shadow: none;
+    --fibli-material-overlay-shadow: none;
+    --fibli-selection-shadow: none;
+    --fibli-selection: Highlight;
+    --fibli-fill-1: Canvas;
+    --fibli-fill-2: Highlight;
+    --fibli-fill-3: Highlight;
+    --fibli-primary-bg: ButtonFace;
+    --fibli-primary-ink: ButtonText;
+    --fibli-primary-hover: ButtonFace;
+    --fibli-scene-ink: CanvasText;
+    --fibli-scene-border: CanvasText;
+    --fibli-scene-ring: Highlight;
+    --fibli-atmo-opacity: 0;
+    --fibli-accent-text: LinkText;
+  }
+}
+
+/* High contrast affects foregrounds as well as material opacity. */
+:root[data-contrast="more"] {
+  --fibli-text: #ffffff;
+  --fibli-text-secondary: #f5f5f7;
+  --fibli-text-muted: #e6e6ea;
+  --fibli-border: rgb(255 255 255 / 26%);
+  --fibli-border-strong: rgb(255 255 255 / 38%);
+}
+:root[data-theme="light"][data-contrast="more"] {
+  --fibli-text: #1d1d1f;
+  --fibli-text-secondary: #1d1d1f;
+  --fibli-text-muted: #3a3a40;
+  --fibli-border: rgb(0 0 0 / 24%);
+  --fibli-border-strong: rgb(0 0 0 / 38%);
+}
+@media (prefers-contrast: more) {
+  :root[data-theme="dark"] {
+    --fibli-text: #ffffff;
+    --fibli-text-secondary: #f5f5f7;
+    --fibli-text-muted: #e6e6ea;
+    --fibli-border: rgb(255 255 255 / 26%);
+    --fibli-border-strong: rgb(255 255 255 / 38%);
+  }
+  :root[data-theme="light"] {
+    --fibli-text: #1d1d1f;
+    --fibli-text-secondary: #1d1d1f;
+    --fibli-text-muted: #3a3a40;
+    --fibli-border: rgb(0 0 0 / 24%);
+    --fibli-border-strong: rgb(0 0 0 / 38%);
+  }
+}
+@media (forced-colors: active) {
+  :root[data-theme][data-contrast],
+  :root[data-theme],
+  :root {
+    --fibli-text: CanvasText;
+    --fibli-text-secondary: CanvasText;
+    --fibli-text-muted: CanvasText;
+    --fibli-border: CanvasText;
+    --fibli-border-strong: CanvasText;
+    --fibli-segment-track: Canvas;
+    --fibli-segment-selection: Highlight;
+    --fibli-danger-bg: ButtonFace;
+    --fibli-danger-ink: ButtonText;
+    --fibli-danger-text: CanvasText;
+    --fibli-success-text: CanvasText;
+  }
+}

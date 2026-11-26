@@ -1,0 +1,168 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: var(--fibli-control-md);
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: var(--fibli-radius-md);
+  color: var(--fibli-text);
+  background: transparent;
+  font: 500 13px / 1 var(--fibli-font-ui);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background var(--fibli-duration-fast) var(--fibli-ease),
+    color var(--fibli-duration-fast),
+    border-color var(--fibli-duration-fast),
+    transform var(--fibli-duration-fast);
+}
+.soft {
+  background: var(--fibli-fill-1);
+  border-color: var(--fibli-border);
+}
+.soft:hover:not(:disabled) {
+  background: var(--fibli-fill-2);
+  border-color: var(--fibli-border-strong);
+}
+.ghost:hover:not(:disabled) {
+  background: var(--fibli-fill-1);
+  color: var(--fibli-text);
+}
+.button:active:not(:disabled) {
+  opacity: 0.84;
+  transform: scale(0.97);
+}
+.button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--fibli-text-secondary);
+}
+.solid {
+  height: var(--fibli-control-lg);
+  padding-inline: 16px;
+  background: var(--fibli-primary-bg);
+  color: var(--fibli-primary-ink);
+  border-color: transparent;
+  font-weight: 600;
+}
+.solid:hover:not(:disabled) {
+  background: var(--fibli-primary-hover);
+  color: var(--fibli-primary-ink);
+}
+.danger {
+  height: var(--fibli-control-lg);
+  padding-inline: 16px;
+  background: var(--fibli-danger-bg);
+  color: var(--fibli-danger-ink);
+}
+.danger:hover:not(:disabled) {
+  opacity: 0.88;
+}
+.sm {
+  height: var(--fibli-control-sm);
+  padding-inline: 9px;
+  gap: 5px;
+  font-size: 12px;
+  border-radius: var(--fibli-radius-sm);
+}
+.md {
+  height: var(--fibli-control-md);
+}
+.lg {
+  height: var(--fibli-control-lg);
+}
+.button[aria-pressed="true"] {
+  color: var(--fibli-text);
+  background: var(--fibli-selection);
+  box-shadow: var(--fibli-selection-shadow);
+}
+.icon {
+  width: var(--fibli-control-md);
+  min-width: var(--fibli-control-md);
+  padding: 0;
+  border-radius: var(--fibli-radius-sm);
+}
+.group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--fibli-radius-pill);
+  color: var(--fibli-text);
+  border: 1px solid var(--fibli-border);
+  background: var(--fibli-material-navigation);
+  box-shadow: var(--fibli-material-control-shadow);
+  backdrop-filter: var(--fibli-filter-navigation);
+  -webkit-backdrop-filter: var(--fibli-filter-navigation);
+  min-width: 0;
+}
+.lens {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--fibli-selection);
+  box-shadow: var(--fibli-selection-shadow);
+  pointer-events: none;
+  z-index: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .button:active:not(:disabled) {
+    transform: none;
+  }
+}
+@media (forced-colors: active) {
+  .button[aria-pressed="true"] {
+    color: HighlightText;
+    background: Highlight;
+  }
+  .lens {
+    border: 1px solid Highlight;
+  }
+}
+
+.tipPositioner {
+  z-index: 180;
+  pointer-events: none;
+}
+.tip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  color: var(--fibli-text);
+  background: var(--fibli-material-overlay);
+  border-radius: var(--fibli-radius-sm);
+  backdrop-filter: var(--fibli-filter-navigation);
+  -webkit-backdrop-filter: var(--fibli-filter-navigation);
+  box-shadow: var(--fibli-material-overlay-shadow);
+  font: 500 11.5px / 1.25 var(--fibli-font-ui);
+  transition:
+    opacity var(--fibli-duration-fast) var(--fibli-ease),
+    transform 160ms cubic-bezier(0.22, 1.1, 0.36, 1);
+}
+.tip[data-starting-style],
+.tip[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.95) translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tip {
+    transition: none;
+  }
+}
+
+.tip kbd {
+  padding: 1px 4px;
+  border-radius: 4px;
+  font: 500 10.5px / 1.1 var(--fibli-font-ui);
+  color: var(--fibli-text-secondary);
+  background: var(--fibli-fill-2);
+  border: 0.5px solid var(--fibli-border);
+}

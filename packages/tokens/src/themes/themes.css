@@ -1,0 +1,173 @@
+/* R1 appearance values. System follows the OS unless explicitly overridden. */
+:root {
+  color-scheme: dark;
+  --fibli-segment-track: rgb(255 255 255 / 9%);
+  --fibli-segment-selection: rgb(255 255 255 / 18%);
+  --fibli-scrollbar-thumb: rgb(255 255 255 / 26%);
+  --fibli-danger-bg: #b42318;
+  --fibli-danger-ink: #ffffff;
+  --fibli-danger-text: #ff6961;
+  --fibli-success-text: #30d158;
+  --fibli-notes-accent: #ff9f0a;
+  --fibli-fill-1: rgb(255 255 255 / 7%);
+  --fibli-fill-2: rgb(255 255 255 / 13%);
+  --fibli-fill-3: rgb(255 255 255 / 20%);
+  --fibli-primary-bg: #f5f5f7;
+  --fibli-primary-ink: #1d1d1f;
+  --fibli-primary-hover: #ffffff;
+  --fibli-scene-control: rgb(34 34 38 / 68%);
+  --fibli-scene-hover: rgb(56 56 62 / 82%);
+  --fibli-scene-border: rgb(255 255 255 / 20%);
+  --fibli-scene-ink: #f5f5f7;
+  --fibli-scene-ring: #ffffff;
+  --fibli-atmo-opacity: 0.56;
+  --fibli-atmo-filter: blur(24px) saturate(126%) brightness(0.52);
+  --fibli-atmo-veil: radial-gradient(ellipse at 50% 34%, rgb(18 18 22 / 44%), rgb(12 12 15 / 82%));
+  --fibli-atmosphere: #121214;
+  --fibli-content: #1c1c1e;
+  --fibli-surface: #2c2c2e;
+  --fibli-chrome: #242427;
+  --fibli-text: #f5f5f7;
+  --fibli-text-secondary: #d3d5db;
+  --fibli-text-muted: #bdc0c8;
+  --fibli-border: rgb(255 255 255 / 11%);
+  --fibli-border-strong: rgb(255 255 255 / 19%);
+  --fibli-edge: rgb(255 255 255 / 14%);
+  --fibli-highlight: rgb(255 255 255 / 18%);
+  --fibli-edge-bottom: rgb(255 255 255 / 7%);
+  --fibli-shadow-control: 0 2px 4px rgb(0 0 0 / 18%), 0 5px 16px rgb(0 0 0 / 22%);
+  --fibli-shadow-overlay: 0 14px 40px rgb(0 0 0 / 58%);
+  --fibli-shadow-dialog: 0 32px 90px rgb(0 0 0 / 68%);
+  --fibli-navigation-tint: rgb(36 36 39 / 76%);
+  --fibli-overlay-tint: rgb(36 36 40 / 94%);
+  --fibli-library-tint: rgb(36 36 39 / 58%);
+  --fibli-dock-tint: rgb(20 22 28 / 68%);
+  --fibli-navigation-filter: blur(26px) saturate(175%);
+  --fibli-overlay-filter: blur(34px) saturate(190%);
+  --fibli-selection: rgb(255 255 255 / 16%);
+  --fibli-selection-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 35%), inset 0 0 0 0.5px rgb(255 255 255 / 22%),
+    0 1px 4px rgb(0 0 0 / 24%);
+  --fibli-accent: #0a84ff;
+  --fibli-accent-ink: #101114;
+  --fibli-accent-text: #52a8ff;
+  --fibli-focus: #91c8ff;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --fibli-segment-track: rgb(0 0 0 / 6.5%);
+  --fibli-segment-selection: #ffffff;
+  --fibli-scrollbar-thumb: rgb(0 0 0 / 26%);
+  --fibli-danger-bg: #d70015;
+  --fibli-danger-ink: #ffffff;
+  --fibli-danger-text: #d70015;
+  --fibli-success-text: #248a3d;
+  --fibli-notes-accent: #a45b05;
+  --fibli-fill-1: rgb(0 0 0 / 4.8%);
+  --fibli-fill-2: rgb(0 0 0 / 8.8%);
+  --fibli-fill-3: rgb(0 0 0 / 13.5%);
+  --fibli-primary-bg: #1d1d1f;
+  --fibli-primary-ink: #ffffff;
+  --fibli-primary-hover: #000000;
+  --fibli-scene-control: rgb(252 252 255 / 80%);
+  --fibli-scene-hover: rgb(255 255 255 / 94%);
+  --fibli-scene-border: rgb(255 255 255 / 72%);
+  --fibli-scene-ink: #1d1d1f;
+  --fibli-scene-ring: var(--fibli-accent);
+  --fibli-atmo-opacity: 0.34;
+  --fibli-atmo-filter: blur(24px) saturate(122%) brightness(1.12);
+  --fibli-atmo-veil: radial-gradient(
+    ellipse at 50% 34%,
+    rgb(246 246 250 / 66%),
+    rgb(235 236 242 / 84%)
+  );
+  --fibli-atmosphere: #e9eaee;
+  --fibli-content: #ffffff;
+  --fibli-surface: #f8f8fb;
+  --fibli-chrome: #eeeff4;
+  --fibli-text: #1d1d1f;
+  --fibli-text-secondary: #414144;
+  --fibli-text-muted: #55555d;
+  --fibli-border: rgb(0 0 0 / 9%);
+  --fibli-border-strong: rgb(0 0 0 / 16%);
+  --fibli-edge: rgb(24 28 40 / 18%);
+  --fibli-highlight: rgb(255 255 255 / 96%);
+  --fibli-edge-bottom: rgb(255 255 255 / 48%);
+  --fibli-shadow-control: 0 1px 3px rgb(24 28 40 / 10%), 0 5px 15px rgb(24 28 40 / 8%);
+  --fibli-shadow-overlay: 0 12px 34px rgb(0 0 0 / 16%);
+  --fibli-shadow-dialog: 0 28px 80px rgb(0 0 0 / 22%);
+  --fibli-navigation-tint: rgb(255 255 255 / 80%);
+  --fibli-overlay-tint: rgb(252 252 254 / 96%);
+  --fibli-library-tint: rgb(238 239 244 / 72%);
+  --fibli-dock-tint: rgb(248 248 252 / 80%);
+  --fibli-navigation-filter: blur(26px) saturate(180%);
+  --fibli-overlay-filter: blur(36px) saturate(195%);
+  --fibli-selection: #ffffff;
+  --fibli-selection-shadow:
+    inset 0 1px 0 #ffffff, 0 0 0 0.5px rgb(24 28 40 / 16%), 0 2px 5px rgb(0 0 0 / 9%);
+  --fibli-accent: #007aff;
+  --fibli-accent-ink: #101114;
+  --fibli-accent-text: #0055d4;
+  --fibli-focus: #004eaa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]):not([data-theme="light"]) {
+    color-scheme: light;
+    --fibli-segment-track: rgb(0 0 0 / 6.5%);
+    --fibli-segment-selection: #ffffff;
+    --fibli-scrollbar-thumb: rgb(0 0 0 / 26%);
+    --fibli-danger-bg: #d70015;
+    --fibli-danger-ink: #ffffff;
+    --fibli-danger-text: #d70015;
+    --fibli-success-text: #248a3d;
+    --fibli-notes-accent: #a45b05;
+    --fibli-fill-1: rgb(0 0 0 / 4.8%);
+    --fibli-fill-2: rgb(0 0 0 / 8.8%);
+    --fibli-fill-3: rgb(0 0 0 / 13.5%);
+    --fibli-primary-bg: #1d1d1f;
+    --fibli-primary-ink: #ffffff;
+    --fibli-primary-hover: #000000;
+    --fibli-scene-control: rgb(252 252 255 / 80%);
+    --fibli-scene-hover: rgb(255 255 255 / 94%);
+    --fibli-scene-border: rgb(255 255 255 / 72%);
+    --fibli-scene-ink: #1d1d1f;
+    --fibli-scene-ring: var(--fibli-accent);
+    --fibli-atmo-opacity: 0.34;
+    --fibli-atmo-filter: blur(24px) saturate(122%) brightness(1.12);
+    --fibli-atmo-veil: radial-gradient(
+      ellipse at 50% 34%,
+      rgb(246 246 250 / 66%),
+      rgb(235 236 242 / 84%)
+    );
+    --fibli-atmosphere: #e9eaee;
+    --fibli-content: #ffffff;
+    --fibli-surface: #f8f8fb;
+    --fibli-chrome: #eeeff4;
+    --fibli-text: #1d1d1f;
+    --fibli-text-secondary: #414144;
+    --fibli-text-muted: #55555d;
+    --fibli-border: rgb(0 0 0 / 9%);
+    --fibli-border-strong: rgb(0 0 0 / 16%);
+    --fibli-edge: rgb(24 28 40 / 18%);
+    --fibli-highlight: rgb(255 255 255 / 96%);
+    --fibli-edge-bottom: rgb(255 255 255 / 48%);
+    --fibli-shadow-control: 0 1px 3px rgb(24 28 40 / 10%), 0 5px 15px rgb(24 28 40 / 8%);
+    --fibli-shadow-overlay: 0 12px 34px rgb(0 0 0 / 16%);
+    --fibli-shadow-dialog: 0 28px 80px rgb(0 0 0 / 22%);
+    --fibli-navigation-tint: rgb(255 255 255 / 80%);
+    --fibli-overlay-tint: rgb(252 252 254 / 96%);
+    --fibli-library-tint: rgb(238 239 244 / 72%);
+    --fibli-dock-tint: rgb(248 248 252 / 80%);
+    --fibli-navigation-filter: blur(26px) saturate(180%);
+    --fibli-overlay-filter: blur(36px) saturate(195%);
+    --fibli-selection: #ffffff;
+    --fibli-selection-shadow:
+      inset 0 1px 0 #ffffff, 0 0 0 0.5px rgb(24 28 40 / 16%), 0 2px 5px rgb(0 0 0 / 9%);
+    --fibli-accent: #007aff;
+    --fibli-accent-ink: #101114;
+    --fibli-accent-text: #0055d4;
+    --fibli-focus: #004eaa;
+  }
+}

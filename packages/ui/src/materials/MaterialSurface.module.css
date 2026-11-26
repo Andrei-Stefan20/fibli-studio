@@ -1,0 +1,45 @@
+.surface {
+  color: var(--fibli-text);
+  border-radius: var(--fibli-radius-lg);
+}
+.navigation,
+.dock,
+.scene,
+.library {
+  backdrop-filter: var(--fibli-filter-navigation);
+  -webkit-backdrop-filter: var(--fibli-filter-navigation);
+}
+.navigation,
+.dock,
+.scene {
+  border: 1px solid var(--fibli-border);
+  box-shadow: var(--fibli-material-control-shadow);
+}
+.navigation {
+  background: var(--fibli-material-navigation);
+}
+.overlay {
+  background: var(--fibli-material-overlay);
+  backdrop-filter: var(--fibli-filter-overlay);
+  -webkit-backdrop-filter: var(--fibli-filter-overlay);
+  box-shadow: var(--fibli-material-overlay-shadow);
+}
+.library {
+  background: var(--fibli-material-library);
+}
+.dock {
+  background: var(--fibli-material-dock);
+}
+.scene {
+  background: var(--fibli-material-scene);
+  color: var(--fibli-scene-ink);
+  border-color: var(--fibli-scene-border);
+}
+.content {
+  background: var(--fibli-material-content);
+}
+@media (forced-colors: active) {
+  .surface {
+    border: 1px solid CanvasText;
+  }
+}
