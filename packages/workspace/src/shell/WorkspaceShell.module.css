@@ -74,3 +74,5 @@
   .resize { display: none; }
   .documentPage { padding-top: 28px; }
 }
+
+.resize { border: 0; margin: 0; }

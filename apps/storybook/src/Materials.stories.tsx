@@ -23,7 +23,7 @@ function MaterialSample() {
   ];
   return <div className="story-inset">
     <h1>Navigation materials</h1>
-    <div className="story-row" aria-label="Stress test backgrounds">
+    <div className="story-row">
       {["theme", "light", "dark"].map((item) => <GlassButton key={item} aria-pressed={background === item} onClick={() => setBackground(item)}>{item}</GlassButton>)}
     </div>
     <div className="story-test-bed" data-background={background}>

@@ -76,7 +76,7 @@ export function ProjectsLibrary({ projects, selectedId, onSelect, onOpen, onNew,
             <div className={styles.heroActions}><GlassButton className={styles.primary} onClick={query ? () => setFilter("") : onNew}>{query ? "Show all projects" : "New project"}</GlassButton></div>
           </>}
         </div>
-        <div className={styles.dock} role="group" aria-label="Your projects">
+        <fieldset className={styles.dock} aria-label="Your projects">
           {filtered.map((project) => (
             <ContextActions key={project.id} className={styles.thumbContext} entries={[
               { kind: "action", id: "open", label: "Open project", icon: "folder", run: () => onOpen(project.id) }, ...actions(project),
@@ -88,7 +88,7 @@ export function ProjectsLibrary({ projects, selectedId, onSelect, onOpen, onNew,
             </ContextActions>
           ))}
           <button type="button" className={styles.addThumb} aria-label="New project from dock" onClick={onNew}><Icon name="plus" size={22} /></button>
-        </div>
+        </fieldset>
       </main>
       <footer className={styles.footer}>{notice || "Session preview · projects are not saved to disk"}</footer>
       <input ref={coverInput} type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/avif,video/mp4,video/webm" hidden onChange={(event) => {

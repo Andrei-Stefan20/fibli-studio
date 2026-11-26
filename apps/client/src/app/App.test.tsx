@@ -13,14 +13,16 @@ describe("App", () => {
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: "Open project" }));
     expect(screen.getByRole("tab", { name: "Home" })).toBeInTheDocument();
-    fireEvent.click(screen.getAllByRole("button", { name: "Il porto sotto la pioggia" })[0]!);
+    const [document] = screen.getAllByRole("button", { name: "Il porto sotto la pioggia" });
+    if (!document) throw new Error("Missing sample document");
+    fireEvent.click(document);
     expect(screen.getByRole("textbox", { name: "Document text" })).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: "Il porto sotto la pioggia" })).toHaveAttribute("aria-selected", "true");
   });
 
   it("creates a project from the full-screen wizard", () => {
     render(<App />);
-    fireEvent.click(screen.getByRole("button", { name: "New project", exact: true }));
+    fireEvent.click(screen.getByRole("button", { name: "New project" }));
     fireEvent.change(screen.getByLabelText("New project"), { target: { value: "New manuscript" } });
     fireEvent.click(screen.getByRole("button", { name: "Create project" }));
     expect(screen.getByRole("heading", { name: "New manuscript" })).toBeInTheDocument();

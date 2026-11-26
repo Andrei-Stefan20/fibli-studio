@@ -56,6 +56,7 @@ function Entries({ entries }: { entries: MenuEntry[] }) {
         </Menu.Item>
       );
     }
+    return null;
   });
 }
 
@@ -65,7 +66,7 @@ export function ActionMenu({
   label: string;
   trigger: ReactNode;
   entries: MenuEntry[];
-  className?: string;
+  className?: string | undefined;
   side?: "top" | "bottom";
   align?: "start" | "end";
 }) {
@@ -84,7 +85,7 @@ export function ActionMenu({
 export function ContextActions({ children, entries, className = "" }: {
   children: ReactNode;
   entries: Action[];
-  className?: string;
+  className?: string | undefined;
 }) {
   return (
     <ContextMenu.Root>

@@ -61,3 +61,5 @@
   .createStage { padding-bottom: 150px; }
   .createFoot { bottom: 12px; padding-inline: 12px; }
 }
+
+.dock { min-inline-size: 0; }

@@ -6,7 +6,7 @@ export function ResizeHandle({ side, value, onChange }: { side: "left" | "right"
   const direction = side === "left" ? 1 : -1;
   const resize = (width: number) => onChange(Math.max(180, Math.min(380, width)));
   return (
-    <div role="separator" aria-orientation="vertical" aria-label={`Resize ${side} panel`} aria-valuemin={180} aria-valuemax={380}
+    <hr aria-orientation="vertical" aria-label={`Resize ${side} panel`} aria-valuemin={180} aria-valuemax={380}
       aria-valuenow={value} tabIndex={0} className={styles.resize}
       onPointerDown={(event) => {
         if (event.button !== 0) return;

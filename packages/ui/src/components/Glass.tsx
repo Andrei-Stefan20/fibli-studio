@@ -21,7 +21,7 @@ export function IconButton({
   );
 }
 
-export function GlassGroup({ children, className = "" }: { children: ReactNode; className?: string }) {
+export function GlassGroup({ children, className = "" }: { children: ReactNode; className?: string | undefined }) {
   return <div className={`${styles.group} ${className}`}>{children}</div>;
 }
 

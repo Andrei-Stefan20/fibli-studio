@@ -1,4 +1,4 @@
-# Temporary branch-only formatting and verification; remove before merging.
+# Temporary branch-only formatting and verification; remove before merging. Pass 2.
 name: Design foundation verification
 on:
   push:
@@ -22,6 +22,7 @@ jobs:
         continue-on-error: true
         run: pnpm exec biome check --write .
       - name: Return formatter changes
+        if: success() || failure()
         run: |
           python3 - <<'PY'
           import base64, pathlib, subprocess

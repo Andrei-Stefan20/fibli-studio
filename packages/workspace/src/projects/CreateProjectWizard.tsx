@@ -102,12 +102,12 @@ export function CreateProjectWizard({ onCancel, onCreate }: { onCancel: () => vo
         <div className={styles.createFoot}>
           {error && <p role="alert">{error}</p>}
           <span>{cover?.name ?? "No cover"}</span>
-          <div className={styles.dock} role="group" aria-label="Project cover">
+          <fieldset className={styles.dock} aria-label="Project cover">
             <button type="button" className={styles.addThumb} aria-label="Upload image or video" onClick={() => fileInput.current?.click()}><Icon name="upload" size={22} /></button>
             {cover?.url.startsWith("blob:") && <button type="button" className={styles.thumbnail} aria-pressed="true" onClick={() => fileInput.current?.click()}><CoverView cover={cover} thumbnail /><span>{cover.name}</span></button>}
             {offlineCovers.map((item) => <button key={item.name} type="button" className={styles.thumbnail} aria-pressed={cover?.url === item.url} onClick={() => chooseCover(item)}><CoverView cover={item} thumbnail /><span>{item.name}</span></button>)}
             <button type="button" className={styles.addThumb} aria-label="No cover" aria-pressed={cover === null} onClick={() => chooseCover(null)}><Icon name="close" /></button>
-          </div>
+          </fieldset>
         </div>
         <input ref={fileInput} type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/avif,video/mp4,video/webm" hidden onChange={(event) => {
           const file = event.currentTarget.files?.[0]; event.currentTarget.value = "";
