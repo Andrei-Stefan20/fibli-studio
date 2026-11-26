@@ -1,6 +1,6 @@
 # Architecture
 
-Status: foundation implemented. The React client and portable Rust workspace are initialized. Application features and native desktop integration remain to be implemented.
+Status: foundation implemented. The React client and portable Rust workspace are initialized. The Tauri desktop host is initialized. Application services and the native bridge remain to be implemented.
 
 ## Repository layout
 

@@ -18,7 +18,8 @@
     "format:check": "biome format .",
     "test": "pnpm --filter @fibli/client test",
     "test:watch": "pnpm --filter @fibli/client test:watch",
-    "check": "biome ci . && pnpm typecheck && pnpm test && pnpm build"
+    "check": "biome ci . && pnpm typecheck && pnpm test && pnpm build",
+    "tauri": "pnpm --filter @fibli/client tauri"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.9"

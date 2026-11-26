@@ -4,7 +4,7 @@ A local-first workspace for writing, worldbuilding, and research.
 
 ## Status
 
-Early development. The repository currently contains the project structure, engineering documentation, and development tooling. The initial React client is runnable in the browser. Native desktop integration and application features are not yet implemented.
+Early development. The repository currently contains the project structure, engineering documentation, and development tooling. The initial React client is runnable in the browser. The Tauri desktop host is initialized. Application features remain to be implemented.
 
 ## Getting started
 
@@ -31,6 +31,13 @@ See [Contributing](CONTRIBUTING.md) for prerequisites, local setup, and developm
 - `cargo fmt --all -- --check` - Check Rust formatting.
 - `cargo clippy --workspace --all-targets --locked -- -D warnings` - Run Rust linting.
 - `cargo test --workspace --locked` - Run Rust tests.
+
+
+### Desktop commands
+
+- `pnpm tauri dev` - Start the native desktop application.
+- `pnpm tauri build` - Build the desktop application.
+- `pnpm tauri build --bundles app` - Build a macOS application bundle.
 
 ## Documentation
 
