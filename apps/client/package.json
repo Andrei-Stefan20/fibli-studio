@@ -13,6 +13,8 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@fibli/contracts": "workspace:*",
+    "@fibli/platform": "workspace:*",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },

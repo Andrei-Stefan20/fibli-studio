@@ -1,6 +1,6 @@
 # Architecture
 
-Status: foundation implemented. The React client and portable Rust workspace are initialized. The Tauri desktop host is initialized. Application services and the native bridge remain to be implemented.
+Status: foundation implemented. The React client and portable Rust workspace are initialized. The Tauri desktop host is initialized. The initial native bridge is implemented through shared contracts and browser/native platform adapters. Application services remain to be implemented.
 
 ## Repository layout
 
@@ -22,6 +22,16 @@ Status: foundation implemented. The React client and portable Rust workspace are
 ## Boundaries
 
 Use a local-first modular monolith. The application composes modules and platform implementations. Feature modules depend on public shared interfaces, not on each other's internals. Shared UI depends on tokens and UI utilities, not feature code or native APIs. Platform adapters implement shared contracts; Tauri delegates to a portable Rust core. Use explicit exports and avoid circular imports.
+
+## Platform integration
+
+- `@fibli/contracts` defines platform-independent service interfaces.
+- `@fibli/platform` implements browser and native adapters.
+- Only native adapters access Tauri IPC.
+- Native commands validate inputs and delegate to Rust services.
+- Browser adapters expose only supported functionality.
+- IPC responses are validated at runtime.
+- Native capabilities follow the principle of least privilege.
 
 ## Modules
 
