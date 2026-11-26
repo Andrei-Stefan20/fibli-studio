@@ -30,7 +30,16 @@ rustc --version
 python3 -m unittest discover -s tests -v
 ```
 
-The application runtime is not yet implemented.
+### Development commands
+
+- `pnpm dev` - Start the client at http://127.0.0.1:1420.
+- `pnpm typecheck` - Run TypeScript checks.
+- `pnpm build` - Generate the production build.
+- `pnpm preview` - Preview the production build.
+
+Run type checking and the production build before submitting frontend changes.
+
+Native desktop integration is not yet implemented.
 
 Optional: enable the local commit-message hook if no other hook configuration is in use:
 
