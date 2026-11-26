@@ -27,3 +27,7 @@ Use available specialists or skills when they improve the result. Assign non-ove
 ## Safety
 
 Do not discard user changes, rewrite history, publish, push, change permissions, or expose secrets without authorization. Do not bypass checks or invent test results. Follow the closest applicable project instructions.
+
+## Current design milestone
+
+For design work on the Phase 03 branch, read `docs/design/HANDOFF.md` and `docs/design/phase-03-plan.md`. The original supplied demo is the reference; inspect its actual source before changing visual geometry, materials or motion. Keep the current PR limited to tokens, shared UI, isolated Storybook and relevant tests/docs. Application prototypes are intentionally excluded. Require visual evidence and owner approval before advancing to later phases. The handoff describes a temporary milestone, not a permanent restriction on future authorized work.
