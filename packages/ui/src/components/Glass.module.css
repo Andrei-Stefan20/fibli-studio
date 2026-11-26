@@ -18,9 +18,18 @@
     border-color var(--fibli-duration-fast),
     transform var(--fibli-duration-fast);
 }
-.soft { background: var(--fibli-fill-1); border-color: var(--fibli-border); }
-.soft:hover:not(:disabled) { background: var(--fibli-fill-2); border-color: var(--fibli-border-strong); }
-.ghost:hover:not(:disabled) { background: var(--fibli-fill-1); color: var(--fibli-text); }
+.soft {
+  background: var(--fibli-fill-1);
+  border-color: var(--fibli-border);
+}
+.soft:hover:not(:disabled) {
+  background: var(--fibli-fill-2);
+  border-color: var(--fibli-border-strong);
+}
+.ghost:hover:not(:disabled) {
+  background: var(--fibli-fill-1);
+  color: var(--fibli-text);
+}
 .button:active:not(:disabled) {
   opacity: 0.84;
   transform: scale(0.97);
@@ -47,11 +56,28 @@
   background: var(--fibli-primary-hover);
   color: var(--fibli-primary-ink);
 }
-.danger { height: var(--fibli-control-lg); padding-inline: 16px; background: var(--fibli-danger-bg); color: var(--fibli-danger-ink); }
-.danger:hover:not(:disabled) { opacity: 0.88; }
-.sm { height: var(--fibli-control-sm); padding-inline: 9px; gap: 5px; font-size: 12px; border-radius: var(--fibli-radius-sm); }
-.md { height: var(--fibli-control-md); }
-.lg { height: var(--fibli-control-lg); }
+.danger {
+  height: var(--fibli-control-lg);
+  padding-inline: 16px;
+  background: var(--fibli-danger-bg);
+  color: var(--fibli-danger-ink);
+}
+.danger:hover:not(:disabled) {
+  opacity: 0.88;
+}
+.sm {
+  height: var(--fibli-control-sm);
+  padding-inline: 9px;
+  gap: 5px;
+  font-size: 12px;
+  border-radius: var(--fibli-radius-sm);
+}
+.md {
+  height: var(--fibli-control-md);
+}
+.lg {
+  height: var(--fibli-control-lg);
+}
 .button[aria-pressed="true"] {
   color: var(--fibli-text);
   background: var(--fibli-selection);
@@ -132,4 +158,11 @@
   }
 }
 
-.tip kbd { padding: 1px 4px; border-radius: 4px; font: 500 10.5px / 1.1 var(--fibli-font-ui); color: var(--fibli-text-secondary); background: var(--fibli-fill-2); border: 0.5px solid var(--fibli-border); }
+.tip kbd {
+  padding: 1px 4px;
+  border-radius: 4px;
+  font: 500 10.5px / 1.1 var(--fibli-font-ui);
+  color: var(--fibli-text-secondary);
+  background: var(--fibli-fill-2);
+  border: 0.5px solid var(--fibli-border);
+}

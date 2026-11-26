@@ -1,4 +1,4 @@
-# Temporary branch-only formatter and verification; removed after verification.
+# Temporary branch-only formatter and verification; pass 2.
 name: Phase 03 design checks
 on:
   push:

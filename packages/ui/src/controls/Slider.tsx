@@ -11,10 +11,26 @@ interface SliderProps {
   disabled?: boolean;
 }
 
-export function Slider({ label, value, onChange, min = 0, max = 100, step = 1, disabled = false }: SliderProps) {
+export function Slider({
+  label,
+  value,
+  onChange,
+  min = 0,
+  max = 100,
+  step = 1,
+  disabled = false,
+}: SliderProps) {
   return (
-    <BaseSlider.Root value={value} min={min} max={max} step={step} disabled={disabled}
-      onValueChange={(next) => { if (typeof next === "number") onChange(next); }}>
+    <BaseSlider.Root
+      value={value}
+      min={min}
+      max={max}
+      step={step}
+      disabled={disabled}
+      onValueChange={(next) => {
+        if (typeof next === "number") onChange(next);
+      }}
+    >
       <BaseSlider.Control className={styles.slider}>
         <BaseSlider.Track className={styles.sliderTrack}>
           <BaseSlider.Indicator className={styles.sliderIndicator} />

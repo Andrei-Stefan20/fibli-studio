@@ -12,8 +12,13 @@ interface BinaryProps {
 
 export function Switch({ label, checked, onChange, disabled = false }: BinaryProps) {
   return (
-    <BaseSwitch.Root aria-label={label} checked={checked} disabled={disabled}
-      onCheckedChange={onChange} className={styles.switch}>
+    <BaseSwitch.Root
+      aria-label={label}
+      checked={checked}
+      disabled={disabled}
+      onCheckedChange={onChange}
+      className={styles.switch}
+    >
       <BaseSwitch.Thumb className={styles.switchThumb} />
     </BaseSwitch.Root>
   );
@@ -22,8 +27,12 @@ export function Switch({ label, checked, onChange, disabled = false }: BinaryPro
 export function Checkbox({ label, checked, onChange, disabled = false }: BinaryProps) {
   return (
     <label className={styles.choice}>
-      <input type="checkbox" checked={checked} disabled={disabled}
-        onChange={(event) => onChange(event.target.checked)} />
+      <input
+        type="checkbox"
+        checked={checked}
+        disabled={disabled}
+        onChange={(event) => onChange(event.target.checked)}
+      />
       <span>{label}</span>
     </label>
   );
@@ -49,8 +58,14 @@ export function RadioGroup({ label, value, options, onChange }: GroupProps) {
       <legend>{label}</legend>
       {options.map((option) => (
         <label key={option.value} className={styles.choice}>
-          <input type="radio" name={name} value={option.value} checked={value === option.value}
-            disabled={option.disabled ?? false} onChange={() => onChange(option.value)} />
+          <input
+            type="radio"
+            name={name}
+            value={option.value}
+            checked={value === option.value}
+            disabled={option.disabled ?? false}
+            onChange={() => onChange(option.value)}
+          />
           <span>{option.label}</span>
         </label>
       ))}
@@ -64,9 +79,15 @@ export function SegmentedControl({ label, value, options, onChange }: GroupProps
     <fieldset className={styles.segment} aria-label={label}>
       {options.map((option) => (
         <label className={styles.segmentOption} key={option.value}>
-          <input className={styles.segmentInput} type="radio" name={name} value={option.value}
-            checked={value === option.value} disabled={option.disabled ?? false}
-            onChange={() => onChange(option.value)} />
+          <input
+            className={styles.segmentInput}
+            type="radio"
+            name={name}
+            value={option.value}
+            checked={value === option.value}
+            disabled={option.disabled ?? false}
+            onChange={() => onChange(option.value)}
+          />
           <span className={styles.segmentLabel}>{option.label}</span>
         </label>
       ))}

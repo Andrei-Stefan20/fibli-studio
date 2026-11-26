@@ -17,7 +17,11 @@ export function GlassButton({
   ...props
 }: ButtonProps) {
   return (
-    <button type={type} className={`${styles.button} ${styles[variant === "glass" ? "soft" : variant]} ${size ? styles[size] : ""} ${className}`} {...props} />
+    <button
+      type={type}
+      className={`${styles.button} ${styles[variant === "glass" ? "soft" : variant]} ${size ? styles[size] : ""} ${className}`}
+      {...props}
+    />
   );
 }
 
@@ -39,7 +43,10 @@ export function IconButton({
       </Tooltip.Trigger>
       <Tooltip.Portal>
         <Tooltip.Positioner side="bottom" sideOffset={7} className={styles.tipPositioner}>
-          <Tooltip.Popup className={styles.tip}>{label}{shortcut && <kbd>{shortcut}</kbd>}</Tooltip.Popup>
+          <Tooltip.Popup className={styles.tip}>
+            {label}
+            {shortcut && <kbd>{shortcut}</kbd>}
+          </Tooltip.Popup>
         </Tooltip.Positioner>
       </Tooltip.Portal>
     </Tooltip.Root>
