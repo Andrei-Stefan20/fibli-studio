@@ -4,27 +4,30 @@ import type { ComponentPropsWithRef, ReactNode } from "react";
 import { Icon, type IconName } from "../icons/Icon";
 import styles from "./Glass.module.css";
 
-type ButtonProps = ComponentPropsWithRef<"button"> & {
-  variant?: "glass" | "solid" | "ghost";
+export type ButtonProps = ComponentPropsWithRef<"button"> & {
+  variant?: "glass" | "soft" | "solid" | "ghost" | "danger";
+  size?: "sm" | "md" | "lg";
 };
 
 export function GlassButton({
   variant = "glass",
+  size,
   className = "",
   type = "button",
   ...props
 }: ButtonProps) {
   return (
-    <button type={type} className={`${styles.button} ${styles[variant]} ${className}`} {...props} />
+    <button type={type} className={`${styles.button} ${styles[variant === "glass" ? "soft" : variant]} ${size ? styles[size] : ""} ${className}`} {...props} />
   );
 }
 
 export function IconButton({
   icon,
   label,
+  shortcut,
   className = "",
   ...props
-}: ButtonProps & { icon: IconName; label: string }) {
+}: ButtonProps & { icon: IconName; label: string; shortcut?: string }) {
   return (
     <Tooltip.Root>
       <Tooltip.Trigger
@@ -36,7 +39,7 @@ export function IconButton({
       </Tooltip.Trigger>
       <Tooltip.Portal>
         <Tooltip.Positioner side="bottom" sideOffset={7} className={styles.tipPositioner}>
-          <Tooltip.Popup className={styles.tip}>{label}</Tooltip.Popup>
+          <Tooltip.Popup className={styles.tip}>{label}{shortcut && <kbd>{shortcut}</kbd>}</Tooltip.Popup>
         </Tooltip.Positioner>
       </Tooltip.Portal>
     </Tooltip.Root>
