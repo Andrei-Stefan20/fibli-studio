@@ -2,17 +2,35 @@
 
 ## Local setup
 
-Requirements for the current repository: Git and Python 3.11 or later (for development checks).
+### Prerequisites
 
-Replace `REPOSITORY_URL` with the repository clone URL.
+- Git
+- Node.js (see `.node-version`)
+- pnpm (see `package.json`)
+- Rustup (see `rust-toolchain.toml`)
+- Python 3.11 or later
+
+### Installation
 
 ```sh
-git clone REPOSITORY_URL
+git clone https://github.com/Andrei-Stefan20/fibli-studio.git
 cd fibli-studio
-python3 -m unittest discover -s tests -p 'test_*.py'
+pnpm install --frozen-lockfile
 ```
 
-If the repository is already cloned, open its root directory and run the checks. On Windows, use `py -3` if `python3` is unavailable. No dependencies or application runtime are configured yet. When introduced, the package manifests, lockfiles, and documented development commands will define the application setup.
+Use a Node.js version manager to match the required runtime.
+Rustup selects the configured Rust toolchain automatically.
+
+### Verification
+
+```sh
+node --version
+pnpm --version
+rustc --version
+python3 -m unittest discover -s tests -v
+```
+
+The application runtime is not yet implemented.
 
 Optional: enable the local commit-message hook if no other hook configuration is in use:
 
