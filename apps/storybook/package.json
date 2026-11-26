@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "storybook dev -p 6006 --host 127.0.0.1",
-    "build": "storybook build"
+    "build": "storybook build",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@fibli/tokens": "workspace:*",

@@ -43,3 +43,13 @@ Components must consume semantic tokens instead of hardcoded values.
 
 Dynamic accent colors and the theme provider will be implemented
 separately.
+
+## Component catalog
+
+Run `pnpm storybook` from the repository root; the catalog is available at http://127.0.0.1:6006. It includes the R1 material stress test, appearance controls, Base UI menus, document tabs, and full-screen library, creation and workspace stories. Use the toolbar to compare appearance, material and contrast. The catalog is built and type-checked by CI.
+
+Use Base UI for menu, context menu and dialog behavior, Motion for the document selection lens, and Radix Colors for semantic status colors. The R1 palette and CSS materials remain the source of visual identity. Do not copy generic dashboard layouts or create decorative controls that have no real action. Keep atmospheric media out of editing surfaces.
+
+## R1 fidelity and scope
+
+The initial port retains the library hero and bottom cover dock, full-screen creation form, three-part top navigation, project switcher, browser-style tabs, creation destination submenu, file library and details panel. The sample projects are adapted from the R1 demo; its offline vector covers are reused. The remote photograph, video and audio catalog is deferred until asset licensing and offline distribution are reviewed. Imported local covers are session-scoped, bounded in size and never uploaded. Video backgrounds respect reduced motion. Project content remains session-only until the storage layer is implemented; the current text editor is not a production rich-text editor. AI, PDF, presentation and audio services remain out of scope.

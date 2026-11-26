@@ -4,7 +4,7 @@ A local-first workspace for writing, worldbuilding, and research.
 
 ## Status
 
-Early development. The repository currently contains the project structure, engineering documentation, and development tooling. The initial React client is runnable in the browser. The Tauri desktop host is initialized. Application features remain to be implemented.
+Early development. The repository currently contains the project structure, engineering documentation, and development tooling. The initial React client is runnable in the browser. The Tauri desktop host is initialized. The R1 design foundation includes a navigable session-only projects library and workspace. Persistent project storage and production editors remain to be implemented.
 
 ## Getting started
 
@@ -50,3 +50,9 @@ See [Contributing](CONTRIBUTING.md) for prerequisites, local setup, and developm
 ## License
 
 No open-source license has been granted. Distribution terms are to be determined.
+
+### Component development
+
+- `pnpm storybook` - Start the Fibli component catalog.
+- `pnpm storybook:build` - Build the static catalog.
+- `pnpm storybook:typecheck` - Check story and catalog types.

@@ -104,7 +104,7 @@ export function CreateProjectWizard({ onCancel, onCreate }: { onCancel: () => vo
           <span>{cover?.name ?? "No cover"}</span>
           <div className={styles.dock} role="group" aria-label="Project cover">
             <button type="button" className={styles.addThumb} aria-label="Upload image or video" onClick={() => fileInput.current?.click()}><Icon name="upload" size={22} /></button>
-            {custom.current && cover && <button type="button" className={styles.thumbnail} aria-pressed="true" onClick={() => fileInput.current?.click()}><CoverView cover={cover} thumbnail /><span>{cover.name}</span></button>}
+            {cover?.url.startsWith("blob:") && <button type="button" className={styles.thumbnail} aria-pressed="true" onClick={() => fileInput.current?.click()}><CoverView cover={cover} thumbnail /><span>{cover.name}</span></button>}
             {offlineCovers.map((item) => <button key={item.name} type="button" className={styles.thumbnail} aria-pressed={cover?.url === item.url} onClick={() => chooseCover(item)}><CoverView cover={item} thumbnail /><span>{item.name}</span></button>)}
             <button type="button" className={styles.addThumb} aria-label="No cover" aria-pressed={cover === null} onClick={() => chooseCover(null)}><Icon name="close" /></button>
           </div>

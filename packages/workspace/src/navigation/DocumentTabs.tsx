@@ -67,7 +67,7 @@ export function DocumentTabs({ state, onSelect, onClose, onCloseOthers, onCloseR
               <ContextActions key={tab.id} className={`${styles.tab} ${active ? styles.active : ""} ${tab.kind === "home" ? styles.homeTab : ""}`} entries={actions}>
                 {active && <SelectionLens />}
                 <button type="button" className={styles.tabOpen} role="tab" id={`tab-${tab.id}`}
-                  aria-controls={`panel-${state.activeId}`} aria-selected={active} tabIndex={active ? 0 : -1}
+                  aria-controls={active ? `panel-${tab.id}` : undefined} aria-selected={active} tabIndex={active ? 0 : -1}
                   onClick={() => onSelect(tab.id)} onKeyDown={(event) => keyDown(event, index)} title={tab.title}>
                   <Icon name={iconFor(tab)} size={15} /><span>{tab.title}</span>
                 </button>

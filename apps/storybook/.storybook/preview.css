@@ -1,0 +1,7 @@
+html, body { margin: 0; min-height: 100%; background: var(--fibli-content); }
+.story-surface { min-height: 100vh; background: var(--fibli-atmosphere); }
+.story-inset { padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+.story-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.story-test-bed { min-height: 300px; padding: 24px; display: flex; flex-direction: column; gap: 20px; justify-content: center; align-items: center; background: var(--fibli-chrome); }
+.story-test-bed[data-background="light"] { background: #fff; }
+.story-test-bed[data-background="dark"] { background: #000; }

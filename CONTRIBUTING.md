@@ -98,3 +98,7 @@ Use English for code, commits, issues, and documentation. Follow existing format
 ## Coding agents
 
 Read [AGENTS.md](AGENTS.md). Project-specific profiles and skills are optional and discovered by supported clients. Tool connections (GitHub, Figma, documentation, browser testing) are configured locally as needed; review permissions and never commit credentials. No agent or external service is required to contribute.
+
+## Component catalog
+
+Run `pnpm storybook` to develop shared UI and workspace components in isolation. Add stories for meaningful states and keyboard interactions. `pnpm check` also builds and type-checks the catalog. Review the R1 visual reference and `docs/design-system.md` before changing navigation or materials.

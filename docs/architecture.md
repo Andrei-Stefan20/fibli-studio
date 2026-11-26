@@ -48,3 +48,7 @@ Use SQLite for structured local data and the filesystem for assets. Keep credent
 Begin with built-in, statically registered modules. A public extension SDK and runtime plugin host are future decisions, not implemented interfaces. Before executing third-party code, define versioning, permissions, isolation, trust, and distribution. Tauri capabilities do not isolate JavaScript modules sharing a WebView. Prefer constrained declarative contributions where possible.
 
 See [Technology stack](technology-stack.md) and [Architecture decisions](adr/README.md).
+
+## Design foundation implementation
+
+`@fibli/tokens` owns semantic CSS values and appearance preferences; `@fibli/ui` owns reusable controls and themes. `@fibli/workspace` composes the R1 navigation, tab state, library and project screens. The client owns the session project state, platform diagnostics and application view transitions. No shared visual package imports a native API. Session project data is deliberately not written to disk; persistence belongs to a later storage service.

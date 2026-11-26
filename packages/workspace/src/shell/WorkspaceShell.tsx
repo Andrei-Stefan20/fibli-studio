@@ -149,8 +149,8 @@ export function WorkspaceShell({
             onHome={() => showTab(homeTab)} onAll={openAll} onAI={openAI} onStar={starFile} onSplit={setSplitId} onSearch={openSearch} width={leftWidth} />
           <ResizeHandle side="left" value={leftWidth} onChange={setLeftWidth} />
         </>}
-        <main className={styles.content} id={`panel-${active.id}`} aria-label={active.title}>
-          <div className={styles.pane} role="tabpanel" aria-labelledby={focused ? undefined : `tab-${active.id}`}>
+        <main className={styles.content} aria-label={active.title}>
+          <div className={styles.pane} role="tabpanel" id={`panel-${active.id}`} aria-labelledby={focused ? undefined : `tab-${active.id}`}>
             {active.kind === "home" && <ProjectOverview project={project} onOpenFile={openFile} onNew={() => createFile("md")} onImport={create.onImport} />}
             {active.kind === "all" && <AllFiles project={project} onOpenFile={openFile} />}
             {active.kind === "file" && (activeFile ? <DocumentPane file={activeFile} onEdit={editFile} /> : <p className={styles.muted}>Document not found.</p>)}
