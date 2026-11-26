@@ -1,4 +1,4 @@
-# Temporary branch-only format and verification. Remove once generated formatting is committed.
+# Temporary branch-only format and verification, pass 2. Remove once generated formatting is committed.
 name: R1 fidelity verification
 on:
   push:

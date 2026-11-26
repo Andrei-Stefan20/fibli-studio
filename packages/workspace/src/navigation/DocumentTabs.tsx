@@ -46,15 +46,23 @@ export function DocumentTabs({
   useEffect(() => {
     const element = strip.current;
     if (!element) return;
-    const sync = () => setFade({ left: element.scrollLeft > 2, right: element.scrollLeft + element.clientWidth < element.scrollWidth - 2 });
+    const sync = () =>
+      setFade({
+        left: element.scrollLeft > 2,
+        right: element.scrollLeft + element.clientWidth < element.scrollWidth - 2,
+      });
     sync();
     const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(sync);
     observer?.observe(element);
     element.addEventListener("scroll", sync, { passive: true });
-    const selected = element.querySelector<HTMLElement>('[aria-selected="true"]');
+    const activeIndex = state.tabs.findIndex((tab) => tab.id === state.activeId);
+    const selected = element.querySelectorAll<HTMLElement>('[role="tab"]')[activeIndex];
     selected?.scrollIntoView?.({ block: "nearest", inline: "nearest", behavior: "auto" });
-    return () => { observer?.disconnect(); element.removeEventListener("scroll", sync); };
-  }, [state.activeId, state.tabs.length]);
+    return () => {
+      observer?.disconnect();
+      element.removeEventListener("scroll", sync);
+    };
+  }, [state.activeId, state.tabs]);
   function keyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
     event.preventDefault();

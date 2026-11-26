@@ -78,7 +78,9 @@
   color: var(--fibli-text-secondary);
   cursor: pointer;
   font-size: 13px;
-  transition: background var(--fibli-duration-fast), color var(--fibli-duration-fast);
+  transition:
+    background var(--fibli-duration-fast),
+    color var(--fibli-duration-fast);
 }
 .libraryRow span {
   min-width: 0;
@@ -169,7 +171,9 @@
   background: var(--fibli-material-content);
   border: 0;
   border-radius: 10px;
-  box-shadow: inset 0 0.5px 0 var(--fibli-highlight), inset 0 0 0 1px var(--fibli-border);
+  box-shadow:
+    inset 0 0.5px 0 var(--fibli-highlight),
+    inset 0 0 0 1px var(--fibli-border);
   overflow: hidden;
 }
 .pane,
@@ -462,6 +466,20 @@
   box-shadow: none;
 }
 
-.leftPanel, .rightPanel { display: flex; flex: none; min-height: 0; overflow: hidden; }
-.leftPanel > aside, .rightPanel > aside { flex: none; }
-@media (max-width: 720px) { .leftPanel > aside, .rightPanel > aside { background: var(--fibli-material-overlay); } }
+.leftPanel,
+.rightPanel {
+  display: flex;
+  flex: none;
+  min-height: 0;
+  overflow: hidden;
+}
+.leftPanel > aside,
+.rightPanel > aside {
+  flex: none;
+}
+@media (max-width: 720px) {
+  .leftPanel > aside,
+  .rightPanel > aside {
+    background: var(--fibli-material-overlay);
+  }
+}

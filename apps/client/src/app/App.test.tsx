@@ -28,6 +28,8 @@ describe("App", () => {
     fireEvent.click(screen.getByRole("button", { name: "New project" }));
     fireEvent.change(screen.getByLabelText("New project"), { target: { value: "New manuscript" } });
     fireEvent.click(screen.getByRole("button", { name: "Create project" }));
-    expect(await screen.findByRole("heading", { name: "New manuscript" }, { timeout: 2500 })).toBeInTheDocument();
+    expect(
+      await screen.findByRole("heading", { name: "New manuscript" }, { timeout: 2500 }),
+    ).toBeInTheDocument();
   });
 });

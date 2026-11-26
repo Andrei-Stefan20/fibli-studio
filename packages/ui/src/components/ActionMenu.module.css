@@ -61,7 +61,9 @@
   gap: 9px;
   padding: 4px 10px;
   border-radius: calc(var(--fibli-radius-lg) - 5px);
-  transition: background 70ms, color 70ms;
+  transition:
+    background 70ms,
+    color 70ms;
   outline: none;
   cursor: default;
 }
@@ -108,20 +110,55 @@
   }
 }
 
-.subPositioner { z-index: 186; }
-.danger[data-highlighted] { background: var(--fibli-danger-bg, #b42318); color: #fff; }
-.selectTrigger {
-  display: inline-flex; align-items: center; justify-content: space-between; gap: 8px;
-  min-height: 28px; padding: 4px 9px; border: 1px solid var(--fibli-border-strong);
-  border-radius: var(--fibli-radius-sm); color: var(--fibli-text); background: var(--fibli-fill-1);
-  font: 500 13px var(--fibli-font-ui); cursor: pointer;
-  transition: background var(--fibli-duration-fast), border-color var(--fibli-duration-fast);
+.subPositioner {
+  z-index: 186;
 }
-.selectTrigger:hover { background: var(--fibli-fill-2); }
-.selectValue { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.selectChevrons { display: inline-flex; flex: none; opacity: 0.7; }
-.selectPopup { min-width: max(160px, var(--anchor-width, 160px)); }
-.selectCheck { width: 15px; flex: none; display: inline-flex; }
+.danger[data-highlighted] {
+  background: var(--fibli-danger-bg, #b42318);
+  color: #fff;
+}
+.selectTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 28px;
+  padding: 4px 9px;
+  border: 1px solid var(--fibli-border-strong);
+  border-radius: var(--fibli-radius-sm);
+  color: var(--fibli-text);
+  background: var(--fibli-fill-1);
+  font: 500 13px var(--fibli-font-ui);
+  cursor: pointer;
+  transition:
+    background var(--fibli-duration-fast),
+    border-color var(--fibli-duration-fast);
+}
+.selectTrigger:hover {
+  background: var(--fibli-fill-2);
+}
+.selectValue {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.selectChevrons {
+  display: inline-flex;
+  flex: none;
+  opacity: 0.7;
+}
+.selectPopup {
+  min-width: max(160px, var(--anchor-width, 160px));
+}
+.selectCheck {
+  width: 15px;
+  flex: none;
+  display: inline-flex;
+}
 @media (prefers-reduced-motion: reduce) {
-  .popup, .item, .selectTrigger { transition: none; }
+  .popup,
+  .item,
+  .selectTrigger {
+    transition: none;
+  }
 }

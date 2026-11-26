@@ -1,4 +1,13 @@
-import { GlassButton, GlassDialog, GlassGroup, Icon, IconButton, PanelTransition, PaneTransition, ThemeSettings } from "@fibli/ui";
+import {
+  GlassButton,
+  GlassDialog,
+  GlassGroup,
+  Icon,
+  IconButton,
+  PanelTransition,
+  PaneTransition,
+  ThemeSettings,
+} from "@fibli/ui";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 import {
   closeOtherTabs,
@@ -268,24 +277,32 @@ export function WorkspaceShell({
         </GlassButton>
       )}
       <div className={styles.body}>
-        <PanelTransition open={!focused && sidebar} width={leftWidth + 6} className={styles.leftPanel}>
-            <LibraryPanel
-              project={project}
-              activeFileId={activeFile?.id ?? null}
-              create={create}
-              onOpenFile={openFile}
-              onHome={() => showTab(homeTab)}
-              onAll={openAll}
-              onAI={openAI}
-              onStar={starFile}
-              onSplit={setSplitId}
-              onSearch={openSearch}
-              width={leftWidth}
-            />
-            <ResizeHandle side="left" value={leftWidth} onChange={setLeftWidth} />
+        <PanelTransition
+          open={!focused && sidebar}
+          width={leftWidth + 6}
+          className={styles.leftPanel}
+        >
+          <LibraryPanel
+            project={project}
+            activeFileId={activeFile?.id ?? null}
+            create={create}
+            onOpenFile={openFile}
+            onHome={() => showTab(homeTab)}
+            onAll={openAll}
+            onAI={openAI}
+            onStar={starFile}
+            onSplit={setSplitId}
+            onSearch={openSearch}
+            width={leftWidth}
+          />
+          <ResizeHandle side="left" value={leftWidth} onChange={setLeftWidth} />
         </PanelTransition>
         <main className={styles.content} aria-label={active.title}>
-          <PaneTransition className={styles.pane} activeId={active.id} labelledBy={focused ? undefined : `tab-${active.id}`}>
+          <PaneTransition
+            className={styles.pane}
+            activeId={active.id}
+            labelledBy={focused ? undefined : `tab-${active.id}`}
+          >
             {active.kind === "home" && (
               <ProjectOverview
                 project={project}
@@ -333,68 +350,72 @@ export function WorkspaceShell({
             </div>
           )}
         </main>
-        <PanelTransition open={!focused && inspector} width={rightWidth + 6} className={styles.rightPanel}>
-            <ResizeHandle side="right" value={rightWidth} onChange={setRightWidth} />
-            <aside
-              className={styles.inspector}
-              aria-label="Assistant and details"
-              style={{ width: rightWidth }}
-            >
-              <GlassGroup>
-                <GlassButton
-                  variant="ghost"
-                  aria-pressed={inspectorMode === "details"}
-                  onClick={() => setInspectorMode("details")}
-                >
-                  Details
-                </GlassButton>
-                <GlassButton
-                  variant="ghost"
-                  aria-pressed={inspectorMode === "ai"}
-                  onClick={() => setInspectorMode("ai")}
-                >
-                  <Icon name="spark" size={14} /> Fibli AI
-                </GlassButton>
-              </GlassGroup>
-              {inspectorMode === "ai" ? (
-                <div className={styles.inspectorBody}>
-                  <p className={styles.muted}>No AI provider configured.</p>
-                  <GlassButton onClick={openAI}>Open Fibli AI</GlassButton>
-                </div>
-              ) : (
-                <div className={styles.inspectorBody}>
-                  <h2>{activeFile?.title || project.title}</h2>
-                  <dl>
-                    <dt>{activeFile ? "Format" : "Category"}</dt>
-                    <dd>{activeFile?.kind.toUpperCase() ?? project.category}</dd>
-                    <dt>{activeFile ? "Folder" : "Files"}</dt>
-                    <dd>
-                      {activeFile
-                        ? activeFile.folderId
-                          ? folderPath(project.folders, activeFile.folderId)
-                          : "Root"
-                        : project.files.length}
-                    </dd>
-                    {activeFile && (
-                      <>
-                        <dt>Words</dt>
-                        <dd>
-                          {activeFile.body.trim() ? activeFile.body.trim().split(/\s+/).length : 0}
-                        </dd>
-                      </>
-                    )}
-                  </dl>
+        <PanelTransition
+          open={!focused && inspector}
+          width={rightWidth + 6}
+          className={styles.rightPanel}
+        >
+          <ResizeHandle side="right" value={rightWidth} onChange={setRightWidth} />
+          <aside
+            className={styles.inspector}
+            aria-label="Assistant and details"
+            style={{ width: rightWidth }}
+          >
+            <GlassGroup>
+              <GlassButton
+                variant="ghost"
+                aria-pressed={inspectorMode === "details"}
+                onClick={() => setInspectorMode("details")}
+              >
+                Details
+              </GlassButton>
+              <GlassButton
+                variant="ghost"
+                aria-pressed={inspectorMode === "ai"}
+                onClick={() => setInspectorMode("ai")}
+              >
+                <Icon name="spark" size={14} /> Fibli AI
+              </GlassButton>
+            </GlassGroup>
+            {inspectorMode === "ai" ? (
+              <div className={styles.inspectorBody}>
+                <p className={styles.muted}>No AI provider configured.</p>
+                <GlassButton onClick={openAI}>Open Fibli AI</GlassButton>
+              </div>
+            ) : (
+              <div className={styles.inspectorBody}>
+                <h2>{activeFile?.title || project.title}</h2>
+                <dl>
+                  <dt>{activeFile ? "Format" : "Category"}</dt>
+                  <dd>{activeFile?.kind.toUpperCase() ?? project.category}</dd>
+                  <dt>{activeFile ? "Folder" : "Files"}</dt>
+                  <dd>
+                    {activeFile
+                      ? activeFile.folderId
+                        ? folderPath(project.folders, activeFile.folderId)
+                        : "Root"
+                      : project.files.length}
+                  </dd>
                   {activeFile && (
-                    <GlassButton
-                      aria-pressed={activeFile.starred}
-                      onClick={() => starFile(activeFile.id)}
-                    >
-                      {activeFile.starred ? "Remove from favorites" : "Add to favorites"}
-                    </GlassButton>
+                    <>
+                      <dt>Words</dt>
+                      <dd>
+                        {activeFile.body.trim() ? activeFile.body.trim().split(/\s+/).length : 0}
+                      </dd>
+                    </>
                   )}
-                </div>
-              )}
-            </aside>
+                </dl>
+                {activeFile && (
+                  <GlassButton
+                    aria-pressed={activeFile.starred}
+                    onClick={() => starFile(activeFile.id)}
+                  >
+                    {activeFile.starred ? "Remove from favorites" : "Add to favorites"}
+                  </GlassButton>
+                )}
+              </div>
+            )}
+          </aside>
         </PanelTransition>
       </div>
       <footer className={styles.statusBar}>

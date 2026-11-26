@@ -77,7 +77,11 @@ export function ProjectSelector({
       trigger={
         <>
           {project.cover?.type === "image" ? (
-            <CoverImage key={project.cover.url} className={styles.projectThumbnail} cover={project.cover} />
+            <CoverImage
+              key={project.cover.url}
+              className={styles.projectThumbnail}
+              cover={project.cover}
+            />
           ) : (
             <Icon name="folder" />
           )}

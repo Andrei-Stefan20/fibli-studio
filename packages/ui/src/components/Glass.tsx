@@ -27,7 +27,11 @@ export function IconButton({
 }: ButtonProps & { icon: IconName; label: string }) {
   return (
     <Tooltip.Root>
-      <Tooltip.Trigger render={<GlassButton aria-label={label} className={`${styles.icon} ${className}`} {...props} />}>
+      <Tooltip.Trigger
+        render={
+          <GlassButton aria-label={label} className={`${styles.icon} ${className}`} {...props} />
+        }
+      >
         <Icon name={icon} />
       </Tooltip.Trigger>
       <Tooltip.Portal>

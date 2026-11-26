@@ -5,6 +5,7 @@
   --fibli-material-library: var(--fibli-chrome);
   --fibli-material-dock: var(--fibli-chrome);
   --fibli-material-scene: var(--fibli-chrome);
+  --fibli-material-scene-hover: var(--fibli-surface);
   --fibli-filter-navigation: none;
   --fibli-filter-overlay: none;
   --fibli-material-content: var(--fibli-content);
@@ -22,6 +23,7 @@
     --fibli-material-library: var(--fibli-library-tint);
     --fibli-material-dock: var(--fibli-dock-tint);
     --fibli-material-scene: var(--fibli-scene-control);
+    --fibli-material-scene-hover: var(--fibli-scene-hover);
     --fibli-filter-navigation: var(--fibli-navigation-filter);
     --fibli-filter-overlay: var(--fibli-overlay-filter);
   }
@@ -34,6 +36,7 @@
   --fibli-material-library: var(--fibli-chrome);
   --fibli-material-dock: var(--fibli-chrome);
   --fibli-material-scene: var(--fibli-chrome);
+  --fibli-material-scene-hover: var(--fibli-surface);
   --fibli-filter-navigation: none;
   --fibli-filter-overlay: none;
 }
@@ -44,6 +47,7 @@
     --fibli-material-library: var(--fibli-chrome);
     --fibli-material-dock: var(--fibli-chrome);
     --fibli-material-scene: var(--fibli-chrome);
+    --fibli-material-scene-hover: var(--fibli-surface);
     --fibli-filter-navigation: none;
     --fibli-filter-overlay: none;
   }
@@ -56,6 +60,7 @@
     --fibli-material-library: var(--fibli-chrome);
     --fibli-material-dock: var(--fibli-chrome);
     --fibli-material-scene: var(--fibli-chrome);
+    --fibli-material-scene-hover: var(--fibli-surface);
     --fibli-filter-navigation: none;
     --fibli-filter-overlay: none;
   }

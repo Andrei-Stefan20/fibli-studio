@@ -140,7 +140,10 @@ export function CreateProjectWizard({
             required
           />
           <div className={styles.createOptions}>
-            <ViewSelect label="Template" className={styles.createField} value={templateId}
+            <ViewSelect
+              label="Template"
+              className={styles.createField}
+              value={templateId}
               options={templates.map((item) => ({ value: item.id, label: item.name }))}
               onChange={(value) => {
                 const next = templates.find((item) => item.id === value);
@@ -148,10 +151,15 @@ export function CreateProjectWizard({
                 setTemplateId(next.id);
                 setGenre(next.genres[0]);
                 setFormat(next.format);
-              }} />
-            <ViewSelect label="Genre" className={styles.createField} value={genre}
+              }}
+            />
+            <ViewSelect
+              label="Genre"
+              className={styles.createField}
+              value={genre}
               options={template.genres.map((item) => ({ value: item, label: item }))}
-              onChange={setGenre} />
+              onChange={setGenre}
+            />
             <GlassGroup className={styles.createSegment}>
               <GlassButton
                 variant="ghost"

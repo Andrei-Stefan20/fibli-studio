@@ -1,6 +1,7 @@
 /* R1 desktop geometry and motion. No global element styling. */
 :root {
-  --fibli-font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+  --fibli-font-ui:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
   --fibli-font-mono: ui-monospace, Menlo, Consolas, monospace;
   --fibli-font-editor: Newsreader, Georgia, "New York", "Iowan Old Style", serif;
   --fibli-font-size-caption: 11px;

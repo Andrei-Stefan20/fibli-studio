@@ -62,7 +62,9 @@ export function ThemeProvider({
         update: (patch) => setPreferences((previous) => parseTheme({ ...previous, ...patch })),
       }}
     >
-      <MotionConfig reducedMotion="user"><Tooltip.Provider delay={350}>{children}</Tooltip.Provider></MotionConfig>
+      <MotionConfig reducedMotion="user">
+        <Tooltip.Provider delay={350}>{children}</Tooltip.Provider>
+      </MotionConfig>
     </ThemeContext.Provider>
   );
 }

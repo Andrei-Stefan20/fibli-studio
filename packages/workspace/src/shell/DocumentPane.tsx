@@ -61,9 +61,16 @@ export function ProjectOverview({
     <section className={styles.overview}>
       <div className={styles.projectHeader}>
         <div className={styles.projectCover}>
-          {project.cover?.type === "image" ? <CoverImage key={project.cover.url} cover={project.cover} /> : <Icon name="book" size={26} />}
+          {project.cover?.type === "image" ? (
+            <CoverImage key={project.cover.url} cover={project.cover} />
+          ) : (
+            <Icon name="book" size={26} />
+          )}
         </div>
-        <div><h1>{project.title}</h1><div className={styles.overviewMeta}>{project.category}</div></div>
+        <div>
+          <h1>{project.title}</h1>
+          <div className={styles.overviewMeta}>{project.category}</div>
+        </div>
       </div>
       {project.premise && <p className={styles.premise}>{project.premise}</p>}
       <div className={styles.overviewActions}>

@@ -160,7 +160,9 @@
   border-radius: 50%;
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--fibli-duration-fast), background var(--fibli-duration-fast);
+  transition:
+    opacity var(--fibli-duration-fast),
+    background var(--fibli-duration-fast);
 }
 .tab:hover .tabClose,
 .active .tabClose,
@@ -239,6 +241,17 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .topbar { animation: navigation-enter var(--fibli-duration-base) var(--fibli-ease) both; }
+  .topbar {
+    animation: navigation-enter var(--fibli-duration-base) var(--fibli-ease) both;
+  }
 }
-@keyframes navigation-enter { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes navigation-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

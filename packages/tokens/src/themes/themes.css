@@ -61,7 +61,11 @@
   --fibli-scene-ring: var(--fibli-accent);
   --fibli-atmo-opacity: 0.34;
   --fibli-atmo-filter: blur(24px) saturate(122%) brightness(1.12);
-  --fibli-atmo-veil: radial-gradient(ellipse at 50% 34%, rgb(246 246 250 / 66%), rgb(235 236 242 / 84%));
+  --fibli-atmo-veil: radial-gradient(
+    ellipse at 50% 34%,
+    rgb(246 246 250 / 66%),
+    rgb(235 236 242 / 84%)
+  );
   --fibli-atmosphere: #e9eaee;
   --fibli-content: #ffffff;
   --fibli-surface: #f8f8fb;
@@ -108,7 +112,11 @@
     --fibli-scene-ring: var(--fibli-accent);
     --fibli-atmo-opacity: 0.34;
     --fibli-atmo-filter: blur(24px) saturate(122%) brightness(1.12);
-    --fibli-atmo-veil: radial-gradient(ellipse at 50% 34%, rgb(246 246 250 / 66%), rgb(235 236 242 / 84%));
+    --fibli-atmo-veil: radial-gradient(
+      ellipse at 50% 34%,
+      rgb(246 246 250 / 66%),
+      rgb(235 236 242 / 84%)
+    );
     --fibli-atmosphere: #e9eaee;
     --fibli-content: #ffffff;
     --fibli-surface: #f8f8fb;

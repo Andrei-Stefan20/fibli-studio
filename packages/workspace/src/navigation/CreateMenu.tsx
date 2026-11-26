@@ -23,7 +23,18 @@ export function CreateMenu({
     kind: "action",
     id: kind,
     label,
-    icon: kind === "bib" ? "book" : kind === "tex" ? "latex" : kind === "csv" ? "table" : kind === "json" ? "json" : kind === "code" ? "code" : "file",
+    icon:
+      kind === "bib"
+        ? "book"
+        : kind === "tex"
+          ? "latex"
+          : kind === "csv"
+            ? "table"
+            : kind === "json"
+              ? "json"
+              : kind === "code"
+                ? "code"
+                : "file",
     ...(kind === "md" ? { shortcut: "⌘T" } : {}),
     run: () => onCreate(kind),
   }));

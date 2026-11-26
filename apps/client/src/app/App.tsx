@@ -58,7 +58,12 @@ export function App() {
     setSessions((previous) => ({ ...previous, [id]: update(previous[id] ?? initialTabs()) }));
   }
 
-  useEffect(() => () => { if (cinemaTimer.current !== null) clearTimeout(cinemaTimer.current); }, []);
+  useEffect(
+    () => () => {
+      if (cinemaTimer.current !== null) clearTimeout(cinemaTimer.current);
+    },
+    [],
+  );
 
   function withCinema(project: Project, navigate: () => void) {
     if (cinemaTimer.current !== null) clearTimeout(cinemaTimer.current);
@@ -73,7 +78,10 @@ export function App() {
     cinemaTimer.current = setTimeout(() => {
       navigate();
       setCinema({ project, phase: "opening" });
-      cinemaTimer.current = setTimeout(() => { setCinema(null); cinemaTimer.current = null; }, 520);
+      cinemaTimer.current = setTimeout(() => {
+        setCinema(null);
+        cinemaTimer.current = null;
+      }, 520);
     }, 520);
   }
 
@@ -154,60 +162,64 @@ export function App() {
   return (
     <ThemeProvider>
       <CinemaLayer state={cinema} />
-      <div className="appShell" data-cinema={cinema?.phase ?? "idle"} inert={cinema?.phase === "hold"}>
-      {view === "create" ? (
-        <CreateProjectWizard onCancel={() => setView(returnView)} onCreate={addProject} />
-      ) : view === "workspace" && selected ? (
-        <WorkspaceShell
-          key={selected.id}
-          project={selected}
-          projects={projects}
-          tabs={sessions[selected.id] ?? initialTabs()}
-          onTabsChange={(update) => updateTabs(selected.id, update)}
-          onProjectChange={(update) => updateProject(selected.id, update)}
-          onSelectProject={showProject}
-          onNewProject={showWizard}
-          onLibrary={() => setView("library")}
-          diagnostics={<RuntimeDiagnostics />}
-        />
-      ) : (
-        <ProjectsLibrary
-          projects={projects}
-          selectedId={selectedId}
-          onSelect={setSelectedId}
-          onOpen={showProject}
-          onNew={showWizard}
-          onRename={(id, title) => updateProject(id, (project) => ({ ...project, title }))}
-          onDuplicate={(id) => {
-            const project = projects.find((item) => item.id === id);
-            if (!project) return;
-            const copy = {
-              ...project,
-              id: crypto.randomUUID(),
-              title: `${project.title} — Copy`,
-              folders: project.folders.map((folder) => ({ ...folder })),
-              files: project.files.map((file) => ({ ...file })),
-            };
-            setProjects((previous) => [...previous, copy]);
-            setSelectedId(copy.id);
-          }}
-          onDelete={deleteProject}
-          onCover={(id, file) => {
-            try {
-              const cover = createLocalCover(file);
-              ownedUrls.current.add(cover.url);
-              updateProject(id, (project) => ({ ...project, cover }));
-              setNotice("");
-            } catch (cause) {
-              setNotice(String(cause));
-            }
-          }}
-          onImport={(files) => {
-            void importProject(files);
-          }}
-          notice={notice}
-        />
-      )}
+      <div
+        className="appShell"
+        data-cinema={cinema?.phase ?? "idle"}
+        inert={cinema?.phase === "hold"}
+      >
+        {view === "create" ? (
+          <CreateProjectWizard onCancel={() => setView(returnView)} onCreate={addProject} />
+        ) : view === "workspace" && selected ? (
+          <WorkspaceShell
+            key={selected.id}
+            project={selected}
+            projects={projects}
+            tabs={sessions[selected.id] ?? initialTabs()}
+            onTabsChange={(update) => updateTabs(selected.id, update)}
+            onProjectChange={(update) => updateProject(selected.id, update)}
+            onSelectProject={showProject}
+            onNewProject={showWizard}
+            onLibrary={() => setView("library")}
+            diagnostics={<RuntimeDiagnostics />}
+          />
+        ) : (
+          <ProjectsLibrary
+            projects={projects}
+            selectedId={selectedId}
+            onSelect={setSelectedId}
+            onOpen={showProject}
+            onNew={showWizard}
+            onRename={(id, title) => updateProject(id, (project) => ({ ...project, title }))}
+            onDuplicate={(id) => {
+              const project = projects.find((item) => item.id === id);
+              if (!project) return;
+              const copy = {
+                ...project,
+                id: crypto.randomUUID(),
+                title: `${project.title} — Copy`,
+                folders: project.folders.map((folder) => ({ ...folder })),
+                files: project.files.map((file) => ({ ...file })),
+              };
+              setProjects((previous) => [...previous, copy]);
+              setSelectedId(copy.id);
+            }}
+            onDelete={deleteProject}
+            onCover={(id, file) => {
+              try {
+                const cover = createLocalCover(file);
+                ownedUrls.current.add(cover.url);
+                updateProject(id, (project) => ({ ...project, cover }));
+                setNotice("");
+              } catch (cause) {
+                setNotice(String(cause));
+              }
+            }}
+            onImport={(files) => {
+              void importProject(files);
+            }}
+            notice={notice}
+          />
+        )}
       </div>
     </ThemeProvider>
   );
