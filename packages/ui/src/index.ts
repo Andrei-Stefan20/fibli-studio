@@ -3,3 +3,4 @@ export { GlassButton, GlassGroup, IconButton, SelectionLens, SelectionScope } fr
 export { GlassDialog } from "./components/GlassDialog";
 export { Icon, type IconName } from "./icons/Icon";
 export { ThemeProvider, useTheme } from "./providers/ThemeProvider";
+export { ThemeSettings } from "./components/ThemeSettings";

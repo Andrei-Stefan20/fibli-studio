@@ -1,0 +1,10 @@
+.section { max-width: 720px; margin: 0 auto; padding: 18px 0; }
+.section h2 { font-size: 15px; font-weight: 600; margin: 0 0 16px; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; padding: 10px 0; border-top: 1px solid var(--fibli-border); }
+.swatches { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 7px; }
+.swatch { display: grid; place-items: center; width: 23px; height: 23px; border: 1px solid var(--fibli-border-strong); border-radius: 50%; color: #000; cursor: pointer; }
+.swatch[aria-pressed="true"] { outline: 2px solid var(--fibli-focus); outline-offset: 2px; }
+.custom { display: inline-flex; }
+.custom input { width: 29px; height: 28px; padding: 2px; cursor: pointer; }
+.note { color: var(--fibli-text-muted); font-size: 12px; line-height: 1.5; }
+@media (max-width: 600px) { .row { align-items: flex-start; flex-direction: column; } .swatches { justify-content: flex-start; } }
