@@ -1,6 +1,12 @@
-export { ActionMenu, ContextActions, type Action, type MenuEntry } from "./components/ActionMenu";
-export { GlassButton, GlassGroup, IconButton, SelectionLens, SelectionScope } from "./components/Glass";
+export { type Action, ActionMenu, ContextActions, type MenuEntry } from "./components/ActionMenu";
+export {
+  GlassButton,
+  GlassGroup,
+  IconButton,
+  SelectionLens,
+  SelectionScope,
+} from "./components/Glass";
 export { GlassDialog } from "./components/GlassDialog";
+export { ThemeSettings } from "./components/ThemeSettings";
 export { Icon, type IconName } from "./icons/Icon";
 export { ThemeProvider, useTheme } from "./providers/ThemeProvider";
-export { ThemeSettings } from "./components/ThemeSettings";

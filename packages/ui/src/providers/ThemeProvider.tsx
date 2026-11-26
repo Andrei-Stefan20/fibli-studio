@@ -26,14 +26,17 @@ export function ThemeProvider({
   initial?: ThemePreferences;
   persist?: boolean;
 }) {
-  const [preferences, setPreferences] = useState(() => persist ? loadPreferences() : initial);
+  const [preferences, setPreferences] = useState(() => (persist ? loadPreferences() : initial));
 
   useEffect(() => {
     const dark = window.matchMedia?.("(prefers-color-scheme: dark)");
     const forced = window.matchMedia?.("(forced-colors: active)");
     const sync = () => {
       applyTheme(document.documentElement, preferences, dark?.matches ?? true, forced?.matches);
-      document.documentElement.classList.toggle("dark", document.documentElement.dataset.theme === "dark");
+      document.documentElement.classList.toggle(
+        "dark",
+        document.documentElement.dataset.theme === "dark",
+      );
     };
     sync();
     dark?.addEventListener("change", sync);
@@ -52,10 +55,12 @@ export function ThemeProvider({
   }, [preferences, persist]);
 
   return (
-    <ThemeContext.Provider value={{
-      preferences,
-      update: (patch) => setPreferences((previous) => parseTheme({ ...previous, ...patch })),
-    }}>
+    <ThemeContext.Provider
+      value={{
+        preferences,
+        update: (patch) => setPreferences((previous) => parseTheme({ ...previous, ...patch })),
+      }}
+    >
       <MotionConfig reducedMotion="user">{children}</MotionConfig>
     </ThemeContext.Provider>
   );

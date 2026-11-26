@@ -1,13 +1,52 @@
-.backdrop { position: fixed; inset: 0; background: rgb(0 0 0 / 44%); z-index: 110; }
-.popup {
-  position: fixed; z-index: 111; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: min(440px, calc(100vw - 32px)); max-height: calc(100vh - 40px); overflow: auto;
-  padding: 20px; color: var(--fibli-text); font: 13px var(--fibli-font-ui);
-  background: var(--fibli-material-overlay); backdrop-filter: var(--fibli-filter-overlay);
-  -webkit-backdrop-filter: var(--fibli-filter-overlay); border: 1px solid var(--fibli-border);
-  border-radius: 18px; box-shadow: var(--fibli-material-rim), var(--fibli-shadow-dialog);
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 44%);
+  z-index: 110;
 }
-.header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
-.title { font-size: 17px; font-weight: 600; margin: 0; }
-.close { border: 0; background: transparent; color: var(--fibli-text-secondary); cursor: pointer; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; }
-.close:hover { background: var(--fibli-selection); color: var(--fibli-text); }
+.popup {
+  position: fixed;
+  z-index: 111;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(440px, calc(100vw - 32px));
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  padding: 20px;
+  color: var(--fibli-text);
+  font: 13px var(--fibli-font-ui);
+  background: var(--fibli-material-overlay);
+  backdrop-filter: var(--fibli-filter-overlay);
+  -webkit-backdrop-filter: var(--fibli-filter-overlay);
+  border: 1px solid var(--fibli-border);
+  border-radius: 18px;
+  box-shadow: var(--fibli-material-rim), var(--fibli-shadow-dialog);
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.title {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0;
+}
+.close {
+  border: 0;
+  background: transparent;
+  color: var(--fibli-text-secondary);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.close:hover {
+  background: var(--fibli-selection);
+  color: var(--fibli-text);
+}

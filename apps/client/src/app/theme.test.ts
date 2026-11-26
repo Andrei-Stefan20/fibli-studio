@@ -1,4 +1,11 @@
-import { accentSwatches, accentTokens, applyTheme, contrastRatio, defaultTheme, parseTheme } from "@fibli/tokens/theme";
+import {
+  accentSwatches,
+  accentTokens,
+  applyTheme,
+  contrastRatio,
+  defaultTheme,
+  parseTheme,
+} from "@fibli/tokens/theme";
 import { describe, expect, it } from "vitest";
 
 describe("Theme preferences", () => {
@@ -11,7 +18,9 @@ describe("Theme preferences", () => {
       for (const appearance of ["light", "dark"] as const) {
         const tokens = accentTokens(accent, appearance);
         expect(contrastRatio(tokens.ink, accent)).toBeGreaterThanOrEqual(4.5);
-        expect(contrastRatio(tokens.text, appearance === "light" ? "#d9d9db" : "#55565b")).toBeGreaterThanOrEqual(4.5);
+        expect(
+          contrastRatio(tokens.text, appearance === "light" ? "#d9d9db" : "#55565b"),
+        ).toBeGreaterThanOrEqual(4.5);
       }
     }
   });

@@ -1,11 +1,17 @@
 import { IconButton } from "@fibli/ui";
 import { CreateMenu, type CreateMenuProps } from "./CreateMenu";
 import { DocumentTabs, type DocumentTabsProps } from "./DocumentTabs";
-import { ProjectSelector, type ProjectSelectorProps } from "./ProjectSelector";
 import styles from "./Navigation.module.css";
+import { ProjectSelector, type ProjectSelectorProps } from "./ProjectSelector";
 
 export function NavigationBar({
-  selector, tabs, create, sidebar, inspector, onToggleSidebar, onToggleInspector,
+  selector,
+  tabs,
+  create,
+  sidebar,
+  inspector,
+  onToggleSidebar,
+  onToggleInspector,
 }: {
   selector: ProjectSelectorProps;
   tabs: DocumentTabsProps;
@@ -18,7 +24,12 @@ export function NavigationBar({
   return (
     <header className={styles.topbar}>
       <div className={styles.left}>
-        <IconButton icon="sidebar" label="Toggle library (⌘1)" aria-pressed={sidebar} onClick={onToggleSidebar} />
+        <IconButton
+          icon="sidebar"
+          label="Toggle library (⌘1)"
+          aria-pressed={sidebar}
+          onClick={onToggleSidebar}
+        />
         <ProjectSelector {...selector} />
       </div>
       <div className={styles.center}>
@@ -27,7 +38,12 @@ export function NavigationBar({
       </div>
       <div className={styles.right}>
         <IconButton icon="search" label="Search project (⌘K)" onClick={selector.onSearch} />
-        <IconButton icon="inspector" label="Toggle inspector (⌘2)" aria-pressed={inspector} onClick={onToggleInspector} />
+        <IconButton
+          icon="inspector"
+          label="Toggle inspector (⌘2)"
+          aria-pressed={inspector}
+          onClick={onToggleInspector}
+        />
       </div>
     </header>
   );

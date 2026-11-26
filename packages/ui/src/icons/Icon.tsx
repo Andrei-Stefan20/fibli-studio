@@ -10,7 +10,8 @@ const paths = {
   folder: "M3 6h7l2 3h9v11H3z",
   file: "M6 3h8l4 4v14H6z M14 3v5h5 M9 12h6 M9 16h6",
   search: "M16 16l5 5 M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0",
-  settings: "M12 3v3 M12 18v3 M3 12h3 M18 12h3 M5.6 5.6l2.1 2.1 M16.3 16.3l2.1 2.1 M18.4 5.6l-2.1 2.1 M7.7 16.3l-2.1 2.1 M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0",
+  settings:
+    "M12 3v3 M12 18v3 M3 12h3 M18 12h3 M5.6 5.6l2.1 2.1 M16.3 16.3l2.1 2.1 M18.4 5.6l-2.1 2.1 M7.7 16.3l-2.1 2.1 M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0",
   spark: "m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z",
   more: "M5 12h.1 M12 12h.1 M19 12h.1",
   check: "m5 12 4 4L19 6",
@@ -30,9 +31,18 @@ export type IconName = keyof typeof paths;
 
 export function Icon({ name, size = 17 }: { name: IconName; size?: number }) {
   return (
-    <svg aria-hidden="true" focusable="false" width={size} height={size} viewBox="0 0 24 24"
-      fill="none" stroke="currentColor" strokeWidth={name === "more" ? 3.2 : 1.65}
-      strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={name === "more" ? 3.2 : 1.65}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d={paths[name]} />
     </svg>
   );

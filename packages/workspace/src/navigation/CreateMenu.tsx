@@ -1,5 +1,5 @@
 import { ActionMenu, Icon, type MenuEntry } from "@fibli/ui";
-import { type FileKind, fileTypes, type Folder, folderPath } from "../model";
+import { type FileKind, type Folder, fileTypes, folderPath } from "../model";
 import styles from "./Navigation.module.css";
 
 export interface CreateMenuProps {
@@ -11,7 +11,14 @@ export interface CreateMenuProps {
   onImport: () => void;
 }
 
-export function CreateMenu({ folders, destination, onDestination, onCreate, onFolder, onImport }: CreateMenuProps) {
+export function CreateMenu({
+  folders,
+  destination,
+  onDestination,
+  onCreate,
+  onFolder,
+  onImport,
+}: CreateMenuProps) {
   const entries: MenuEntry[] = fileTypes.map(({ kind, label }) => ({
     kind: "action",
     id: kind,
@@ -37,14 +44,32 @@ export function CreateMenu({ folders, destination, onDestination, onCreate, onFo
         icon: "folder",
         entries: [
           { kind: "label", id: "hint", label: "Create new files in" },
-          { kind: "action", id: "root", label: "Root", checked: destination === null, run: () => onDestination(null) },
-          ...folders.map((folder): MenuEntry => ({
-            kind: "action", id: folder.id, label: folderPath(folders, folder.id),
-            checked: destination === folder.id, run: () => onDestination(folder.id),
-          })),
+          {
+            kind: "action",
+            id: "root",
+            label: "Root",
+            checked: destination === null,
+            run: () => onDestination(null),
+          },
+          ...folders.map(
+            (folder): MenuEntry => ({
+              kind: "action",
+              id: folder.id,
+              label: folderPath(folders, folder.id),
+              checked: destination === folder.id,
+              run: () => onDestination(folder.id),
+            }),
+          ),
         ],
       },
     );
   }
-  return <ActionMenu label="New document or tab" trigger={<Icon name="plus" />} entries={entries} className={styles.circle} />;
+  return (
+    <ActionMenu
+      label="New document or tab"
+      trigger={<Icon name="plus" />}
+      entries={entries}
+      className={styles.circle}
+    />
+  );
 }

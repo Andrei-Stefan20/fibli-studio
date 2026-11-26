@@ -31,9 +31,8 @@ export function parseTheme(value: unknown): ThemePreferences {
   if (typeof value !== "object" || value === null) return { ...defaultTheme };
   const input = value as Partial<ThemePreferences>;
   return {
-    appearance: input.appearance === "light" || input.appearance === "dark"
-      ? input.appearance
-      : "system",
+    appearance:
+      input.appearance === "light" || input.appearance === "dark" ? input.appearance : "system",
     material: input.material === "solid" ? "solid" : "liquid",
     contrast: input.contrast === "more" ? "more" : "normal",
     accent:
@@ -69,7 +68,9 @@ function accessibleAccent(accent: string, background: string, minimum: number): 
   const towards = luminance(background) > 0.5 ? 0 : 255;
   for (let step = 0; step <= 100; step += 1) {
     const mixed = rgb(accent).map((value) =>
-      Math.round(value + (towards - value) * step / 100).toString(16).padStart(2, "0"),
+      Math.round(value + ((towards - value) * step) / 100)
+        .toString(16)
+        .padStart(2, "0"),
     );
     const candidate = `#${mixed.join("")}`;
     if (contrastRatio(candidate, background) >= minimum) return candidate;
@@ -80,9 +81,8 @@ function accessibleAccent(accent: string, background: string, minimum: number): 
 export function accentTokens(accent: string, appearance: "light" | "dark") {
   const background = appearance === "light" ? "#d9d9db" : "#55565b";
   return {
-    ink: contrastRatio(accent, "#000000") >= contrastRatio(accent, "#ffffff")
-      ? "#000000"
-      : "#ffffff",
+    ink:
+      contrastRatio(accent, "#000000") >= contrastRatio(accent, "#ffffff") ? "#000000" : "#ffffff",
     text: accessibleAccent(accent, background, 4.5),
     focus: accessibleAccent(accent, background, 3),
   };
@@ -94,9 +94,8 @@ export function applyTheme(
   systemDark: boolean,
   forcedColors = false,
 ): void {
-  const appearance = preferences.appearance === "system"
-    ? (systemDark ? "dark" : "light")
-    : preferences.appearance;
+  const appearance =
+    preferences.appearance === "system" ? (systemDark ? "dark" : "light") : preferences.appearance;
   root.dataset.theme = appearance;
   root.dataset.material = preferences.material;
   root.dataset.contrast = preferences.contrast;

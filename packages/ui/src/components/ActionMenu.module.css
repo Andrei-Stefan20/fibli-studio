@@ -1,33 +1,95 @@
 .trigger {
-  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-  min-height: var(--fibli-control-lg); padding: 0 12px; min-width: 0;
-  color: var(--fibli-text); font: inherit; cursor: pointer;
-  background: var(--fibli-material-navigation); border: 1px solid var(--fibli-border);
-  border-radius: var(--fibli-radius-pill); box-shadow: var(--fibli-material-control-shadow);
-  backdrop-filter: var(--fibli-filter-navigation); -webkit-backdrop-filter: var(--fibli-filter-navigation);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: var(--fibli-control-lg);
+  padding: 0 12px;
+  min-width: 0;
+  color: var(--fibli-text);
+  font: inherit;
+  cursor: pointer;
+  background: var(--fibli-material-navigation);
+  border: 1px solid var(--fibli-border);
+  border-radius: var(--fibli-radius-pill);
+  box-shadow: var(--fibli-material-control-shadow);
+  backdrop-filter: var(--fibli-filter-navigation);
+  -webkit-backdrop-filter: var(--fibli-filter-navigation);
 }
-.trigger[data-popup-open], .trigger:hover { background: var(--fibli-selection); }
-.positioner { z-index: 100; outline: none; }
+.trigger[data-popup-open],
+.trigger:hover {
+  background: var(--fibli-selection);
+}
+.positioner {
+  z-index: 100;
+  outline: none;
+}
 .popup {
-  min-width: 210px; max-width: min(340px, calc(100vw - 24px)); max-height: min(480px, 85vh);
-  overflow-y: auto; padding: 5px;
-  border: 1px solid var(--fibli-border); border-radius: var(--fibli-radius-lg);
-  color: var(--fibli-text); background: var(--fibli-material-overlay);
+  min-width: 210px;
+  max-width: min(340px, calc(100vw - 24px));
+  max-height: min(480px, 85vh);
+  overflow-y: auto;
+  padding: 5px;
+  border: 1px solid var(--fibli-border);
+  border-radius: var(--fibli-radius-lg);
+  color: var(--fibli-text);
+  background: var(--fibli-material-overlay);
   box-shadow: var(--fibli-material-overlay-shadow);
-  backdrop-filter: var(--fibli-filter-overlay); -webkit-backdrop-filter: var(--fibli-filter-overlay);
+  backdrop-filter: var(--fibli-filter-overlay);
+  -webkit-backdrop-filter: var(--fibli-filter-overlay);
   font: var(--fibli-font-size-ui) var(--fibli-font-ui);
-  outline: none; transform-origin: var(--transform-origin);
-  transition: opacity var(--fibli-duration-fast), transform var(--fibli-duration-fast) var(--fibli-ease);
+  outline: none;
+  transform-origin: var(--transform-origin);
+  transition:
+    opacity var(--fibli-duration-fast),
+    transform var(--fibli-duration-fast) var(--fibli-ease);
 }
-.popup[data-starting-style], .popup[data-ending-style] { opacity: 0; transform: scale(0.98); }
+.popup[data-starting-style],
+.popup[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.98);
+}
 .item {
-  min-height: 28px; display: flex; align-items: center; gap: 8px; padding: 5px 8px;
-  border-radius: var(--fibli-radius-xs); outline: none; cursor: default;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: var(--fibli-radius-xs);
+  outline: none;
+  cursor: default;
 }
-.item[data-highlighted], .item[data-popup-open] { color: var(--fibli-accent-ink); background: var(--fibli-accent); }
-.item[data-disabled] { color: var(--fibli-text-muted); opacity: 0.65; }
-.labelText { flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.caption { color: var(--fibli-text-muted); font-size: 11px; padding: 6px 8px 4px; }
-.shortcut { color: inherit; opacity: 0.85; font: 11px var(--fibli-font-ui); margin-left: auto; }
-.separator { height: 1px; border: 0; background: var(--fibli-border); margin: 4px 5px; }
-.danger { color: var(--fibli-danger-text); }
+.item[data-highlighted],
+.item[data-popup-open] {
+  color: var(--fibli-accent-ink);
+  background: var(--fibli-accent);
+}
+.item[data-disabled] {
+  color: var(--fibli-text-muted);
+  opacity: 0.65;
+}
+.labelText {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.caption {
+  color: var(--fibli-text-muted);
+  font-size: 11px;
+  padding: 6px 8px 4px;
+}
+.shortcut {
+  color: inherit;
+  opacity: 0.85;
+  font: 11px var(--fibli-font-ui);
+  margin-left: auto;
+}
+.separator {
+  height: 1px;
+  border: 0;
+  background: var(--fibli-border);
+  margin: 4px 5px;
+}
+.danger {
+  color: var(--fibli-danger-text);
+}

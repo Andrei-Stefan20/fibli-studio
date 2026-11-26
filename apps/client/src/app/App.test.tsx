@@ -17,7 +17,10 @@ describe("App", () => {
     if (!document) throw new Error("Missing sample document");
     fireEvent.click(document);
     expect(screen.getByRole("textbox", { name: "Document text" })).toBeInTheDocument();
-    expect(screen.getByRole("tab", { name: "Il porto sotto la pioggia" })).toHaveAttribute("aria-selected", "true");
+    expect(screen.getByRole("tab", { name: "Il porto sotto la pioggia" })).toHaveAttribute(
+      "aria-selected",
+      "true",
+    );
   });
 
   it("creates a project from the full-screen wizard", () => {

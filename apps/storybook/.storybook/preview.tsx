@@ -26,9 +26,13 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const preferences = parseTheme(context.globals);
-      return <ThemeProvider key={JSON.stringify(preferences)} initial={preferences} persist={false}>
-        <div className="fibli-root story-surface"><Story /></div>
-      </ThemeProvider>;
+      return (
+        <ThemeProvider key={JSON.stringify(preferences)} initial={preferences} persist={false}>
+          <div className="fibli-root story-surface">
+            <Story />
+          </div>
+        </ThemeProvider>
+      );
     },
   ],
 };

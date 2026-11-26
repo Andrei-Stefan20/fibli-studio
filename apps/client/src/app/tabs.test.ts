@@ -1,4 +1,11 @@
-import { closeOtherTabs, closeTab, closeTabsToRight, initialTabs, openTab, type WorkspaceTab } from "@fibli/workspace";
+import {
+  closeOtherTabs,
+  closeTab,
+  closeTabsToRight,
+  initialTabs,
+  openTab,
+  type WorkspaceTab,
+} from "@fibli/workspace";
 import { describe, expect, it } from "vitest";
 
 const first: WorkspaceTab = { id: "file:a", kind: "file", fileId: "a", title: "Chapter one" };
@@ -11,7 +18,9 @@ describe("Document tabs", () => {
     expect(state.activeId).toBe("file:a");
   });
   it("selects the preceding tab when closing the active tab", () => {
-    expect(closeTab(openTab(openTab(initialTabs(), first), second), second.id).activeId).toBe(first.id);
+    expect(closeTab(openTab(openTab(initialTabs(), first), second), second.id).activeId).toBe(
+      first.id,
+    );
   });
   it("preserves Home when closing other tabs or tabs to the right", () => {
     const state = openTab(openTab(initialTabs(), first), second);

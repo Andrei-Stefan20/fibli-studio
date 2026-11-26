@@ -1,5 +1,17 @@
 import { ThemeProvider } from "@fibli/ui";
-import { createLocalCover, CreateProjectWizard, fileTab, initialTabs, makePreviewProjects, openTab, type Project, type ProjectFile, ProjectsLibrary, type TabState, WorkspaceShell } from "@fibli/workspace";
+import {
+  CreateProjectWizard,
+  createLocalCover,
+  fileTab,
+  initialTabs,
+  makePreviewProjects,
+  openTab,
+  type Project,
+  type ProjectFile,
+  ProjectsLibrary,
+  type TabState,
+  WorkspaceShell,
+} from "@fibli/workspace";
 import { useEffect, useRef, useState } from "react";
 import { RuntimeDiagnostics } from "./RuntimeDiagnostics";
 import "./App.css";
@@ -26,11 +38,16 @@ export function App() {
   }, [projects]);
   useEffect(() => {
     const urls = ownedUrls.current;
-    return () => { for (const url of urls) URL.revokeObjectURL(url); urls.clear(); };
+    return () => {
+      for (const url of urls) URL.revokeObjectURL(url);
+      urls.clear();
+    };
   }, []);
 
   function updateProject(id: string, update: (project: Project) => Project) {
-    setProjects((previous) => previous.map((project) => project.id === id ? update(project) : project));
+    setProjects((previous) =>
+      previous.map((project) => (project.id === id ? update(project) : project)),
+    );
   }
 
   function updateTabs(id: string, update: (state: TabState) => TabState) {
@@ -60,7 +77,11 @@ export function App() {
 
   function deleteProject(id: string) {
     setProjects((previous) => previous.filter((project) => project.id !== id));
-    setSessions((previous) => { const next = { ...previous }; delete next[id]; return next; });
+    setSessions((previous) => {
+      const next = { ...previous };
+      delete next[id];
+      return next;
+    });
     if (selectedId === id) setSelectedId(projects.find((project) => project.id !== id)?.id ?? null);
   }
 
@@ -68,37 +89,94 @@ export function App() {
     if (!files.length) return;
     const documents: ProjectFile[] = [];
     for (const file of files) {
-      if (!/\.(md|txt|tex|bib|csv|tsv|json|js|ts|py|rs|html)$/i.test(file.name) || file.size > 5 * 1024 * 1024) continue;
+      if (
+        !/\.(md|txt|tex|bib|csv|tsv|json|js|ts|py|rs|html)$/i.test(file.name) ||
+        file.size > 5 * 1024 * 1024
+      )
+        continue;
       try {
-        documents.push({ id: crypto.randomUUID(), title: file.name, kind: "text", folderId: null, starred: false, body: await file.text() });
+        documents.push({
+          id: crypto.randomUUID(),
+          title: file.name,
+          kind: "text",
+          folderId: null,
+          starred: false,
+          body: await file.text(),
+        });
       } catch {
         // Continue with the remaining files.
       }
     }
-    if (!documents.length) { setNotice("No supported text files could be imported."); return; }
-    addProject({ id: crypto.randomUUID(), title: "Imported documents", category: "Personal", premise: "", cover: null, folders: [], files: documents });
+    if (!documents.length) {
+      setNotice("No supported text files could be imported.");
+      return;
+    }
+    addProject({
+      id: crypto.randomUUID(),
+      title: "Imported documents",
+      category: "Personal",
+      premise: "",
+      cover: null,
+      folders: [],
+      files: documents,
+    });
   }
 
-  return <ThemeProvider>
-    {view === "create" ? <CreateProjectWizard onCancel={() => setView(returnView)} onCreate={addProject} /> :
-      view === "workspace" && selected ? <WorkspaceShell key={selected.id} project={selected} projects={projects}
-        tabs={sessions[selected.id] ?? initialTabs()} onTabsChange={(update) => updateTabs(selected.id, update)}
-        onProjectChange={(update) => updateProject(selected.id, update)} onSelectProject={showProject}
-        onNewProject={showWizard} onLibrary={() => setView("library")} diagnostics={<RuntimeDiagnostics />} /> :
-        <ProjectsLibrary projects={projects} selectedId={selectedId} onSelect={setSelectedId}
-          onOpen={showProject} onNew={showWizard}
+  return (
+    <ThemeProvider>
+      {view === "create" ? (
+        <CreateProjectWizard onCancel={() => setView(returnView)} onCreate={addProject} />
+      ) : view === "workspace" && selected ? (
+        <WorkspaceShell
+          key={selected.id}
+          project={selected}
+          projects={projects}
+          tabs={sessions[selected.id] ?? initialTabs()}
+          onTabsChange={(update) => updateTabs(selected.id, update)}
+          onProjectChange={(update) => updateProject(selected.id, update)}
+          onSelectProject={showProject}
+          onNewProject={showWizard}
+          onLibrary={() => setView("library")}
+          diagnostics={<RuntimeDiagnostics />}
+        />
+      ) : (
+        <ProjectsLibrary
+          projects={projects}
+          selectedId={selectedId}
+          onSelect={setSelectedId}
+          onOpen={showProject}
+          onNew={showWizard}
           onRename={(id, title) => updateProject(id, (project) => ({ ...project, title }))}
           onDuplicate={(id) => {
             const project = projects.find((item) => item.id === id);
             if (!project) return;
-            const copy = { ...project, id: crypto.randomUUID(), title: `${project.title} — Copy`, folders: project.folders.map((folder) => ({ ...folder })), files: project.files.map((file) => ({ ...file })) };
+            const copy = {
+              ...project,
+              id: crypto.randomUUID(),
+              title: `${project.title} — Copy`,
+              folders: project.folders.map((folder) => ({ ...folder })),
+              files: project.files.map((file) => ({ ...file })),
+            };
             setProjects((previous) => [...previous, copy]);
             setSelectedId(copy.id);
-          }} onDelete={deleteProject}
-          onCover={(id, file) => {
-            try { const cover = createLocalCover(file); ownedUrls.current.add(cover.url); updateProject(id, (project) => ({ ...project, cover })); setNotice(""); }
-            catch (cause) { setNotice(String(cause)); }
           }}
-          onImport={(files) => { void importProject(files); }} notice={notice} />}
-  </ThemeProvider>;
+          onDelete={deleteProject}
+          onCover={(id, file) => {
+            try {
+              const cover = createLocalCover(file);
+              ownedUrls.current.add(cover.url);
+              updateProject(id, (project) => ({ ...project, cover }));
+              setNotice("");
+            } catch (cause) {
+              setNotice(String(cause));
+            }
+          }}
+          onImport={(files) => {
+            void importProject(files);
+          }}
+          notice={notice}
+        />
+      )}
+    </ThemeProvider>
+  );
 }
