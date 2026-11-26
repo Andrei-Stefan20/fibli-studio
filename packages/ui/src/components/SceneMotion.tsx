@@ -1,10 +1,10 @@
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion, type Transition, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
 // Timings preserved from the original Fibli demo.
-const spring = { type: "spring", stiffness: 440, damping: 36, mass: 0.78 } as const;
-const panelMotion = { duration: 0.24, ease: [0.2, 0.8, 0.2, 1] } as const;
-const paneMotion = { duration: 0.16, ease: [0.22, 1, 0.36, 1] } as const;
+const spring: Transition = { type: "spring", stiffness: 440, damping: 36, mass: 0.78 };
+const panelMotion: Transition = { duration: 0.24, ease: [0.2, 0.8, 0.2, 1] };
+const paneMotion: Transition = { duration: 0.16, ease: [0.22, 1, 0.36, 1] };
 
 export function SceneEntrance({ children, className, direction = "up" }: {
   children: ReactNode;

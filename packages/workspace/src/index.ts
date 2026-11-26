@@ -8,3 +8,4 @@ export { createLocalCover, offlineCovers } from "./projects/covers";
 export { ProjectsLibrary } from "./projects/ProjectsLibrary";
 export { makePreviewProjects } from "./projects/previewData";
 export { WorkspaceShell, type WorkspaceShellProps } from "./shell/WorkspaceShell";
+export { CinemaLayer, type CinemaState } from "./projects/CinemaLayer";

@@ -1,0 +1,23 @@
+.layer { position: fixed; inset: 0; z-index: 240; pointer-events: none; isolation: isolate; }
+.scene { position: absolute; inset: 0; z-index: 0; background: var(--fibli-atmosphere); transition: opacity 380ms var(--fibli-ease); }
+.bar {
+  position: absolute; left: 0; right: 0; height: 13vh; z-index: 1;
+  background: #08090d; transform: scaleY(0);
+  transition: transform 520ms var(--fibli-ease-cinema);
+}
+.top { top: 0; transform-origin: top; }
+.bottom { bottom: 0; transform-origin: bottom; }
+.layer[data-phase="hold"] .bar { transform: scaleY(1); }
+.title {
+  position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px; text-align: center;
+  color: #fff; padding: 24px;
+  transition: opacity 420ms var(--fibli-ease), transform 420ms var(--fibli-ease);
+  animation: cinema-title-in 420ms var(--fibli-ease) both;
+}
+.title h2 { margin: 0; font: 500 clamp(34px, 5vw, 56px) / 1.1 var(--fibli-font-editor); text-shadow: 0 4px 36px rgb(0 0 0 / 55%); }
+.title span { font: 500 13px / 1 var(--fibli-font-ui); color: rgb(255 255 255 / 78%); }
+.layer[data-phase="opening"] .scene { opacity: 0; }
+.layer[data-phase="opening"] .title { opacity: 0; transform: translateY(-8px) scale(1.01); }
+@keyframes cinema-title-in { from { opacity: 0; transform: translateY(10px) scale(0.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (prefers-reduced-motion: reduce) { .layer { display: none; } }

@@ -1,5 +1,7 @@
 import { ThemeProvider } from "@fibli/ui";
 import {
+  CinemaLayer,
+  type CinemaState,
   CreateProjectWizard,
   createLocalCover,
   fileTab,
@@ -25,6 +27,8 @@ export function App() {
   const [returnView, setReturnView] = useState<"library" | "workspace">("library");
   const [sessions, setSessions] = useState<Record<string, TabState>>({});
   const [notice, setNotice] = useState("");
+  const [cinema, setCinema] = useState<CinemaState | null>(null);
+  const cinemaTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const ownedUrls = useRef(new Set<string>());
   const selected = projects.find((project) => project.id === selectedId);
 
@@ -54,13 +58,36 @@ export function App() {
     setSessions((previous) => ({ ...previous, [id]: update(previous[id] ?? initialTabs()) }));
   }
 
+  useEffect(() => () => { if (cinemaTimer.current !== null) clearTimeout(cinemaTimer.current); }, []);
+
+  function withCinema(project: Project, navigate: () => void) {
+    if (cinemaTimer.current !== null) clearTimeout(cinemaTimer.current);
+    const media = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+    if (!media || media.matches) {
+      cinemaTimer.current = null;
+      setCinema(null);
+      navigate();
+      return;
+    }
+    setCinema({ project, phase: "hold" });
+    cinemaTimer.current = setTimeout(() => {
+      navigate();
+      setCinema({ project, phase: "opening" });
+      cinemaTimer.current = setTimeout(() => { setCinema(null); cinemaTimer.current = null; }, 520);
+    }, 520);
+  }
+
   function showProject(id: string, fileId?: string) {
     const project = projects.find((item) => item.id === id);
     if (!project) return;
-    setSelectedId(id);
-    setView("workspace");
-    const file = project.files.find((item) => item.id === fileId);
-    if (file) updateTabs(id, (state) => openTab(state, fileTab(file)));
+    const navigate = () => {
+      setSelectedId(id);
+      setView("workspace");
+      const file = project.files.find((item) => item.id === fileId);
+      if (file) updateTabs(id, (state) => openTab(state, fileTab(file)));
+    };
+    if (view === "library") withCinema(project, navigate);
+    else navigate();
   }
 
   function showWizard() {
@@ -71,8 +98,10 @@ export function App() {
   function addProject(project: Project) {
     if (project.cover?.url.startsWith("blob:")) ownedUrls.current.add(project.cover.url);
     setProjects((previous) => [...previous, project]);
-    setSelectedId(project.id);
-    setView("workspace");
+    withCinema(project, () => {
+      setSelectedId(project.id);
+      setView("workspace");
+    });
   }
 
   function deleteProject(id: string) {
@@ -124,6 +153,8 @@ export function App() {
 
   return (
     <ThemeProvider>
+      <CinemaLayer state={cinema} />
+      <div className="appShell" data-cinema={cinema?.phase ?? "idle"} inert={cinema?.phase === "hold"}>
       {view === "create" ? (
         <CreateProjectWizard onCancel={() => setView(returnView)} onCreate={addProject} />
       ) : view === "workspace" && selected ? (
@@ -177,6 +208,7 @@ export function App() {
           notice={notice}
         />
       )}
+      </div>
     </ThemeProvider>
   );
 }

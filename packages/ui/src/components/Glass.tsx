@@ -1,9 +1,10 @@
+import { Tooltip } from "@base-ui/react/tooltip";
 import { LayoutGroup, motion } from "motion/react";
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
 import { Icon, type IconName } from "../icons/Icon";
 import styles from "./Glass.module.css";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = ComponentPropsWithRef<"button"> & {
   variant?: "glass" | "solid" | "ghost";
 };
 
@@ -25,14 +26,16 @@ export function IconButton({
   ...props
 }: ButtonProps & { icon: IconName; label: string }) {
   return (
-    <GlassButton
-      aria-label={label}
-      title={label}
-      className={`${styles.icon} ${className}`}
-      {...props}
-    >
-      <Icon name={icon} />
-    </GlassButton>
+    <Tooltip.Root>
+      <Tooltip.Trigger render={<GlassButton aria-label={label} className={`${styles.icon} ${className}`} {...props} />}>
+        <Icon name={icon} />
+      </Tooltip.Trigger>
+      <Tooltip.Portal>
+        <Tooltip.Positioner side="bottom" sideOffset={7} className={styles.tipPositioner}>
+          <Tooltip.Popup className={styles.tip}>{label}</Tooltip.Popup>
+        </Tooltip.Positioner>
+      </Tooltip.Portal>
+    </Tooltip.Root>
   );
 }
 

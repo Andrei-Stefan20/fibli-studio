@@ -12,7 +12,7 @@ describe("App", () => {
   it("opens a project and switches between the original library and editor", async () => {
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: "Open project" }));
-    expect(screen.getByRole("tab", { name: "Home" })).toBeInTheDocument();
+    expect(await screen.findByRole("tab", { name: "Home" })).toBeInTheDocument();
     const [document] = screen.getAllByRole("button", { name: "Il porto sotto la pioggia" });
     if (!document) throw new Error("Missing sample document");
     fireEvent.click(document);
@@ -23,11 +23,11 @@ describe("App", () => {
     );
   });
 
-  it("creates a project from the full-screen wizard", () => {
+  it("creates a project from the full-screen wizard", async () => {
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: "New project" }));
     fireEvent.change(screen.getByLabelText("New project"), { target: { value: "New manuscript" } });
     fireEvent.click(screen.getByRole("button", { name: "Create project" }));
-    expect(screen.getByRole("heading", { name: "New manuscript" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { name: "New manuscript" }, { timeout: 2500 })).toBeInTheDocument();
   });
 });

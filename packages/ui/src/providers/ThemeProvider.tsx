@@ -1,3 +1,4 @@
+import { Tooltip } from "@base-ui/react/tooltip";
 import { applyTheme, defaultTheme, parseTheme, type ThemePreferences } from "@fibli/tokens/theme";
 import { MotionConfig } from "motion/react";
 import { createContext, type ReactNode, useContext, useEffect, useState } from "react";
@@ -61,7 +62,7 @@ export function ThemeProvider({
         update: (patch) => setPreferences((previous) => parseTheme({ ...previous, ...patch })),
       }}
     >
-      <MotionConfig reducedMotion="user">{children}</MotionConfig>
+      <MotionConfig reducedMotion="user"><Tooltip.Provider delay={350}>{children}</Tooltip.Provider></MotionConfig>
     </ThemeContext.Provider>
   );
 }
