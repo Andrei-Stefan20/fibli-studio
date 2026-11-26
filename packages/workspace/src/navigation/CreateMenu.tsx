@@ -23,7 +23,7 @@ export function CreateMenu({
     kind: "action",
     id: kind,
     label,
-    icon: kind === "bib" ? "book" : kind === "code" || kind === "json" ? "code" : "file",
+    icon: kind === "bib" ? "book" : kind === "tex" ? "latex" : kind === "csv" ? "table" : kind === "json" ? "json" : kind === "code" ? "code" : "file",
     ...(kind === "md" ? { shortcut: "⌘T" } : {}),
     run: () => onCreate(kind),
   }));
@@ -49,14 +49,17 @@ export function CreateMenu({
             id: "root",
             label: "Root",
             checked: destination === null,
+            closeOnClick: false,
             run: () => onDestination(null),
           },
+          { kind: "separator", id: "sep-root" },
           ...folders.map(
             (folder): MenuEntry => ({
               kind: "action",
               id: folder.id,
               label: folderPath(folders, folder.id),
               checked: destination === folder.id,
+              closeOnClick: false,
               run: () => onDestination(folder.id),
             }),
           ),

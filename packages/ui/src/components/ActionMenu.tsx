@@ -13,6 +13,7 @@ export interface Action {
   checked?: boolean;
   danger?: boolean;
   disabled?: boolean;
+  closeOnClick?: boolean;
   run: () => void;
 }
 
@@ -54,10 +55,11 @@ function Entries({ entries }: { entries: MenuEntry[] }) {
             </Menu.SubmenuTrigger>
             <Menu.Portal>
               <Menu.Positioner
-                className={styles.positioner}
+                className={`${styles.positioner} ${styles.subPositioner}`}
                 side="right"
                 align="start"
                 sideOffset={4}
+                collisionPadding={8}
               >
                 <Menu.Popup className={styles.popup}>
                   <Entries entries={entry.entries} />
@@ -72,6 +74,7 @@ function Entries({ entries }: { entries: MenuEntry[] }) {
             key={entry.id}
             className={`${styles.item} ${entry.danger ? styles.danger : ""}`}
             disabled={entry.disabled ?? false}
+            closeOnClick={entry.closeOnClick ?? true}
             onClick={entry.run}
           >
             <EntryContent entry={entry} />

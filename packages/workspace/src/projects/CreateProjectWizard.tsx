@@ -1,4 +1,4 @@
-import { GlassButton, GlassGroup, Icon } from "@fibli/ui";
+import { GlassButton, GlassGroup, Icon, ViewSelect } from "@fibli/ui";
 import { useEffect, useRef, useState } from "react";
 import type { Cover, FileKind, Folder, Project, ProjectFile } from "../model";
 import { Atmosphere, CoverView } from "./CoverView";
@@ -110,7 +110,7 @@ export function CreateProjectWizard({
 
   return (
     <div className={`fibli-root ${styles.library}`}>
-      <Atmosphere cover={cover} />
+      <Atmosphere cover={cover} centered />
       <header className={styles.homeBar}>
         <GlassButton variant="ghost" onClick={onCancel}>
           <Icon name="left" /> Projects
@@ -140,34 +140,19 @@ export function CreateProjectWizard({
             required
           />
           <div className={styles.createOptions}>
-            <label className={styles.createField}>
-              Template
-              <select
-                value={templateId}
-                onChange={(event) => {
-                  const next = templates.find((item) => item.id === event.target.value);
-                  if (!next) return;
-                  setTemplateId(next.id);
-                  setGenre(next.genres[0]);
-                  setFormat(next.format);
-                }}
-              >
-                {templates.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label className={styles.createField}>
-              Genre
-              <select value={genre} onChange={(event) => setGenre(event.target.value)}>
-                {template.genres.map((item) => (
-                  <option key={item}>{item}</option>
-                ))}
-              </select>
-            </label>
-            <GlassGroup>
+            <ViewSelect label="Template" className={styles.createField} value={templateId}
+              options={templates.map((item) => ({ value: item.id, label: item.name }))}
+              onChange={(value) => {
+                const next = templates.find((item) => item.id === value);
+                if (!next) return;
+                setTemplateId(next.id);
+                setGenre(next.genres[0]);
+                setFormat(next.format);
+              }} />
+            <ViewSelect label="Genre" className={styles.createField} value={genre}
+              options={template.genres.map((item) => ({ value: item, label: item }))}
+              onChange={setGenre} />
+            <GlassGroup className={styles.createSegment}>
               <GlassButton
                 variant="ghost"
                 aria-pressed={format === "md"}

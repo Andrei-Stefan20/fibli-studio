@@ -33,6 +33,7 @@
   --fibli-material-overlay: var(--fibli-surface);
   --fibli-material-library: var(--fibli-chrome);
   --fibli-material-dock: var(--fibli-chrome);
+  --fibli-material-scene: var(--fibli-chrome);
   --fibli-filter-navigation: none;
   --fibli-filter-overlay: none;
 }

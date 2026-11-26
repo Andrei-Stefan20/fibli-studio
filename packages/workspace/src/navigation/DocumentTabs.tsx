@@ -9,7 +9,7 @@ import {
   SelectionLens,
   SelectionScope,
 } from "@fibli/ui";
-import { type KeyboardEvent, useId, useRef } from "react";
+import { type KeyboardEvent, useEffect, useId, useRef, useState } from "react";
 import type { TabState, WorkspaceTab } from "../model";
 import styles from "./Navigation.module.css";
 
@@ -42,6 +42,19 @@ export function DocumentTabs({
 }: DocumentTabsProps) {
   const strip = useRef<HTMLDivElement>(null);
   const scope = useId();
+  const [fade, setFade] = useState({ left: false, right: false });
+  useEffect(() => {
+    const element = strip.current;
+    if (!element) return;
+    const sync = () => setFade({ left: element.scrollLeft > 2, right: element.scrollLeft + element.clientWidth < element.scrollWidth - 2 });
+    sync();
+    const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(sync);
+    observer?.observe(element);
+    element.addEventListener("scroll", sync, { passive: true });
+    const selected = element.querySelector<HTMLElement>('[aria-selected="true"]');
+    selected?.scrollIntoView?.({ block: "nearest", inline: "nearest", behavior: "auto" });
+    return () => { observer?.disconnect(); element.removeEventListener("scroll", sync); };
+  }, [state.activeId, state.tabs.length]);
   function keyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
     event.preventDefault();
@@ -78,6 +91,8 @@ export function DocumentTabs({
         <div
           ref={strip}
           className={styles.tabStrip}
+          data-fade-left={fade.left}
+          data-fade-right={fade.right}
           role="tablist"
           aria-label="Open documents"
           onWheel={(event) => {
@@ -135,7 +150,7 @@ export function DocumentTabs({
                 className={`${styles.tab} ${active ? styles.active : ""} ${tab.kind === "home" ? styles.homeTab : ""}`}
                 entries={actions}
               >
-                {active && <SelectionLens />}
+                {active && state.tabs.length > 1 && <SelectionLens />}
                 <button
                   type="button"
                   className={styles.tabOpen}
