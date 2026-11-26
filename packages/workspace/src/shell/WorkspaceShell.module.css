@@ -8,23 +8,6 @@
   isolation: isolate;
   background: var(--fibli-atmosphere);
 }
-.studioBackdrop {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
-.studio::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--fibli-material-library);
-  backdrop-filter: var(--fibli-filter-navigation);
-  -webkit-backdrop-filter: var(--fibli-filter-navigation);
-}
 .body {
   flex: 1;
   min-height: 0;
@@ -414,7 +397,7 @@
   white-space: nowrap;
 }
 @media (max-width: 1050px) {
-  .inspector {
+  .rightPanel {
     position: absolute;
     right: 8px;
     top: 0;
@@ -426,7 +409,7 @@
   }
 }
 @media (max-width: 720px) {
-  .library {
+  .leftPanel {
     position: absolute;
     left: 8px;
     top: 0;
@@ -478,3 +461,7 @@
   border-radius: 0;
   box-shadow: none;
 }
+
+.leftPanel, .rightPanel { display: flex; flex: none; min-height: 0; overflow: hidden; }
+.leftPanel > aside, .rightPanel > aside { flex: none; }
+@media (max-width: 720px) { .leftPanel > aside, .rightPanel > aside { background: var(--fibli-material-overlay); } }

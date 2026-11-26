@@ -1,5 +1,5 @@
 import type { Project } from "../model";
-import { offlineCovers } from "./covers";
+import { referenceCovers } from "./covers";
 
 // The two example workspaces in Demo R1, reduced to supported text formats.
 // These are session fixtures, not persisted user documents.
@@ -11,7 +11,7 @@ export function makePreviewProjects(): Project[] {
       category: "Romanzo di formazione",
       premise:
         "Un archivista torna su un’isola piccola durante una marea fuori stagione per riaprire un registro marittimo del 1968.",
-      cover: offlineCovers[0] ?? null,
+      cover: referenceCovers[0] ?? null,
       folders: [
         { id: "f_ms", name: "Manoscritto", parentId: null },
         { id: "f_p1", name: "Prima parte", parentId: "f_ms" },
@@ -50,7 +50,7 @@ export function makePreviewProjects(): Project[] {
       category: "Fisica e Matematica",
       premise:
         "Studio analitico e numerico dell’amplificazione armonica delle maree in stretti costieri poco profondi.",
-      cover: offlineCovers[3] ?? null,
+      cover: referenceCovers[1] ?? null,
       folders: [
         { id: "f_tex", name: "Articolo", parentId: null },
         { id: "f_dat", name: "Dati e fonti", parentId: null },

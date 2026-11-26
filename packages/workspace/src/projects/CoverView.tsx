@@ -23,7 +23,7 @@ export function CoverView({
   }, []);
 
   if (cover?.type === "image")
-    return <img className={styles.coverMedia} src={cover.url} alt="" draggable={false} />;
+    return <CoverImage key={cover.url} cover={cover} className={styles.coverMedia} />;
   if (cover?.type === "video" && !thumbnail && !reducedMotion) {
     return (
       <video
@@ -46,10 +46,24 @@ export function CoverView({
   );
 }
 
-export function Atmosphere({ cover }: { cover: Cover | null }) {
+export function CoverImage({ cover, className }: { cover: Cover; className?: string | undefined }) {
+  const [failed, setFailed] = useState(false);
+  const src = failed ? cover.fallbackUrl : cover.url;
+  if (!src) return <div className={styles.coverFallback} aria-hidden="true" />;
+  return <img className={className} src={src} alt="" draggable={false} referrerPolicy="no-referrer"
+    onError={() => setFailed(true)} />;
+}
+
+export function Atmosphere({ cover, centered = false, ambient = false }: {
+  cover: Cover | null;
+  centered?: boolean;
+  ambient?: boolean;
+}) {
   return (
-    <div className={styles.atmosphere} aria-hidden="true">
-      <CoverView cover={cover} />
+    <div className={`${styles.atmosphere} ${centered ? styles.centered : ""} ${ambient ? styles.ambient : ""}`} aria-hidden="true">
+      <div className={styles.atmosphereLayer} key={cover?.url ?? "empty"}>
+        <CoverView cover={ambient && cover?.type === "video" ? null : cover} />
+      </div>
       <div className={styles.scrim} />
     </div>
   );

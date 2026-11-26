@@ -6,6 +6,7 @@ import {
   GlassDialog,
   Icon,
   IconButton,
+  SceneEntrance,
   type MenuEntry,
   ThemeSettings,
 } from "@fibli/ui";
@@ -133,7 +134,7 @@ export function ProjectsLibrary({
         </div>
       </header>
       <main className={styles.stage} aria-label="Projects library">
-        <div className={styles.hero} key={current?.id ?? "empty"}>
+        <SceneEntrance className={styles.hero} key={current?.id ?? "empty"}>
           {current ? (
             <>
               <div className={styles.meta}>{current.category}</div>
@@ -170,7 +171,7 @@ export function ProjectsLibrary({
               </div>
             </>
           )}
-        </div>
+        </SceneEntrance>
         <fieldset className={styles.dock} aria-label="Your projects">
           {filtered.map((project) => (
             <ContextActions
@@ -212,6 +213,7 @@ export function ProjectsLibrary({
       </main>
       <footer className={styles.footer}>
         {notice || "Session preview · projects are not saved to disk"}
+        {current?.cover?.credit && <span className={styles.coverCredit}>{current.cover.credit}</span>}
       </footer>
       <input
         ref={coverInput}

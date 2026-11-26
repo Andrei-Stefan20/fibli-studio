@@ -2,7 +2,7 @@ import { GlassButton, GlassGroup, Icon, ViewSelect } from "@fibli/ui";
 import { useEffect, useRef, useState } from "react";
 import type { Cover, FileKind, Folder, Project, ProjectFile } from "../model";
 import { Atmosphere, CoverView } from "./CoverView";
-import { createLocalCover, offlineCovers } from "./covers";
+import { createLocalCover, offlineCovers, referenceCovers } from "./covers";
 import styles from "./ProjectsLibrary.module.css";
 
 const templates = [
@@ -82,7 +82,7 @@ export function CreateProjectWizard({
   const [templateId, setTemplateId] = useState<string>("novel");
   const [genre, setGenre] = useState<string>("Coming-of-age");
   const [format, setFormat] = useState<"md" | "tex">("md");
-  const [cover, setCover] = useState<Cover | null>(offlineCovers[0] ?? null);
+  const [cover, setCover] = useState<Cover | null>(referenceCovers[0] ?? null);
   const [error, setError] = useState("");
   const fileInput = useRef<HTMLInputElement>(null);
   const custom = useRef<string | null>(null);
@@ -175,7 +175,7 @@ export function CreateProjectWizard({
         </form>
         <div className={styles.createFoot}>
           {error && <p role="alert">{error}</p>}
-          <span>{cover?.name ?? "No cover"}</span>
+          <span>{cover?.credit ?? cover?.name ?? "No cover"}</span>
           <fieldset className={styles.dock} aria-label="Project cover">
             <button
               type="button"
@@ -196,7 +196,7 @@ export function CreateProjectWizard({
                 <span>{cover.name}</span>
               </button>
             )}
-            {offlineCovers.map((item) => (
+            {[...referenceCovers, ...offlineCovers].map((item) => (
               <button
                 key={item.name}
                 type="button"

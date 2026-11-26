@@ -4,6 +4,8 @@ export interface Cover {
   type: "image" | "video";
   url: string;
   name: string;
+  fallbackUrl?: string;
+  credit?: string;
 }
 
 export interface Folder {

@@ -9,14 +9,14 @@ describe("App", () => {
     expect(screen.getByRole("heading", { name: "Le isole di Sàlma" })).toBeInTheDocument();
   });
 
-  it("opens a project and switches between the original library and editor", () => {
+  it("opens a project and switches between the original library and editor", async () => {
     render(<App />);
     fireEvent.click(screen.getByRole("button", { name: "Open project" }));
     expect(screen.getByRole("tab", { name: "Home" })).toBeInTheDocument();
     const [document] = screen.getAllByRole("button", { name: "Il porto sotto la pioggia" });
     if (!document) throw new Error("Missing sample document");
     fireEvent.click(document);
-    expect(screen.getByRole("textbox", { name: "Document text" })).toBeInTheDocument();
+    expect(await screen.findByRole("textbox", { name: "Document text" })).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: "Il porto sotto la pioggia" })).toHaveAttribute(
       "aria-selected",
       "true",

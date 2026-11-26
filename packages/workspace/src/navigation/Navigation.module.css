@@ -237,3 +237,8 @@
     scroll-behavior: auto;
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .topbar { animation: navigation-enter var(--fibli-duration-base) var(--fibli-ease) both; }
+}
+@keyframes navigation-enter { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }

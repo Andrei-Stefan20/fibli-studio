@@ -1,4 +1,4 @@
-import { GlassButton, GlassDialog, GlassGroup, Icon, IconButton, ThemeSettings } from "@fibli/ui";
+import { GlassButton, GlassDialog, GlassGroup, Icon, IconButton, PanelTransition, PaneTransition, ThemeSettings } from "@fibli/ui";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 import {
   closeOtherTabs,
@@ -16,6 +16,7 @@ import {
 } from "../model";
 import type { CreateMenuProps } from "../navigation/CreateMenu";
 import { NavigationBar } from "../navigation/NavigationBar";
+import { Atmosphere } from "../projects/CoverView";
 import { AllFiles, DocumentPane, ProjectOverview } from "./DocumentPane";
 import { LibraryPanel } from "./LibraryPanel";
 import { ResizeHandle } from "./ResizeHandle";
@@ -230,9 +231,7 @@ export function WorkspaceShell({
 
   return (
     <div className={`fibli-root ${styles.studio}`}>
-      {project.cover?.type === "image" && (
-        <img className={styles.studioBackdrop} src={project.cover.url} alt="" />
-      )}
+      <Atmosphere cover={project.cover} ambient />
       {!focused && (
         <NavigationBar
           selector={{
@@ -269,8 +268,7 @@ export function WorkspaceShell({
         </GlassButton>
       )}
       <div className={styles.body}>
-        {!focused && sidebar && (
-          <>
+        <PanelTransition open={!focused && sidebar} width={leftWidth + 6} className={styles.leftPanel}>
             <LibraryPanel
               project={project}
               activeFileId={activeFile?.id ?? null}
@@ -285,15 +283,9 @@ export function WorkspaceShell({
               width={leftWidth}
             />
             <ResizeHandle side="left" value={leftWidth} onChange={setLeftWidth} />
-          </>
-        )}
+        </PanelTransition>
         <main className={styles.content} aria-label={active.title}>
-          <div
-            className={styles.pane}
-            role="tabpanel"
-            id={`panel-${active.id}`}
-            aria-labelledby={focused ? undefined : `tab-${active.id}`}
-          >
+          <PaneTransition className={styles.pane} activeId={active.id} labelledBy={focused ? undefined : `tab-${active.id}`}>
             {active.kind === "home" && (
               <ProjectOverview
                 project={project}
@@ -325,7 +317,7 @@ export function WorkspaceShell({
                 <GlassButton onClick={openSettings}>Settings</GlassButton>
               </section>
             )}
-          </div>
+          </PaneTransition>
           {splitFile && !focused && (
             <div className={styles.splitPane}>
               <div className={styles.splitHeader}>
@@ -341,8 +333,7 @@ export function WorkspaceShell({
             </div>
           )}
         </main>
-        {!focused && inspector && (
-          <>
+        <PanelTransition open={!focused && inspector} width={rightWidth + 6} className={styles.rightPanel}>
             <ResizeHandle side="right" value={rightWidth} onChange={setRightWidth} />
             <aside
               className={styles.inspector}
@@ -404,8 +395,7 @@ export function WorkspaceShell({
                 </div>
               )}
             </aside>
-          </>
-        )}
+        </PanelTransition>
       </div>
       <footer className={styles.statusBar}>
         <span>{notice || "Session preview · projects are not saved to disk"}</span>

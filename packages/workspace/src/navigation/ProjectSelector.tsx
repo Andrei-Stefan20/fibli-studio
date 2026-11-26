@@ -1,5 +1,6 @@
 import { ActionMenu, Icon, type MenuEntry } from "@fibli/ui";
 import type { Project } from "../model";
+import { CoverImage } from "../projects/CoverView";
 import styles from "./Navigation.module.css";
 
 export interface ProjectSelectorProps {
@@ -76,7 +77,7 @@ export function ProjectSelector({
       trigger={
         <>
           {project.cover?.type === "image" ? (
-            <img className={styles.projectThumbnail} src={project.cover.url} alt="" />
+            <CoverImage key={project.cover.url} className={styles.projectThumbnail} cover={project.cover} />
           ) : (
             <Icon name="folder" />
           )}

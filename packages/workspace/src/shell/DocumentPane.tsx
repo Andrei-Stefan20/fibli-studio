@@ -1,6 +1,7 @@
 import { GlassButton, Icon } from "@fibli/ui";
 import { useId } from "react";
 import type { Project, ProjectFile } from "../model";
+import { CoverImage } from "../projects/CoverView";
 import styles from "./WorkspaceShell.module.css";
 
 export function DocumentPane({
@@ -58,8 +59,12 @@ export function ProjectOverview({
 }) {
   return (
     <section className={styles.overview}>
-      <div className={styles.overviewMeta}>{project.category}</div>
-      <h1>{project.title}</h1>
+      <div className={styles.projectHeader}>
+        <div className={styles.projectCover}>
+          {project.cover?.type === "image" ? <CoverImage key={project.cover.url} cover={project.cover} /> : <Icon name="book" size={26} />}
+        </div>
+        <div><h1>{project.title}</h1><div className={styles.overviewMeta}>{project.category}</div></div>
+      </div>
       {project.premise && <p className={styles.premise}>{project.premise}</p>}
       <div className={styles.overviewActions}>
         <GlassButton variant="solid" onClick={onNew}>

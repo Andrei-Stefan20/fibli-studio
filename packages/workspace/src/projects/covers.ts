@@ -46,6 +46,25 @@ export const offlineCovers: Cover[] = [
   },
 ];
 
+// The original R1 example scenes. Remote images are optional, public, and have
+// an offline vector fallback. Attribution is also shown in the library.
+export const referenceCovers: Cover[] = [
+  {
+    type: "image",
+    name: "Kilchurn Castle at sunrise",
+    url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Kilchurn_Castle_at_sunrise.jpg/1280px-Kilchurn_Castle_at_sunrise.jpg",
+    ...(offlineCovers[0] ? { fallbackUrl: offlineCovers[0].url } : {}),
+    credit: "MHoser · Kilchurn Castle at sunrise · CC BY-SA 4.0",
+  },
+  {
+    type: "image",
+    name: "Das Eismeer",
+    url: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Caspar_David_Friedrich_-_Das_Eismeer_-_Hamburger_Kunsthalle_-_02.jpg/1280px-Caspar_David_Friedrich_-_Das_Eismeer_-_Hamburger_Kunsthalle_-_02.jpg",
+    ...(offlineCovers[3] ? { fallbackUrl: offlineCovers[3].url } : {}),
+    credit: "Caspar David Friedrich · Das Eismeer (1823–24) · Public domain",
+  },
+];
+
 export function createLocalCover(file: File): Cover {
   const image = ["image/jpeg", "image/png", "image/webp", "image/gif", "image/avif"].includes(
     file.type,
