@@ -25,3 +25,8 @@ export { Icon, type IconName } from "./icons/Icon";
 export { ConfirmDialog } from "./overlays/ConfirmDialog";
 export { Popover } from "./overlays/Popover";
 export { ThemeProvider, useTheme } from "./providers/ThemeProvider";
+export { MaterialSurface, type MaterialRole } from "./materials/MaterialSurface";
+export { CollectionRow, CollectionSection } from "./collections/CollectionRow";
+export { DisclosureTree, type DisclosureNode } from "./collections/DisclosureTree";
+export { Breadcrumbs, type BreadcrumbItem } from "./navigation/Breadcrumbs";
+export { Toolbar, ToolbarGroup, ToolbarSeparator } from "./navigation/Toolbar";

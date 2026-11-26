@@ -1,0 +1,30 @@
+.row {
+  display: flex; align-items: center; min-width: 0;
+  border-radius: var(--fibli-radius-sm); margin-bottom: 1px;
+  transition: background var(--fibli-duration-fast);
+}
+.row:hover { background: var(--fibli-fill-1); }
+.row[data-selected="true"] { background: var(--fibli-fill-2); }
+.rowButton {
+  display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0;
+  height: 29px; padding: 0 8px; color: var(--fibli-text-secondary);
+  text-align: left; font: 400 13px / 1 var(--fibli-font-ui);
+  background: transparent; border: 0; border-radius: var(--fibli-radius-sm); cursor: pointer;
+}
+.rowButton[data-leaf="true"] { height: 27px; font-size: 12.5px; }
+.rowButton[aria-current="page"] { color: var(--fibli-text); font-weight: 500; }
+.name { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.metadata { flex: none; font-size: 11.5px; color: var(--fibli-text-muted); font-variant-numeric: tabular-nums; }
+.trailing { opacity: 0; margin-right: 3px; flex: none; transition: opacity var(--fibli-duration-fast); }
+.row:hover .trailing, .row:focus-within .trailing { opacity: 1; }
+.sectionHeading { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 8px 8px 5px; color: var(--fibli-text-secondary); }
+.sectionHeading h2 { margin: 0; font: 600 12px / 1.2 var(--fibli-font-ui); }
+.sectionActions { display: flex; gap: 2px; }
+.tree, .children { list-style: none; margin: 0; padding: 0; }
+.children { position: relative; padding-inline-start: 13px; }
+.children::before { content: ""; position: absolute; inset-block: 0 4px; inset-inline-start: 8px; width: 1px; background: var(--fibli-border); pointer-events: none; }
+.disclosure { display: grid; place-items: center; width: 18px; height: 24px; flex: none; padding: 0; background: transparent; border: 0; border-radius: var(--fibli-radius-xs); color: var(--fibli-text-muted); cursor: pointer; }
+.disclosure:hover { color: var(--fibli-text); }
+@media (forced-colors: active) {
+  .row[data-selected="true"] { outline: 1px solid Highlight; }
+}
