@@ -32,7 +32,8 @@
         "style-src": "'self' 'unsafe-inline'",
         "font-src": "'self' data:",
         "object-src": "'none'",
-        "base-uri": "'self'"
+        "base-uri": "'self'",
+        "media-src": "'self' blob: data:"
       },
       "devCsp": {
         "default-src": "'self'",
@@ -42,7 +43,8 @@
         "style-src": "'self' 'unsafe-inline'",
         "font-src": "'self' data:",
         "object-src": "'none'",
-        "base-uri": "'self'"
+        "base-uri": "'self'",
+        "media-src": "'self' blob: data:"
       }
     }
   },

@@ -1,0 +1,63 @@
+.library { position: relative; isolation: isolate; display: flex; flex-direction: column; height: 100dvh; min-height: 0; overflow: hidden; background: #17191e; }
+.atmosphere { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.coverMedia, .coverFallback { width: 100%; height: 100%; object-fit: cover; display: block; }
+.coverFallback { background: #20232a; color: #bfc2c9; display: grid; place-items: center; }
+.scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(9 11 15 / 68%), rgb(9 11 15 / 24%) 27%, rgb(9 11 15 / 42%) 49%, rgb(9 11 15 / 83%) 88%, rgb(9 11 15 / 90%)); }
+.homeBar { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 22px; color: #f5f5f7; }
+.brand, .homeActions { display: flex; align-items: center; gap: 9px; min-width: 0; }
+.wordmark { font: 650 23px/1 var(--fibli-font-ui); letter-spacing: -0.045em; }
+.homeBar .brand input { height: 32px; min-width: 0; max-width: 180px; padding: 0 10px; }
+.homeActions button { color: var(--fibli-text); }
+.homeActions > button:nth-child(2) { color: #f5f5f7; }
+.stage { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 28px; padding: 24px 48px 20px; color: #f5f3ee; overflow-y: auto; }
+.hero { max-width: 600px; animation: enter var(--fibli-duration-base) var(--fibli-ease) both; }
+.hero h1 { margin: 0; font: 650 clamp(30px, 4vw, 44px)/1.06 var(--fibli-font-ui); letter-spacing: -0.025em; color: #fff; text-shadow: 0 3px 22px #0008; overflow-wrap: anywhere; }
+.hero p { margin: 12px 0 0; max-width: 48ch; font-size: 15.5px; line-height: 1.55; color: #f0f0f2; text-shadow: 0 1px 9px #000a; }
+.meta { margin-bottom: 8px; color: #e4e6eb; font-size: 13px; font-weight: 500; text-shadow: 0 1px 10px #000a; }
+.heroActions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
+.primary { background: #f5f5f7; color: #1d1d1f; border: 0; box-shadow: 0 6px 20px #0004; padding-inline: 20px; min-height: 38px; border-radius: 10px; font-weight: 600; }
+.primary:hover:not(:disabled) { background: #fff; color: #17171a; }
+.more { min-width: 36px; width: 36px; min-height: 36px; padding: 0; }
+.dock {
+  align-self: center; display: flex; align-items: center; gap: 8px; padding: 7px;
+  max-width: 100%; overflow-x: auto; scrollbar-width: none; border-radius: 18px;
+  border: 1px solid var(--fibli-border); background: var(--fibli-material-dock);
+  box-shadow: var(--fibli-material-rim), var(--fibli-shadow-overlay);
+  backdrop-filter: var(--fibli-filter-navigation); -webkit-backdrop-filter: var(--fibli-filter-navigation);
+}
+.dock::-webkit-scrollbar { display: none; }
+.thumbContext { flex: none; }
+.thumbnail, .addThumb {
+  position: relative; display: block; width: 112px; height: 62px; padding: 0;
+  overflow: hidden; flex: none; border-radius: 11px; border: 2px solid transparent;
+  background: var(--fibli-chrome); cursor: pointer; opacity: 0.86;
+  transition: opacity var(--fibli-duration-fast), border-color var(--fibli-duration-fast), transform var(--fibli-duration-fast);
+}
+.thumbnail:hover, .addThumb:hover { opacity: 1; transform: translateY(-1px); }
+.thumbnail[aria-pressed="true"], .addThumb[aria-pressed="true"] { opacity: 1; border-color: var(--fibli-focus); box-shadow: 0 3px 12px #0004; }
+.thumbnail span { position: absolute; inset: auto 0 0; padding: 18px 7px 5px; background: linear-gradient(0deg, #080a0ee8, #080a0e91 60%, transparent); color: #fff; text-align: left; font: 500 11px/1.1 var(--fibli-font-ui); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.addThumb { width: 56px; display: grid; place-items: center; border: 1px solid var(--fibli-border-strong); color: var(--fibli-text); background: var(--fibli-material-navigation); }
+.footer { flex: none; text-align: center; padding: 0 12px 8px; color: #d3d5db; font: 10.5px var(--fibli-font-ui); }
+.createStage { position: relative; flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 24px 24px 156px; color: #fff; overflow-y: auto; }
+.createCenter { width: min(760px, 100%); display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; animation: enter var(--fibli-duration-base) var(--fibli-ease) both; }
+.createKicker { color: #ebebf0; font-size: 13px; }
+.createCenter .createTitle { border: 0; border-bottom: 1px solid #ffffff50; border-radius: 0; width: 100%; background: transparent; padding: 2px 0 14px; color: #fff; font: 650 clamp(36px, 6vw, 68px)/1.08 var(--fibli-font-ui); letter-spacing: -0.03em; text-align: center; text-shadow: 0 4px 30px #0006; }
+.createTitle::placeholder { color: #ffffffa6; }
+.createOptions { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.createField { display: flex; align-items: center; gap: 6px; color: var(--fibli-text-secondary); padding: 4px 9px; border-radius: 10px; background: var(--fibli-material-navigation); border: 1px solid var(--fibli-border); box-shadow: var(--fibli-material-control-shadow); backdrop-filter: var(--fibli-filter-navigation); -webkit-backdrop-filter: var(--fibli-filter-navigation); font-size: 11px; }
+.createField select { border: 0; background: transparent; color: var(--fibli-text); padding: 6px 3px; max-width: 180px; font-size: 13px; }
+.createField select option { background: var(--fibli-content); color: var(--fibli-text); }
+.createCenter > button { min-width: 220px; }
+.createFoot { position: absolute; left: 0; right: 0; bottom: 20px; display: flex; align-items: center; flex-direction: column; gap: 10px; padding-inline: 24px; color: #f0f0f2; font-size: 12px; }
+.createFoot p { margin: 0; color: #fff; }
+.dialogForm { display: flex; flex-direction: column; gap: 12px; }
+.dialogForm input { color: var(--fibli-text); background: var(--fibli-content); border: 1px solid var(--fibli-border); padding: 9px; border-radius: 8px; font: inherit; }
+.dialogActions { display: flex; justify-content: flex-end; gap: 8px; }
+@keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .hero, .createCenter { animation: none; } }
+@media (max-width: 650px) {
+  .stage { padding: 16px 18px; gap: 18px; }
+  .homeBar { padding: 12px; }
+  .createStage { padding-bottom: 150px; }
+  .createFoot { bottom: 12px; padding-inline: 12px; }
+}

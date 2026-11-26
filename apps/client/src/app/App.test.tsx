@@ -1,22 +1,28 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { App } from "./App";
 
 describe("App", () => {
-  it("renders the application heading", () => {
+  it("renders the R1 projects library", () => {
     render(<App />);
-
-    expect(
-      screen.getByRole("heading", {
-        level: 1,
-        name: "Fibli",
-      }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("main", { name: "Projects library" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Le isole di Sàlma" })).toBeInTheDocument();
   });
 
-  it("renders the main application landmark", () => {
+  it("opens a project and switches between the original library and editor", () => {
     render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: "Open project" }));
+    expect(screen.getByRole("tab", { name: "Home" })).toBeInTheDocument();
+    fireEvent.click(screen.getAllByRole("button", { name: "Il porto sotto la pioggia" })[0]!);
+    expect(screen.getByRole("textbox", { name: "Document text" })).toBeInTheDocument();
+    expect(screen.getByRole("tab", { name: "Il porto sotto la pioggia" })).toHaveAttribute("aria-selected", "true");
+  });
 
-    expect(screen.getByRole("main")).toBeInTheDocument();
+  it("creates a project from the full-screen wizard", () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole("button", { name: "New project", exact: true }));
+    fireEvent.change(screen.getByLabelText("New project"), { target: { value: "New manuscript" } });
+    fireEvent.click(screen.getByRole("button", { name: "Create project" }));
+    expect(screen.getByRole("heading", { name: "New manuscript" })).toBeInTheDocument();
   });
 });

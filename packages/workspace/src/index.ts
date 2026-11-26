@@ -4,3 +4,7 @@ export { DocumentTabs, type DocumentTabsProps } from "./navigation/DocumentTabs"
 export { NavigationBar } from "./navigation/NavigationBar";
 export { ProjectSelector, type ProjectSelectorProps } from "./navigation/ProjectSelector";
 export { WorkspaceShell, type WorkspaceShellProps } from "./shell/WorkspaceShell";
+export { CreateProjectWizard, createProject } from "./projects/CreateProjectWizard";
+export { ProjectsLibrary } from "./projects/ProjectsLibrary";
+export { createLocalCover, offlineCovers } from "./projects/covers";
+export { makePreviewProjects } from "./projects/previewData";
