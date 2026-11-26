@@ -1,14 +1,21 @@
-# Fibli Studio
+# Fibli
 
 A local-first workspace for writing, worldbuilding, and research.
 
 ## Status
 
-Early development. The repository currently contains the project structure, engineering documentation, and development tooling. The application is not yet runnable.
+Early development. The repository currently contains the project structure, engineering documentation, and development tooling. The initial React client is runnable in the browser. Native desktop integration and application features are not yet implemented.
 
 ## Getting started
 
 See [Contributing](CONTRIBUTING.md) for prerequisites, local setup, and development checks.
+
+## Development
+
+- `pnpm dev` - Start the development server.
+- `pnpm typecheck` - Check TypeScript.
+- `pnpm build` - Build the client.
+- `pnpm preview` - Preview the production build.
 
 ## Documentation
 

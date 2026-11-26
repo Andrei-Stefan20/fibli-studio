@@ -7,5 +7,11 @@
   "engines": {
     "node": ">=24.22.3 <25",
     "pnpm": "12.23.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @fibli/client dev",
+    "build": "pnpm --filter @fibli/client build",
+    "typecheck": "pnpm --filter @fibli/client typecheck",
+    "preview": "pnpm --filter @fibli/client preview"
   }
 }
