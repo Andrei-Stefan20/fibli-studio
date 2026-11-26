@@ -1,6 +1,6 @@
 # Architecture
 
-Status: proposed. The application is not implemented yet.
+Status: foundation implemented. The React client and portable Rust workspace are initialized. Application features and native desktop integration remain to be implemented.
 
 ## Repository layout
 

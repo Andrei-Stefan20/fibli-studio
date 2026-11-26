@@ -12,7 +12,7 @@ concurrency:
 jobs:
   checks:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -27,6 +27,17 @@ jobs:
           pnpm --version
       - name: Client quality checks
         run: pnpm check
+      - name: Setup Rust toolchain
+        run: |
+          rustup show
+          rustc --version
+          cargo --version
+      - name: Rust formatting
+        run: cargo fmt --all -- --check
+      - name: Rust linting
+        run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      - name: Rust tests
+        run: cargo test --workspace --locked
       - name: Run repository tests
         run: python3 -m unittest discover -s tests -p 'test_*.py'
       - name: Check pull request title
