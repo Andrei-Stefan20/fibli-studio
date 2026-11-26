@@ -45,6 +45,17 @@ python3 -m unittest discover -s tests -v
 
 Run `pnpm check` before submitting frontend changes.
 
+
+### Rust commands
+
+- `cargo check --workspace --locked` - Check Rust code.
+- `cargo build --workspace --locked` - Build Rust crates.
+- `cargo fmt --all -- --check` - Check Rust formatting.
+- `cargo clippy --workspace --all-targets --locked -- -D warnings` - Run Rust linting.
+- `cargo test --workspace --locked` - Run Rust tests.
+
+Run Rust formatting, linting, and tests before submitting native changes.
+
 Native desktop integration is not yet implemented.
 
 Optional: enable the local commit-message hook if no other hook configuration is in use:

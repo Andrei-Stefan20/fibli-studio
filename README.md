@@ -23,6 +23,15 @@ See [Contributing](CONTRIBUTING.md) for prerequisites, local setup, and developm
 - `pnpm test:watch` - Run tests in watch mode.
 - `pnpm check` - Run all client quality checks.
 
+
+### Rust commands
+
+- `cargo check --workspace --locked` - Check Rust code.
+- `cargo build --workspace --locked` - Build Rust crates.
+- `cargo fmt --all -- --check` - Check Rust formatting.
+- `cargo clippy --workspace --all-targets --locked -- -D warnings` - Run Rust linting.
+- `cargo test --workspace --locked` - Run Rust tests.
+
 ## Documentation
 
 - [Architecture](docs/architecture.md)

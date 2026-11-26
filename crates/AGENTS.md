@@ -1,3 +1,10 @@
 # Rust instructions
 
 Follow the root `AGENTS.md`. Keep domain and application services independent of Tauri. Use typed errors, validate boundaries, and test storage and migration behavior.
+
+## Verification
+
+- Run `cargo fmt --all -- --check`.
+- Run `cargo clippy --workspace --all-targets --locked -- -D warnings`.
+- Run `cargo test --workspace --locked`.
+- Keep unsafe code forbidden in workspace crates.
