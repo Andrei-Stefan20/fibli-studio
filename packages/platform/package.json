@@ -1,0 +1,13 @@
+{
+  "name": "@fibli/platform",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@fibli/contracts": "workspace:*",
+    "@tauri-apps/api": "^2.12.5"
+  }
+}
