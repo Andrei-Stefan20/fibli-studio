@@ -5,12 +5,11 @@ import {
   Icon,
   IconButton,
   type MenuEntry,
-  ThemeSettings,
 } from "@fibli/ui";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
-const meta = { title: "Foundations/Materials" } satisfies Meta;
+const meta = { title: "01 Foundations/Materials" } satisfies Meta;
 export default meta;
 type Story = StoryObj<typeof meta>;
 
@@ -82,8 +81,8 @@ function MaterialSample() {
           ))}
         </GlassGroup>
         <div className="story-row">
-          <IconButton icon="sidebar" label="Library" aria-pressed="true" />
-          <GlassButton>
+          <IconButton icon="sidebar" label="Library" onClick={() => setAction("Library")} />
+          <GlassButton onClick={() => setAction("Project selector")}>
             <Icon name="folder" /> Project selector <Icon name="down" />
           </GlassButton>
           <ActionMenu
@@ -95,7 +94,7 @@ function MaterialSample() {
             }
             entries={entries}
           />
-          <GlassButton variant="solid">Primary action</GlassButton>
+          <GlassButton variant="solid" onClick={() => setAction("Primary action")}>Primary action</GlassButton>
         </div>
         <GlassGroup>
           Selected: {selection} · Menu action: {action}
@@ -106,10 +105,3 @@ function MaterialSample() {
 }
 
 export const Navigation: Story = { render: () => <MaterialSample /> };
-export const Appearance: Story = {
-  render: () => (
-    <div className="story-inset">
-      <ThemeSettings />
-    </div>
-  ),
-};

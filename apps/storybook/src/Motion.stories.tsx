@@ -10,7 +10,7 @@ import {
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useId, useState } from "react";
 
-const meta = { title: "Foundations/Motion" } satisfies Meta;
+const meta = { title: "01 Foundations/Motion" } satisfies Meta;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

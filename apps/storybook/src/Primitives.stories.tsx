@@ -14,7 +14,7 @@ import {
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
-const meta = { title: "UI/Primitives" } satisfies Meta;
+const meta = { title: "02 Controls/Overview" } satisfies Meta;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

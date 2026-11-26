@@ -1,7 +1,7 @@
 import { Icon, type IconName } from "@fibli/ui";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-const meta = { title: "Foundations/Typography and icons" } satisfies Meta;
+const meta = { title: "01 Foundations/Typography and icons" } satisfies Meta;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

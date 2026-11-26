@@ -16,12 +16,30 @@ const preview: Preview = {
       description: "Navigation material",
       toolbar: { title: "Material", items: ["liquid", "solid"], dynamicTitle: true },
     },
+    accent: {
+      description: "User accent color",
+      toolbar: {
+        title: "Accent",
+        items: [
+          { value: "default", title: "Default" },
+          { value: "#007aff", title: "Blue" },
+          { value: "#5856d6", title: "Indigo" },
+          { value: "#af52de", title: "Purple" },
+          { value: "#ff2d55", title: "Pink" },
+          { value: "#ff3b30", title: "Red" },
+          { value: "#ff9500", title: "Orange" },
+          { value: "#34c759", title: "Green" },
+          { value: "#8e8e93", title: "Gray" },
+        ],
+        dynamicTitle: true,
+      },
+    },
     contrast: {
       description: "Contrast preference",
       toolbar: { title: "Contrast", items: ["normal", "more"], dynamicTitle: true },
     },
   },
-  initialGlobals: { appearance: "dark", material: "liquid", contrast: "normal" },
+  initialGlobals: { appearance: "dark", material: "liquid", contrast: "normal", accent: "default" },
   decorators: [
     (Story, context) => {
       const preferences = parseTheme(context.globals);

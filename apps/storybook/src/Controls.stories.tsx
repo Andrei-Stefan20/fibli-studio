@@ -10,7 +10,7 @@ import {
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
-const meta = { title: "UI/Controls and overlays" } satisfies Meta;
+const meta = { title: "03 Overlays/Overview" } satisfies Meta;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

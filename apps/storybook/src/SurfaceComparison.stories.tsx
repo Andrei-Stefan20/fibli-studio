@@ -2,7 +2,7 @@ import { GlassButton, type MaterialRole, MaterialSurface } from "@fibli/ui";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
-const meta = { title: "Foundations/Surface comparison" } satisfies Meta;
+const meta = { title: "01 Foundations/Surface comparison" } satisfies Meta;
 export default meta;
 type Story = StoryObj<typeof meta>;
 

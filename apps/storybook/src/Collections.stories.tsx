@@ -14,7 +14,7 @@ import {
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 
-const meta = { title: "UI/Navigation and collections" } satisfies Meta;
+const meta = { title: "04 Navigation and collections/Overview" } satisfies Meta;
 export default meta;
 type Story = StoryObj<typeof meta>;
 const nodes: DisclosureNode[] = [
