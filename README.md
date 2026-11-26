@@ -16,6 +16,12 @@ See [Contributing](CONTRIBUTING.md) for prerequisites, local setup, and developm
 - `pnpm typecheck` - Check TypeScript.
 - `pnpm build` - Build the client.
 - `pnpm preview` - Preview the production build.
+- `pnpm lint` - Check code quality.
+- `pnpm format` - Format source files.
+- `pnpm format:check` - Check formatting.
+- `pnpm test` - Run automated tests.
+- `pnpm test:watch` - Run tests in watch mode.
+- `pnpm check` - Run all client quality checks.
 
 ## Documentation
 
