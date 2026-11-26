@@ -1,20 +1,70 @@
 .toolbar {
-  display: flex; align-items: center; gap: 8px; min-height: var(--fibli-toolbar-height);
-  padding: 0 14px; background: var(--fibli-fill-1); border-bottom: 1px solid var(--fibli-border);
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--fibli-toolbar-height);
+  padding: 0 14px;
+  background: var(--fibli-fill-1);
+  border-bottom: 1px solid var(--fibli-border);
 }
 .toolbarGroup {
-  display: inline-flex; align-items: center; gap: 1px; flex: none;
-  padding: 2px; border-radius: var(--fibli-radius-md); background: var(--fibli-fill-1);
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  flex: none;
+  padding: 2px;
+  border-radius: var(--fibli-radius-md);
+  background: var(--fibli-fill-1);
   border: 1px solid var(--fibli-border);
 }
-.separator { display: block; width: 1px; height: 14px; background: var(--fibli-border); flex: none; }
+.separator {
+  display: block;
+  width: 1px;
+  height: 14px;
+  background: var(--fibli-border);
+  flex: none;
+}
 .breadcrumbs {
-  display: flex; align-items: center; gap: 4px; min-width: 0; margin: 0;
-  list-style: none; padding: 4px 8px; color: var(--fibli-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  margin: 0;
+  list-style: none;
+  padding: 4px 8px;
+  color: var(--fibli-text-secondary);
   font: 400 12px / 1 var(--fibli-font-ui);
 }
-.breadcrumbs li { display: inline-flex; align-items: center; gap: 4px; min-width: 0; }
-.breadcrumbs button, .breadcrumbs span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 4px; }
-.breadcrumbs button { border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; border-radius: var(--fibli-radius-xs); }
-.breadcrumbs button:hover { color: var(--fibli-text); background: var(--fibli-fill-1); }
-.breadcrumbs span[aria-current="page"] { color: var(--fibli-text); font-weight: 500; }
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+.breadcrumbs button,
+.breadcrumbs span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 4px;
+}
+.breadcrumbs button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  border-radius: var(--fibli-radius-xs);
+}
+.breadcrumbs button:hover {
+  color: var(--fibli-text);
+  background: var(--fibli-fill-1);
+}
+.breadcrumbs span[aria-current="page"] {
+  color: var(--fibli-text);
+  font-weight: 500;
+}

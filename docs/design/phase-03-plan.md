@@ -18,3 +18,9 @@ The current workspace and project screens are retained as a prototype. Do not tr
 Next phase: typed command registry, module contributions and workspace state. Storage, production editors, media, AI and release work follow their own milestones.
 
 Record each milestone in separate commits; keep PR #8 in draft until review. No automatic merge.
+
+## Implementation checkpoint
+
+The inventory, original component dimensions, local Newsreader font, material comparison, shared motion examples, button/form controls, popup select, popover, confirmation, notifications, disclosure list, breadcrumb and toolbar are present. The Storybook examples are isolated from the production shell. The disclosure list intentionally uses native nested lists and buttons rather than claiming full ARIA tree behavior. More specialized editor controls and the remaining icon set will be ported when their owning modules are implemented.
+
+Visual acceptance, cross-browser accessibility and macOS native review remain mandatory. No production project persistence, module registry or command registry is introduced here.

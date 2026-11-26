@@ -6,8 +6,25 @@ import { describe, expect, it, vi } from "vitest";
 function TreeExample() {
   const [expanded, setExpanded] = useState(new Set<string>());
   const [selected, setSelected] = useState<string | null>(null);
-  return <DisclosureTree label="Files" nodes={[{ id: "folder", label: "Manuscript", children: [{ id: "chapter", label: "Chapter one" }] }]} selectedId={selected} expandedIds={expanded}
-    onSelect={setSelected} onToggle={(id) => setExpanded((previous) => { const next = new Set(previous); if (next.has(id)) next.delete(id); else next.add(id); return next; })} />;
+  return (
+    <DisclosureTree
+      label="Files"
+      nodes={[
+        { id: "folder", label: "Manuscript", children: [{ id: "chapter", label: "Chapter one" }] },
+      ]}
+      selectedId={selected}
+      expandedIds={expanded}
+      onSelect={setSelected}
+      onToggle={(id) =>
+        setExpanded((previous) => {
+          const next = new Set(previous);
+          if (next.has(id)) next.delete(id);
+          else next.add(id);
+          return next;
+        })
+      }
+    />
+  );
 }
 
 describe("Shared collections", () => {
@@ -23,7 +40,15 @@ describe("Shared collections", () => {
   });
   it("uses explicit breadcrumb actions and marks the current location", () => {
     const navigate = vi.fn();
-    render(<Breadcrumbs items={[{ id: "root", label: "Project" }, { id: "notes", label: "Notes" }]} onNavigate={navigate} />);
+    render(
+      <Breadcrumbs
+        items={[
+          { id: "root", label: "Project" },
+          { id: "notes", label: "Notes" },
+        ]}
+        onNavigate={navigate}
+      />,
+    );
     expect(screen.getByText("Notes")).toHaveAttribute("aria-current", "page");
     fireEvent.click(screen.getByRole("button", { name: "Project" }));
     expect(navigate).toHaveBeenCalledWith("root");

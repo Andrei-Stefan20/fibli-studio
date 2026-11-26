@@ -2,7 +2,11 @@ import type { ReactNode } from "react";
 import styles from "./Navigation.module.css";
 
 export function Toolbar({ label, children }: { label: string; children: ReactNode }) {
-  return <div className={styles.toolbar} role="group" aria-label={label}>{children}</div>;
+  return (
+    <fieldset className={styles.toolbar} aria-label={label}>
+      {children}
+    </fieldset>
+  );
 }
 
 export function ToolbarGroup({ children }: { children: ReactNode }) {
