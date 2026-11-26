@@ -1,0 +1,48 @@
+.positioner {
+  z-index: 180;
+}
+.popover, .alert {
+  color: var(--fibli-text);
+  background: var(--fibli-material-overlay);
+  border: 0;
+  border-radius: var(--fibli-menu-radius);
+  box-shadow: var(--fibli-material-overlay-shadow);
+  backdrop-filter: var(--fibli-filter-overlay);
+  -webkit-backdrop-filter: var(--fibli-filter-overlay);
+  font: 400 13px / 1.45 var(--fibli-font-ui);
+  outline: none;
+}
+.popover {
+  padding: 14px;
+  max-width: min(440px, calc(100vw - 16px));
+  max-height: var(--available-height, 80dvh);
+  overflow: auto;
+  transform-origin: var(--transform-origin);
+  transition: opacity 180ms var(--fibli-ease), transform var(--fibli-duration-menu-in) var(--fibli-ease-menu);
+}
+.popover[data-starting-style] { opacity: 0; transform: scale(0.94) translateY(-4px); }
+.popover[data-ending-style] { opacity: 0; transform: scale(0.96) translateY(-2px); transition-duration: var(--fibli-duration-menu-out); }
+.backdrop {
+  position: fixed; inset: 0; z-index: 180;
+  background: rgb(8 10 14 / 38%);
+  transition: opacity 180ms var(--fibli-ease);
+}
+.backdrop[data-starting-style], .backdrop[data-ending-style] { opacity: 0; }
+.alert {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  z-index: 190; width: min(356px, calc(100vw - 32px)); max-height: calc(100dvh - 48px);
+  overflow: auto; padding: 18px 20px; box-shadow: var(--fibli-material-rim), var(--fibli-shadow-dialog);
+  transition: opacity 200ms var(--fibli-ease), transform var(--fibli-duration-base) var(--fibli-ease-menu);
+}
+.alert[data-starting-style] { opacity: 0; transform: translate(-50%, -47%) scale(0.95); }
+.alert[data-ending-style] { opacity: 0; transform: translate(-50%, -49%) scale(0.97); transition-duration: 130ms; }
+.title { margin: 0; font: 600 16px / 1.3 var(--fibli-font-ui); }
+.description { margin: 6px 0 0; color: var(--fibli-text-secondary); font-size: 13.5px; line-height: 1.5; }
+.actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+.actions button { min-width: 84px; }
+@media (prefers-reduced-motion: reduce) {
+  .popover, .alert, .backdrop { transition: none; }
+}
+@media (forced-colors: active) {
+  .popover, .alert { border: 1px solid CanvasText; }
+}
