@@ -1,0 +1,1 @@
+Follow `AGENTS.md` and the relevant documentation in `docs/`. Keep changes scoped, preserve existing work, and run applicable checks. Use shared components and public module interfaces. Report limitations and do not invent verification results.
