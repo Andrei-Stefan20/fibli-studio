@@ -25,10 +25,8 @@ jobs:
         run: |
           node --version
           pnpm --version
-      - name: TypeScript check
-        run: pnpm typecheck
-      - name: Build client
-        run: pnpm build
+      - name: Client quality checks
+        run: pnpm check
       - name: Run repository tests
         run: python3 -m unittest discover -s tests -p 'test_*.py'
       - name: Check pull request title

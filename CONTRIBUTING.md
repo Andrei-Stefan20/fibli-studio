@@ -36,8 +36,14 @@ python3 -m unittest discover -s tests -v
 - `pnpm typecheck` - Run TypeScript checks.
 - `pnpm build` - Generate the production build.
 - `pnpm preview` - Preview the production build.
+- `pnpm lint` - Check code quality.
+- `pnpm format` - Format source files.
+- `pnpm format:check` - Check formatting.
+- `pnpm test` - Run automated tests.
+- `pnpm test:watch` - Run tests in watch mode.
+- `pnpm check` - Run all client quality checks.
 
-Run type checking and the production build before submitting frontend changes.
+Run `pnpm check` before submitting frontend changes.
 
 Native desktop integration is not yet implemented.
 

@@ -1,6 +1,6 @@
 # Technology stack
 
-The client foundation uses React, TypeScript, Vite, and pnpm. Other technologies remain proposed until explicitly adopted. Select compatible versions at adoption and commit lockfiles.
+The client foundation uses React, TypeScript, Vite, and pnpm. Client quality checks use Biome, Vitest, Testing Library, and jsdom. Other technologies remain proposed until explicitly adopted. Select compatible versions at adoption and commit lockfiles.
 
 | Area | Preferred technologies | Optional when needed |
 | --- | --- | --- |

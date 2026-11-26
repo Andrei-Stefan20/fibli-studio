@@ -12,6 +12,15 @@
     "dev": "pnpm --filter @fibli/client dev",
     "build": "pnpm --filter @fibli/client build",
     "typecheck": "pnpm --filter @fibli/client typecheck",
-    "preview": "pnpm --filter @fibli/client preview"
+    "preview": "pnpm --filter @fibli/client preview",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "test": "pnpm --filter @fibli/client test",
+    "test:watch": "pnpm --filter @fibli/client test:watch",
+    "check": "biome ci . && pnpm typecheck && pnpm test && pnpm build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.9"
   }
 }
